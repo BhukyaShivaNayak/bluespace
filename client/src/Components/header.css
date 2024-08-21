@@ -1,0 +1,84 @@
+body, p {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.logo{
+    height:40px;
+    width:60px;
+   
+
+    margin-left:20px;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #407EF6;
+    padding: 10px;
+    margin-bottom: 0; 
+ 
+}
+
+.right-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchit {
+    width: 500px;
+    border-radius: 6px;
+    border-width: 0;
+    height: 36px;
+}
+
+.name-section {
+    background-color: #274FC7;
+    color: #fff;
+    height: 40px;
+    margin: 0; 
+    padding-top:10px;
+    padding:10px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.profile-pic{
+    border-radius: 40px;
+    margin-left:20px;
+    margin-right:20px;
+    height:40px;
+    width:40px;
+}
+
+.searchbar {
+    position: relative;
+    width: fit-content; /* Adjust based on your design */
+  }
+  
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-wrapper i {
+    position: absolute;
+    right: 10px;
+    color: #999; 
+  }
+  
+  .searchit {
+    padding-left: 40px; 
+    width: 500px;
+    border-radius: 6px;
+    border-width: 0;
+    height: 36px;
+    box-sizing: border-box; 
+  }
+  
