@@ -6,21 +6,21 @@ import Error from './Components/Error';
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
-  const location = useLocation(); 
+  const location = useLocation();
 
-  
+
   const showHeader = location.pathname !== '/login';
 
   return (
-    <>
-    
-      {showHeader && <Header />} 
+    <div className='app-container'>
+
+      {showHeader && <Header />}
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
         <Route path='*' element={<Error />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

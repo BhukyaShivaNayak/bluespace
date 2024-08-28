@@ -1,0 +1,10 @@
+.candidates-table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+}

@@ -1,0 +1,6 @@
+.app-container {
+    background-size: cover;
+    height: 130vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

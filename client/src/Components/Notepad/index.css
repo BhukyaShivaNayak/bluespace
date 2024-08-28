@@ -1,0 +1,136 @@
+.notepad {
+    height: 51vh;
+    width: 25vw;
+
+    border-style: solid;
+    border-color: rgb(183, 183, 183);
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-left: 50px;
+    border-width: 1px;
+}
+
+.note-title {
+    text-align: center;
+}
+
+.text-area {
+    padding: 10px;
+    height: 400px;
+}
+
+.textarea-input {
+    height: 150px;
+    width: 320px;
+    margin-left: 10px;
+    background-color: #FDF52C;
+    resize: none;
+}
+
+.list-container {
+    max-height: 120px;
+    /* Adjust based on your design */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Add vertical scrollbar if needed */
+    border: 0px solid #ddd;
+    padding: 10px;
+
+    padding-left: 10px;
+    border-radius: 4px;
+    margin-right: 25px;
+}
+
+
+.list-container::-webkit-scrollbar-track {
+    background: transparent;
+    /* Hide the track background */
+}
+
+.list-container::-webkit-scrollbar {
+    width: 2px;
+    /* Adjust scrollbar width */
+}
+
+.main-item {
+    margin-bottom: 10px;
+
+    margin-right: 65px;
+    margin-left: 10px;
+    width: 320px;
+}
+
+.textarea-input::placeholder {
+
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.delete-icon {
+    margin-left: 230px;
+    margin-bottom: 15px;
+    height: 22px;
+    width: 22px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.search-icon {
+    height: 22px;
+    width: 22px;
+    margin-left: 10px;
+}
+
+.search-icon {
+    height: 22px;
+    width: 22px;
+    margin-left: 10px;
+}
+
+.pluse-icon {
+    height: 22px;
+    width: 22px;
+    margin-right: 10px;
+}
+
+.icon-section {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-title {
+    font-size: 14px;
+}
+
+.task-item {
+    font-size: 14px;
+
+}
+
+.img-1 {
+    margin-bottom: 8px;
+    margin-right: 5px;
+}
+
+.img-2 {
+    margin-bottom: 8px;
+    margin-right: 5px;
+}
+
+.miniicon-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.align {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

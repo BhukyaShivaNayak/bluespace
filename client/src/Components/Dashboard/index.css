@@ -1,85 +1,145 @@
-.card{
+.card {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    width:60vw;
-    border-radius:8px;
-    padding:20px;
-    margin-top:20px;
-    margin-left:20px;
+    width: 60vw;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
 }
-.top-section{
+
+.top-section {
     display: flex;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
+
+
 }
-.option1{
+
+.option1 {
     height: 120px;
-    width:136px;
+    width: 136px;
     background-color: #f68b8b;
-    border-radius:10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-.option2{
+
+.option2 {
     height: 120px;
-    width:136px;
+    width: 136px;
     background-color: #9fcaf8;
-    border-radius:10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-.option3{
+
+.option3 {
     height: 120px;
-    width:136px;
-    background-color:#b0fc94;
-    border-radius:10px;
+    width: 136px;
+    background-color: #b0fc94;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-.option4{
+
+.option4 {
     height: 120px;
-    width:136px;
+    width: 136px;
     background-color: #99fff3;
-    border-radius:10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
-.icon-logo{
-    
-    padding:5px;
+
+.icon-logo {
+
+    padding: 5px;
 }
-.icon-logo1{
-    height:10px;
-    padding:5px;
+
+.icon-logo1 {
+    height: 10px;
+    padding: 5px;
 }
-p{
-    font-size:13px;
+
+p {
+    font-size: 13px;
     font-family: "PT Sans", sans-serif;
 
 }
-.notepad{
-    height:40vh;
-    width:25vw;
-    padding:20px;
-    border-style:solid;
-    border-color: #f68b8b;
-    border-radius:8px;
-    margin-top:40px;
-    margin-left:50px;
+
+.botton-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tab-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.job-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.candidates-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-family: "PT Sans", sans-serif;
+
+
+}
+
+.job-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.job-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.job-live {
+    font-size: 18px;
 }

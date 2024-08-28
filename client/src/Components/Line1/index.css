@@ -1,0 +1,115 @@
+.botton-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tab-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.job-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    font-family: "PT Sans", sans-serif;
+    background-color: transparent;
+
+
+}
+
+.candidates-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-family: "PT Sans", sans-serif;
+
+
+}
+
+.job-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.job-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.job-live {
+    font-size: 18px;
+}
+
+
+.job-tab,
+.candidates-tab {
+    cursor: pointer;
+
+}
+
+.job-tab.active {
+    color: #007AFF;
+
+    border: solid;
+    border-color: #007AFF;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+}
+
+.job-heading.active {
+    color: #007AFF;
+
+}
+
+.candidates-tab.active {
+    color: #007AFF;
+
+    border: solid;
+    border-color: #007AFF;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+
+}
+
+
+
+.candidate-heading.active {
+    color: #007AFF;
+
+}
+
+
+.job-tab,
+.job-heading {
+    color: black;
+}
+
+.candidates-tab,
+.candidate-heading {
+    color: black;
+
+}
