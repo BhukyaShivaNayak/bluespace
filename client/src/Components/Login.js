@@ -6,15 +6,15 @@ import "./login.css"
 
 const Login = () => {
 
-const loginwithgoogle = ()=>{
-    window.open("http://localhost:6005/auth/google/callback","_self")
-}
+  const loginwithgoogle = () => {
+    window.open("http://localhost:6005/auth/google/callback", "_self")
+  }
 
   return (
     <div className="login-container">
       <h1 className='bluespace-login'>BLUE SPACE</h1>
       <div className='card-container'>
-        <h1 style={{textAlign:"center"}} className='heading-login'>Login</h1>
+        <h1 style={{ textAlign: "center" }} className='heading-login'>Login</h1>
         <p className='description-login'>Please enter your Login and your Password</p>
         <form >
           <div className='input-with-icon-login'>
@@ -27,7 +27,7 @@ const loginwithgoogle = ()=>{
               type="email"
               placeholder='Email'
               className='username-input'
-              
+
               required
             />
           </div>
@@ -41,26 +41,26 @@ const loginwithgoogle = ()=>{
               type="password"
               placeholder='Password'
               className='username-input'
-            
+
               required
             />
           </div>
           <button type="submit" className='login-button'>Register</button>
-          
+
         </form>
         <div className='divider'>
           <p>OR</p>
         </div>
         <button className='login-with-google-btn' onClick={loginwithgoogle}>
-        <img
+          <img
             src="https://res.cloudinary.com/dxqyvfqn2/image/upload/v1723025810/google_img-removebg-preview_hosr7r.png"
             className='google-logo'
             alt="google icon"
           />      Sign In With Google
-                </button>
+        </button>
 
-             
-    
+
+
       </div>
     </div>
   );

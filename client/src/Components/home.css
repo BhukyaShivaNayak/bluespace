@@ -155,3 +155,266 @@ li {
     height: 28px;
 
 }
+
+.card-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60vw;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+}
+
+.top-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+
+}
+
+.option1 {
+    height: 120px;
+    width: 136px;
+    background-color: #f68b8b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option2 {
+    height: 120px;
+    width: 136px;
+    background-color: #9fcaf8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option3 {
+    height: 120px;
+    width: 136px;
+    background-color: #b0fc94;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option4 {
+    height: 120px;
+    width: 136px;
+    background-color: #99fff3;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon-logo {
+
+    padding: 5px;
+}
+
+.icon-logo1 {
+    height: 10px;
+    padding: 5px;
+}
+
+p {
+    font-size: 13px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.botton-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tab-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.job-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.candidates-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-family: "PT Sans", sans-serif;
+
+
+}
+
+.job-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.job-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.job-live {
+    font-size: 18px;
+}
+
+.botton-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.tab-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.job-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+    font-family: "PT Sans", sans-serif;
+    background-color: transparent;
+
+
+}
+
+.candidates-tab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-family: "PT Sans", sans-serif;
+
+
+}
+
+.job-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+
+}
+
+.job-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-heading {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.candidate-count {
+    font-size: 18px;
+    font-family: "PT Sans", sans-serif;
+}
+
+.job-live {
+    font-size: 18px;
+}
+
+
+.job-tab,
+.candidates-tab {
+    cursor: pointer;
+
+}
+
+.job-tab.active {
+    color: #007AFF;
+
+    border: solid;
+    border-color: #007AFF;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+}
+
+.job-heading.active {
+    color: #007AFF;
+
+}
+
+.candidates-tab.active {
+    color: #007AFF;
+
+    border: solid;
+    border-color: #007AFF;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+
+
+}
+
+
+
+.candidate-heading.active {
+    color: #007AFF;
+
+}
+
+
+.job-tab,
+.job-heading {
+    color: black;
+}
+
+.candidates-tab,
+.candidate-heading {
+    color: black;
+
+}

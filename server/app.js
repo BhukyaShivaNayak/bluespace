@@ -5,13 +5,28 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("./db/conn")
-const PORT = 6005;
+const router = require("./Routes/router");
+
+
+
+
+const PORT = process.env.PORT || 6005;
+
+
+app.use(cors());
+app.use(express.json());
+
+
+app.use(router);
+
+
+
 
 const session = require("express-session");
 const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
-const userdb = require("./model/userSchema");
-const jobdb = require('./model/jobSchema');
+const userdb = require("./models/userSchema");
+const jobdb = require('./models/jobSchema');
 
 const clientid = "347066522201-5ia9lhqemoosjovhjnjqu6gfhdeioeg5.apps.googleusercontent.com";
 const clientsecret = "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";
@@ -28,54 +43,21 @@ app.use(cors({
 
 app.use(express.json());
 
-//app.get("/",(req,res)=>{
-// res.status(200).json("server start")
-//})
 
-//session
 app.use(session({
     secret: "1234blue",
     resave: false,
     saveUninitialized: true
 }))
 
-//setuppassport
+
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 
-/*passport.use(
-    new OAuth2Strategy({
-        clientID:clientid,
-        clientSecret:clientsecret,
-        callbackURL:"/auth/google/callback",
-        scope:["profile","email"]
-    },
-    async(accessToken,refreshToken,profile,done)=>{
-        try {
-            let user = await userdb.findOne({googleId:profile.id});
 
-            if(!user){
-                user = new userdb({
-                    googleId:profile.id,
-                    displayName:profile.displayName,
-                    email:profile.emails[0].value,
-                    image:profile.photos[0].value
-                });
-
-                await user.save();
-            }
-
-            return done(null,user)
-        } catch (error) {
-            return done(error,null)
-        }
-    }
-    )
-)
-*/
 
 passport.use(
     new OAuth2Strategy({
@@ -123,7 +105,7 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-// initial google ouath login
+
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 app.get("/auth/google/callback", passport.authenticate("google", {
@@ -147,12 +129,6 @@ app.get("/logout", (req, res, next) => {
     })
 })
 
-app.use(cors({
-    origin: "http://localhost:3000",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true
-}));
-
 
 app.get('/api/jobs', async (req, res) => {
     try {
@@ -164,12 +140,17 @@ app.get('/api/jobs', async (req, res) => {
     }
 });
 
+
+
 app.post('/api/jobs', async (req, res) => {
+    console.log('Received request:', req.method, req.url);
+    console.log('Request body:', req.body);
     try {
-        const newJob = new Job(req.body);
+        const newJob = new jobdb(req.body);
         await newJob.save();
         res.status(201).json(newJob);
     } catch (err) {
+        console.error('Error inserting job:', err);
         res.status(500).json({ message: 'Error inserting job', error: err });
     }
 });

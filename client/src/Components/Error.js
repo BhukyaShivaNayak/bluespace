@@ -1,4 +1,4 @@
-const Error=()=>(
+const Error = () => (
     <div>
         Error
     </div>

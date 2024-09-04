@@ -1,0 +1,50 @@
+.containers {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 78vw;
+}
+
+
+.table-custom {
+    width: 100%;
+    margin-bottom: 0;
+    table-layout: fixed;
+
+}
+
+
+.th-custom {
+    padding: 16px 24px;
+    text-align: center;
+
+    vertical-align: middle;
+    width: 20%;
+
+    background-color: #f8f9fa;
+
+}
+
+
+.td-custom {
+    padding: 16px 20px;
+    vertical-align: middle;
+    width: 20%;
+}
+
+
+.dropdown_btn {
+    border: none;
+}
+
+.thead-secondary {
+    background-color: #f8f9fa;
+}
+
+.table-secondary {
+    background-color: #e9ecef;
+}
+
+
+.dropdown-menu {
+    min-width: 100px;
+}

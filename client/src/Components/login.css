@@ -1,171 +1,185 @@
-
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
-    overflow: hidden;
-  
-  }
-.login-container{
-    background-image:url("https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1721046303/Register_fivte0.jpg");
-    background-size: cover;
-    height:100vh;
-    display:flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom:30px
-    
-}
-.card-container{
-    margin-top:20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.bluespace-login{
-    color: blue;
-    font-weight:350;
-}
-.heading-login{
-    color: blue;
-    font-family: "PT Sans", sans-serif;
-    margin-bottom:20px;
+  overflow: hidden;
 
 }
-.description-login{
-    color: blue;
-    font-family: "PT Sans", sans-serif;
-}
-.username-icon{
-    height:40px;
-    width:40px;
-}
-.userinput-container{
-    display:flex;
-    flex-direction: row;
-    width:280px;
-    border-radius:10px;
-    align-items: center;
-    border-color: blue;
-    border-width:1px;
-    border-style:solid;
-    height:37px;
-    margin-top:20px;
 
-}
-.username-input{
-    border-width:0px;
-    width:300px;
-    margin-right:16px;
-    margin-top: 1px;
-    height:33px;
-}
-.password-icon{
-    height:30px;
-    width:40px;
-}
-
-
-
-
-.username-input{
-    border-style: none;
-    border-width:0px;
-
-}
-.userinput-container {
-    position: relative;
-    margin-bottom: 20px; 
-  }
-  
-  .input-with-icon-login{
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-bottom:10px;
-    width:293px;
-    
-  }
-  
-  .username-icon {
-    position: absolute;
-    left: 10px; 
-    height: 25px;
-    width: 25px;
-    
-  }
-  
-  .username-input {
-    padding-left: 35px; 
-    width: 100%; 
-    box-sizing: border-box; 
-    height: 40px; 
-    font-size: 16px;
-    border: 1px solid blue; 
-    border-radius: 5px; 
-
-  }
-  .login-button{
-    border-color:blue ;
-    width:280px;
-    height:36px;
-    border-radius:10px;
-    color: blue;
-    font-family: "PT Sans", sans-serif;
-    margin-top:10px;
-    background-color:#fff;
-    border-width:2px;
-    font-weight:bold;
-
-  }
-
-  .google-logo{
-    height:35px;
-    width:35px;
-    margin-left:40px;
-  }
-  .google-section{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: darkgray;
-    width:270px;
-    border-radius:8px;
-    border-width:0px;
-    height:36px;
-  }
-  .g{
-    background-color: transparent;
-    color: #fff;
-    border-radius:0px;
-
-  }
-  .login-with-google-btn{
-    display: flex;
-    flex-direction: row;
-    align-items: center; 
-    width:290px;
-    text-align: center;
-    border-radius:8px;
-background-color: #98989b;
-border-width:0px;
-color:#fff;
-font-weight:bold;
- } 
-
-
-
- /* Container holding the entire login page */
 .login-container {
   background-image: url("https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1721046303/Register_fivte0.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px
+}
+
+.card-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bluespace-login {
+  color: blue;
+  font-weight: 350;
+}
+
+.heading-login {
+  color: blue;
+  font-family: "PT Sans", sans-serif;
+  margin-bottom: 20px;
+
+}
+
+.description-login {
+  color: blue;
+  font-family: "PT Sans", sans-serif;
+}
+
+.username-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.userinput-container {
+  display: flex;
+  flex-direction: row;
+  width: 280px;
+  border-radius: 10px;
+  align-items: center;
+  border-color: blue;
+  border-width: 1px;
+  border-style: solid;
+  height: 37px;
+  margin-top: 20px;
+
+}
+
+.username-input {
+  border-width: 0px;
+  width: 300px;
+  margin-right: 16px;
+  margin-top: 1px;
+  height: 33px;
+}
+
+.password-icon {
+  height: 30px;
+  width: 40px;
+}
+
+
+
+
+.username-input {
+  border-style: none;
+  border-width: 0px;
+
+}
+
+.userinput-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-with-icon-login {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 293px;
+
+}
+
+.username-icon {
+  position: absolute;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+
+}
+
+.username-input {
+  padding-left: 35px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid blue;
+  border-radius: 5px;
+
+}
+
+.login-button {
+  border-color: blue;
+  width: 280px;
+  height: 36px;
+  border-radius: 10px;
+  color: blue;
+  font-family: "PT Sans", sans-serif;
+  margin-top: 10px;
+  background-color: #fff;
+  border-width: 2px;
+  font-weight: bold;
+
+}
+
+.google-logo {
+  height: 35px;
+  width: 35px;
+  margin-left: 40px;
+}
+
+.google-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: darkgray;
+  width: 270px;
+  border-radius: 8px;
+  border-width: 0px;
+  height: 36px;
+}
+
+.g {
+  background-color: transparent;
+  color: #fff;
+  border-radius: 0px;
+
+}
+
+.login-with-google-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 290px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #98989b;
+  border-width: 0px;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+/* Container holding the entire login page */
+.login-container {
+  background-image: url("https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1721046303/Register_fivte0.jpg");
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center vertically */
+  align-items: center;
+  /* Center horizontally */
   margin-bottom: 30px;
 }
 
@@ -179,7 +193,9 @@ font-weight:bold;
 }
 
 /* Title and description styles */
-.bluespace-login, .heading-login, .description-login {
+.bluespace-login,
+.heading-login,
+.description-login {
   color: blue;
   font-family: "PT Sans", sans-serif;
 }
@@ -198,26 +214,27 @@ font-weight:bold;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  width: 300px; /* Adjust width */
+  width: 300px;
+  /* Adjust width */
 }
 
 /* Icon styling */
 .username-icon {
   position: absolute;
-  left: 10px; 
+  left: 10px;
   height: 25px;
   width: 25px;
 }
 
 /* Input styling */
 .username-input {
-  padding-left: 35px; 
-  width: 100%; 
-  box-sizing: border-box; 
-  height: 40px; 
+  padding-left: 35px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
   font-size: 16px;
-  border: 1px solid blue; 
-  border-radius: 5px; 
+  border: 1px solid blue;
+  border-radius: 5px;
 }
 
 /* Button styling */
@@ -238,20 +255,26 @@ font-weight:bold;
 .login-with-google-btn {
   display: flex;
   flex-direction: row;
-  align-items: center; 
-  justify-content: center; /* Center items horizontally */
-  width: 290px; /* Adjust width */
+  align-items: center;
+  justify-content: center;
+  /* Center items horizontally */
+  width: 290px;
+  /* Adjust width */
   height: 36px;
   border-radius: 8px;
   background-color: #98989b;
-  border: none; /* Remove border */
+  border: none;
+  /* Remove border */
   color: #fff;
   font-weight: bold;
-  margin-top: 20px; /* Add spacing from other elements */
+  margin-top: 20px;
+  /* Add spacing from other elements */
 }
 
 .google-logo {
-  height: 20px; /* Adjust size if needed */
-  width: 20px; 
-  margin-right: 10px; /* Space between icon and text */
+  height: 20px;
+  /* Adjust size if needed */
+  width: 20px;
+  margin-right: 10px;
+  /* Space between icon and text */
 }
