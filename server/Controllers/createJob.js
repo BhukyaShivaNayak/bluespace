@@ -1,4 +1,4 @@
-const createJob = require('../models/createJob'); 
+const createJob = require('../models/createJob');
 const moment = require('moment');
 
 exports.createJob = async (req, res) => {
@@ -30,6 +30,16 @@ exports.createJob = async (req, res) => {
         res.status(201).json(jobData);
     } catch (error) {
         console.error("Error creating job:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+exports.getJob = async (req, res) => {
+    try {
+        const jobdata = await createJob.find();
+        res.status(200).json(jobdata);
+    } catch (error) {
+        console.error("Error fetching jobs:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 };

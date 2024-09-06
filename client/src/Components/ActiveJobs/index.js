@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import hooks from 'react-router-dom'
+import React, { useState, useEffect, /*useContext*/ } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 //import Table1 from '../Table1';
+//import Alert from 'react-bootstrap/Alert';
 import Tables from '../Tables';
 import Spiner from '../Spiner';
 
+//import { addData } from '../context/ContextProvider';
 
 import './index.css';
 
@@ -14,13 +16,18 @@ const ActiveJobs = () => {
 
     const [showspin, setShowSpin] = useState(true)
 
-    const navigate = useNavigate(); // Initialize navigate hook
+    //const { useradd, setUseradd } = useContext(addData);
+
+    const navigate = useNavigate();
 
     const addUser = () => {
         navigate("/register");
     }
 
+  
+
     useEffect(() => {
+       
         setTimeout(() => {
             setShowSpin(false)
         }, 1200)
@@ -114,62 +121,65 @@ const ActiveJobs = () => {
     }
 
     return (
-        <div className="main-container">
-            <div className="drawer">
-                <div className='dash-title'>
-                    <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724144429/icons8-folder-26_yxc9uj.png" alt="" className='folder-icon' />
-                    <h1 className="dashboard-title">Dashboard</h1>
-                </div>
-                <ul className="container">
-                    <li className="list-item">
-                        <div className="icon-title">
-                            <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724130527/icons8-sheets-32_xfhgub.png" alt="" className="icon1" />
-                            <p className="item-name">Jobs</p>
-                        </div>
-                        {renderImage1()}
-                    </li>
-                    {renderDropdown1()}
-                    <li className="list-item">
-                        <div className="icon-title">
-                            <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724825111/Icon_3_orol4x.png" alt="" className="icon1" />
-                            <p className="item-name">Candidates</p>
-                        </div>
-                        {renderImage2()}
-                    </li>
-                    {renderDropdown2()}
-                    <li className="list-item">
-                        <div className="icon-title">
-                            <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724138369/icons8-tv-48_zn63ze.png" alt="" className="icon1" />
-                            <p className="item-name">Interview</p>
-                        </div>
-                        {renderImage3()}
-                    </li>
-                    {renderDropdown3()}
-                    <li className="list-item">
-                        <div className="icon-title">
-                            <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724138702/icons8-user-account-48_rwgenl.png" alt="" className="icon1" />
-                            <p className="item-name">Vendor</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div className='non-drawer'>
-                <div className='createjob-container'>
-                    <div className='button-p'>
-                        <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
-                        <button className='btn-job'>Closed Jobs</button>
+        <>
+         
+            <div className="main-container">
+                <div className="drawer">
+                    <div className='dash-title'>
+                        <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724144429/icons8-folder-26_yxc9uj.png" alt="" className='folder-icon' />
+                        <h1 className="dashboard-title">Dashboard</h1>
                     </div>
+                    <ul className="container">
+                        <li className="list-item">
+                            <div className="icon-title">
+                                <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724130527/icons8-sheets-32_xfhgub.png" alt="" className="icon1" />
+                                <p className="item-name">Jobs</p>
+                            </div>
+                            {renderImage1()}
+                        </li>
+                        {renderDropdown1()}
+                        <li className="list-item">
+                            <div className="icon-title">
+                                <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724825111/Icon_3_orol4x.png" alt="" className="icon1" />
+                                <p className="item-name">Candidates</p>
+                            </div>
+                            {renderImage2()}
+                        </li>
+                        {renderDropdown2()}
+                        <li className="list-item">
+                            <div className="icon-title">
+                                <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724138369/icons8-tv-48_zn63ze.png" alt="" className="icon1" />
+                                <p className="item-name">Interview</p>
+                            </div>
+                            {renderImage3()}
+                        </li>
+                        {renderDropdown3()}
+                        <li className="list-item">
+                            <div className="icon-title">
+                                <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724138702/icons8-user-account-48_rwgenl.png" alt="" className="icon1" />
+                                <p className="item-name">Vendor</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
+                <div className='non-drawer'>
+                    <div className='createjob-container'>
+                        <div className='button-p'>
+                            <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
+                            <button className='btn-job'>Closed Jobs</button>
+                        </div>
+                    </div>
 
 
-                {
-                    showspin ? <Spiner /> : <Tables
+                    {
+                        showspin ? <Spiner /> : <Tables
 
-                    />
-                }
+                        />
+                    }
 
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

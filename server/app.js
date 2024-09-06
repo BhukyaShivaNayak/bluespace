@@ -10,8 +10,8 @@ const router = require("./Routes/router");
 
 
 
-const PORT = process.env.PORT || 6005;
-
+//const PORT = process.env.PORT || 6010;
+const PORT = process.env.PORT || 6006
 
 app.use(cors());
 app.use(express.json());
@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(router);
 
 
+//---- login API ---
 
 
 const session = require("express-session");
@@ -27,6 +28,8 @@ const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./models/userSchema");
 const jobdb = require('./models/jobSchema');
+const createJob = require('./models/createJob')
+
 
 const clientid = "347066522201-5ia9lhqemoosjovhjnjqu6gfhdeioeg5.apps.googleusercontent.com";
 const clientsecret = "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";
@@ -129,6 +132,8 @@ app.get("/logout", (req, res, next) => {
     })
 })
 
+//---- Job APIs ----- 
+
 
 app.get('/api/jobs', async (req, res) => {
     try {
@@ -140,31 +145,17 @@ app.get('/api/jobs', async (req, res) => {
     }
 });
 
-
-
-app.post('/api/jobs', async (req, res) => {
-    console.log('Received request:', req.method, req.url);
-    console.log('Request body:', req.body);
+/*router.get('/user/details', async (req, res) => {
     try {
-        const newJob = new jobdb(req.body);
-        await newJob.save();
-        res.status(201).json(newJob);
-    } catch (err) {
-        console.error('Error inserting job:', err);
-        res.status(500).json({ message: 'Error inserting job', error: err });
+        const jobdata = await createJob.find();
+        res.status(200).json(jobdata)
+    } catch (error) {
+        res.status(401).json(error)
     }
-});
+});*/
 
 
-app.put('/api/jobs/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const updatedJob = await jobdb.findByIdAndUpdate(id, req.body, { new: true });
-        res.json(updatedJob);
-    } catch (err) {
-        res.status(500).json({ message: 'Error updating job', error: err });
-    }
-});
+
 
 
 app.listen(PORT, () => {
