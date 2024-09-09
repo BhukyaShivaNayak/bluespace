@@ -43,3 +43,34 @@ exports.getJob = async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
+
+exports.useredit = async (req, res) => {
+    const { id } = req.params;
+    const { Jname,
+        Lname,
+        Cname,
+        Rname,
+        Hname,
+        dateCreated } = req.body;
+    
+
+    const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss");
+
+    try {
+        const updateuser = await users.findByIdAndUpdate({ _id: id }, {
+            Jname,
+            Lname,
+            Cname,
+            Rname,
+            Hname,
+            dateCreated
+        }, {
+            new: true
+        });
+
+        await updateuser.save();
+        res.status(200).json(updateuser);
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}

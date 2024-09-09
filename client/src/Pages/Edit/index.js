@@ -40,7 +40,7 @@ const Edit = () => {
         } else if (Hname === "") {
             toast.error("No. Of Hires Required !");
         } else {
-            toast.success("Job Created Successfully !");
+            toast.success("Job Updated Successfully !");
         }
     };
 

@@ -6,6 +6,7 @@ import Header from './Components/Header';
 import Login from './Components/Login';
 import Error from './Components/Error';
 import ActiveJobs from './Components/ActiveJobs';
+import ClosedJobs from './Components/ClosedJobs'
 import Home2 from './Pages/Home2';
 import Register from './Pages/Register';
 import Edit from './Pages/Edit';
@@ -26,6 +27,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
         <Route path='/active-jobs' element={<ActiveJobs />} />
+        <Route path='/closed-jobs' element={<ClosedJobs />} />
         <Route path='/home2' element={<Home2 />} />
         <Route path='/register' element={<Register />} />
         <Route path='/edit/:id' element={<Edit />} />

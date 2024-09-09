@@ -7,7 +7,7 @@ import Badge from 'react-bootstrap/Badge';
 import "./index.css";
 import { NavLink } from 'react-router-dom';
 
-const Tables = (props) => {
+const JobDescriptionTable = (props) => {
     const { userdata } = props
     console.log(userdata)
 
@@ -20,11 +20,11 @@ const Tables = (props) => {
                         <Table className='table-custom w-70' responsive="lg">
                             <thead className='thead-secondary'>
                                 <tr className='table-secondary'>
-                                    <th className='th-custom'>Job Title</th>
-                                    <th className='th-custom'>Location</th>
-                                    <th className='th-custom'>Compensation</th>
-                                    <th className='th-custom'>Resume In Progress</th>
-                                    <th className='th-custom'>Hires Required</th>
+                                    <th className='th-custom'>Role</th>
+                                    <th className='th-custom'>Client</th>
+                                    <th className='th-custom'>Salary</th>
+                                    <th className='th-custom'>Drafted By</th>
+                                    <th className='th-custom'>Notes</th>
                                     <th className='th-custom'></th>
                                 </tr>
                             </thead>
@@ -73,4 +73,4 @@ const Tables = (props) => {
     );
 }
 
-export default Tables;
+export default JobDescriptionTable;

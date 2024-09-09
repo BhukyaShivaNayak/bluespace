@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 //import Dashboard from './Dashboard';
 import { Link } from 'react-router-dom';
-import Table1 from './Table1';
+import Table1 from './Table1'
+//import Tables from './Tables';
 import Notepad from './Notepad'
 import CandidtaesTable from './Table2';
 import './home.css';
+
 
 class Home extends Component {
     state = {

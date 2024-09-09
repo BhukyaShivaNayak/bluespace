@@ -1,11 +1,11 @@
-import React, { useState, useEffect, /*useContext*/ } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-//import Table1 from '../Table1';
-//import Alert from 'react-bootstrap/Alert';
+
+
+import { usergetfunc } from '../../Services/Apis';
 import Tables from '../Tables';
 import Spiner from '../Spiner';
 
-//import { addData } from '../context/ContextProvider';
 
 import './index.css';
 
@@ -14,9 +14,10 @@ const ActiveJobs = () => {
     const [isActive2, setIsActive2] = useState(false);
     const [isActive3, setIsActive3] = useState(false);
 
+    const [userdata, setUserData] = useState([]);
     const [showspin, setShowSpin] = useState(true)
 
-    //const { useradd, setUseradd } = useContext(addData);
+
 
     const navigate = useNavigate();
 
@@ -24,10 +25,20 @@ const ActiveJobs = () => {
         navigate("/register");
     }
 
-  
+    const userGet = async () => {
+        const response = await usergetfunc();
+        if (response.status === 200) {
+            setUserData(response.data);
+
+
+        } else {
+            console.log("error for get user data")
+        }
+    }
+
 
     useEffect(() => {
-       
+        userGet();
         setTimeout(() => {
             setShowSpin(false)
         }, 1200)
@@ -49,7 +60,7 @@ const ActiveJobs = () => {
             return (
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
-                    <li className='highlight'>Closed Jobs</li>
+                    <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
                     <li>Job Description</li>
                 </ul>
             );
@@ -119,10 +130,11 @@ const ActiveJobs = () => {
             </button>
         );
     }
+    console.log(userdata)
 
     return (
         <>
-         
+
             <div className="main-container">
                 <div className="drawer">
                     <div className='dash-title'>
@@ -172,7 +184,7 @@ const ActiveJobs = () => {
 
 
                     {
-                        showspin ? <Spiner /> : <Tables
+                        showspin ? <Spiner /> : <Tables userdata={userdata}
 
                         />
                     }

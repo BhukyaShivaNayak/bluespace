@@ -145,15 +145,6 @@ app.get('/api/jobs', async (req, res) => {
     }
 });
 
-/*router.get('/user/details', async (req, res) => {
-    try {
-        const jobdata = await createJob.find();
-        res.status(200).json(jobdata)
-    } catch (error) {
-        res.status(401).json(error)
-    }
-});*/
-
 
 
 

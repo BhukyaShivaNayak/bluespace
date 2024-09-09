@@ -22,63 +22,14 @@ const Register = () => {
 
     const navigate = useNavigate();
 
-    const { useradd, setUseradd }=useContext(addData);
+    const { /*useradd,*/ setUseradd } = useContext(addData);
 
     const setInputValue = (e) => {
         const { name, value } = e.target;
         setInputData({ ...inputdata, [name]: value });
     };
 
-    /* const submitJobData = async (e) => {
-         e.preventDefault();
- 
-         const { Jname, Lname, Cname, Rname, Hname } = inputdata;
- 
-         if (Jname === "") {
-             toast.error("Job name is Required!");
-         } else if (Lname === "") {
-             toast.error("Location name is Required!");
-         } else if (Cname === "") {
-             toast.error("Compensation is Required!");
-         } else if (Rname === "") {
-             toast.error("No. Of Resumes are Required!");
-         } else if (Hname === "") {
-             toast.error("No. Of Hires Required!");
-         } else {
-             const data = {
-                 Jname,
-                 Lname,
-                 Cname,
-                 Rname,
-                 Hname
-             };
- 
-             const config = {
-                 headers: {
-                     "Content-Type": "application/json"
-                 }
-             };
- 
-             const jsonData = JSON.stringify(data);
- 
-             try {
-                 const response = await registerfunc(jsonData, config);
- 
-                 if (response.status === 200) {
-                     setInputData({
-                         Jname: "",
-                         Lname: "",
-                         Cname: "",
-                         Rname: "",
-                         Hname: ""
-                     });
-                     toast.success("Submitted Successfully!");
-                 }
-             } catch (error) {
-                 toast.error("An error occurred while submitting the form.");
-             }
-         }
-     };*/
+  
     const submitJobData = async (e) => {
         e.preventDefault();
 
@@ -105,35 +56,7 @@ const Register = () => {
                 Hname
             };
 
-            /*  const config = {
-                  headers: {
-                      "Content-Type": "application/json"
-                  }
-              };
-  
-              console.log('Sending Data:', data);
-  
-              try {
-                  const response = await registerfunc(data, config);
-  
-                  if (response.status === 200) {
-                      setInputData({
-                          Jname: "",
-                          Lname: "",
-                          Cname: "",
-                          Rname: "",
-                          Hname: ""
-                      });
-                      toast.success("Submitted Successfully!");
-                  } /*else {
-  
-                      console.error('API Response Error:', response.data);
-                      // toast.error("Submission failed: " + (response.data.error || "Unknown error"));
-                  }*/
-            //} catch (error) {
-            //     console.error('Submission Error:', error);
-            //      toast.error("An error occurred while submitting the form.");
-            //  }
+
 
             const config = {
                 "Content-Type": "application/json"
@@ -155,8 +78,9 @@ const Register = () => {
 
                 navigate("/active-jobs");
 
-            } else {
 
+            } else {
+                toast.success("Job is Created Sucessfully !");
             }
 
 
