@@ -17,7 +17,12 @@ const Register = () => {
         Lname: "",
         Cname: "",
         Rname: "",
-        Hname: ""
+        Hname: "",
+        Role: "",
+        Client: "",
+        Salary: "",
+        DraftedBy: "",
+        Notes: ""
     });
 
     const navigate = useNavigate();
@@ -29,11 +34,11 @@ const Register = () => {
         setInputData({ ...inputdata, [name]: value });
     };
 
-  
+
     const submitJobData = async (e) => {
         e.preventDefault();
 
-        const { Jname, Lname, Cname, Rname, Hname } = inputdata;
+        const { Jname, Lname, Cname, Rname, Hname, Role, Client, Salary, DraftedBy, Notes } = inputdata;
 
         if (Jname === "") {
             toast.error("Job name is Required!");
@@ -46,6 +51,21 @@ const Register = () => {
         } else if (Hname === "") {
             toast.error("No. Of Hires Required!");
         }
+        else if (Role === "") {
+            toast.error("Role Name is Required!");
+        }
+        else if (Client === "") {
+            toast.error("Client Name is Required!");
+        }
+        else if (Salary === "") {
+            toast.error("Salary is Required!");
+        }
+        else if (DraftedBy === "") {
+            toast.error("Drafted by is Required!");
+        }
+        else if (Notes === "") {
+            toast.error("Notes is Required!");
+        }
 
         else {
             const data = {
@@ -53,7 +73,8 @@ const Register = () => {
                 Lname,
                 Cname,
                 Rname,
-                Hname
+                Hname,
+                Role, Client, Salary, DraftedBy, Notes
             };
 
 
@@ -71,7 +92,12 @@ const Register = () => {
                     Lname: "",
                     Cname: "",
                     Rname: "",
-                    Hname: ""
+                    Hname: "",
+                    Role: "",
+                    Client: "",
+                    Salary: "",
+                    DraftedBy: "",
+                    Notes: ""
                 });
 
                 setUseradd(response.data)
@@ -143,6 +169,56 @@ const Register = () => {
                                     value={inputdata.Hname}
                                     onChange={setInputValue}
                                     placeholder="No. Of Hires Required"
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                                <Form.Label>Role Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="Role"
+                                    value={inputdata.Role}
+                                    onChange={setInputValue}
+                                    placeholder="Role Name Required"
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                                <Form.Label>Client Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="Client"
+                                    value={inputdata.Client}
+                                    onChange={setInputValue}
+                                    placeholder="Client Name Required"
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                                <Form.Label>Salary</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="Salary"
+                                    value={inputdata.Salary}
+                                    onChange={setInputValue}
+                                    placeholder="Enter Salary"
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                                <Form.Label>Drafted By</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="DraftedBy"
+                                    value={inputdata.DraftedBy}
+                                    onChange={setInputValue}
+                                    placeholder="Drafted By"
+                                />
+                            </Form.Group>
+                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                                <Form.Label>Notes Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="Notes"
+                                    value={inputdata.Notes}
+                                    onChange={setInputValue}
+                                    placeholder="Notes"
                                 />
                             </Form.Group>
 

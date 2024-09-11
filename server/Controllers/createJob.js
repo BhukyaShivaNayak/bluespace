@@ -2,9 +2,9 @@ const createJob = require('../models/createJob');
 const moment = require('moment');
 
 exports.createJob = async (req, res) => {
-    const { Jname, Lname, Cname, Rname, Hname } = req.body;
+    const { Jname, Lname, Cname, Rname, Hname,Role,Client,Salary,DraftedBy,Notes } = req.body;
 
-    if (!Jname || !Lname || !Cname || !Rname || !Hname) {
+    if (!Jname || !Lname || !Cname || !Rname || !Hname || !Role || !Client || !Salary || !DraftedBy || !Notes) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +23,12 @@ exports.createJob = async (req, res) => {
             Cname,
             Rname,
             Hname,
-            dateCreated
+            Role,
+            Client,
+            Salary,
+            DraftedBy,
+            Notes,
+           
         });
 
         await jobData.save();

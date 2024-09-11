@@ -14,28 +14,28 @@ const ClosedJobs = () => {
     const [isActive2, setIsActive2] = useState(false);
     const [isActive3, setIsActive3] = useState(false);
 
-    const [userdata,setUserData] = useState([]);
+    const [userdata, setUserData] = useState([]);
     const [showspin, setShowSpin] = useState(true)
 
-    
 
-  //  const navigate = useNavigate();
 
-  /*  const addUser = () => {
-        navigate("/register");
-    }*/
+    //  const navigate = useNavigate();
 
-    const userGet = async()=>{
+    /*  const addUser = () => {
+          navigate("/register");
+      }*/
+
+    const userGet = async () => {
         const response = await usergetfunc();
-        if(response.status === 200){
-          setUserData(response.data);
-          
-          
-        }else{
-          console.log("error for get user data")
+        if (response.status === 200) {
+            setUserData(response.data);
+
+
+        } else {
+            console.log("error for get user data")
         }
-      }
-    
+    }
+
 
     useEffect(() => {
         userGet();
@@ -61,8 +61,7 @@ const ClosedJobs = () => {
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
                     <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
-                  
-                    <li>Job Description</li>
+                    <li><Link className="nav-link" to="/job-description">Job Description</Link> </li>
                 </ul>
             );
         }
@@ -135,7 +134,7 @@ const ClosedJobs = () => {
 
     return (
         <>
-         
+
             <div className="main-container">
                 <div className="drawer">
                     <div className='dash-title'>
@@ -176,7 +175,7 @@ const ClosedJobs = () => {
                     </ul>
                 </div>
                 <div className='non-drawer'>
-                  {/* <div className='createjob-container'>
+                    {/* <div className='createjob-container'>
                         <div className='button-p'>
                             <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
                             <button className='btn-job'>Closed Jobs</button>

@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 import { usergetfunc } from '../../Services/Apis';
-import Tables from '../Tables';
+//import Tables from '../Tables';
+import JobDescriptionTable from '../JobDescriptionTable'
 import Spiner from '../Spiner';
 
 
@@ -61,7 +62,7 @@ const JobDescription = () => {
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
                     <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
-                    <li>Job Description</li>
+                    <li><Link className="nav-link" to="/job-description">Job Description</Link> </li>
                 </ul>
             );
         }
@@ -175,16 +176,11 @@ const JobDescription = () => {
                     </ul>
                 </div>
                 <div className='non-drawer'>
-                    <div className='createjob-container'>
-                        <div className='button-p'>
-                            <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
-                            <button className='btn-job'>Closed Jobs</button>
-                        </div>
-                    </div>
+
 
 
                     {
-                        showspin ? <Spiner /> : <Tables userdata={userdata}
+                        showspin ? <Spiner /> : <JobDescriptionTable userdata={userdata}
 
                         />
                     }

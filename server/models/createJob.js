@@ -26,6 +26,34 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+
+    Role: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    Client: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    Salary: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    DraftedBy: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    Notes: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
+
     dateCreated: {
         type: Date,
         default: Date.now

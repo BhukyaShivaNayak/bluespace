@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css'; // Optional: If you have a specific CSS file for this component
+import './index.css'; 
 
 const Unauthorized = () => {
     return (

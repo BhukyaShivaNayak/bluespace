@@ -25,18 +25,18 @@ const JobDescriptionTable = (props) => {
                                     <th className='th-custom'>Salary</th>
                                     <th className='th-custom'>Drafted By</th>
                                     <th className='th-custom'>Notes</th>
-                                    <th className='th-custom'></th>
+                                    <th className='th-custom'></th>     
                                 </tr>
                             </thead>
                             <tbody>
                                 {userdata.map((element) => {
                                     return (
                                         <>   <tr>
-                                            <td className='td-custom'>{element.Jname}</td>
-                                            <td className='td-custom'>{element.Lname}</td>
-                                            <td className='td-custom'>{element.Cname}</td>
-                                            <td className='td-custom'>{element.Rname}</td>
-                                            <td className='td-custom'>{element.Hname}</td>
+                                            <td className='td-custom'>{element.Role}</td>
+                                            <td className='td-custom'>{element.Client}</td>
+                                            <td className='td-custom'>{element.Salary}</td>
+                                            <td className='td-custom'>{element.DraftedBy}</td>
+                                            <td className='td-custom'>{element.Notes}</td>
                                             <td className='td-custom text-center'>
                                                 <Dropdown>
                                                     <Dropdown.Toggle className='dropdown_btn' id="dropdown-basic">
