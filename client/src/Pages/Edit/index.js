@@ -24,7 +24,7 @@ const Edit = () => {
         setInputData({ ...inputdata, [name]: value });
     };
 
-    const submitJobData = async (e) => {
+    const submitJobUpdateData = async (e) => {
         e.preventDefault();
 
         const { Jname, Lname, Cname, Rname, Hname } = inputdata;
@@ -103,7 +103,7 @@ const Edit = () => {
                                     placeholder="No. Of Hires Required"
                                 />
                             </Form.Group>
-                            <Button variant="primary" type="submit" onClick={submitJobData}>
+                            <Button variant="primary" type="submit" onClick={submitJobUpdateData}>
                                 Submit
                             </Button>
                         </Row>

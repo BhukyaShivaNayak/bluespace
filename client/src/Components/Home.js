@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Table1 from './Table1'
 //import Tables from './Tables';
+//import Tables from '../Components/Tables';
 import Notepad from './Notepad'
 import CandidtaesTable from './Table2';
 import './home.css';
@@ -247,7 +248,7 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    {showTable1 && <Table1 />}
+                    {showTable1 && <Table1/>}
                     {showCandidtaesTable && <CandidtaesTable />}
                 </div>
             </div>

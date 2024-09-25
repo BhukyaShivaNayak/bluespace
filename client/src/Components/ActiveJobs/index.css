@@ -79,12 +79,12 @@ p {
 
 .non-drawer::-webkit-scrollbar-track {
     background: transparent;
-    /* Hide the track background */
+   
 }
 
 .non-drawer::-webkit-scrollbar {
     width: 2px;
-    /* Adjust scrollbar width */
+   
 }
 
 .dashboard-tilte {
@@ -118,12 +118,12 @@ p {
 
 .drawer::-webkit-scrollbar-track {
     background: transparent;
-    /* Hide the track background */
+  
 }
 
 .drawer::-webkit-scrollbar {
     width: 2px;
-    /* Adjust scrollbar width */
+    
 }
 
 .list-item {

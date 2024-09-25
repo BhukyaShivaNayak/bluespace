@@ -72,8 +72,8 @@ const ClosedJobs = () => {
         if (isActive2) {
             return (
                 <ul className="drop-down">
-                    <li>Active Candidates</li>
-                    <li>Pipeline</li>
+                    <li>Active</li>
+                    <li><Link className="nav-link" to="/pipeline">Pipeline</Link></li>
                     <li>Database</li>
                     <li>Add New Candidates</li>
                 </ul>

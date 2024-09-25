@@ -5,9 +5,7 @@ export const commonrequest = async (methods, url, body, header) => {
     const config = {
         method: methods,
         url,
-        /* headers: header || {
-             "Content-Type": "application/json"
-         },*/
+
         headers: header ?
             header : {
                 "Content-Type": "application/json"

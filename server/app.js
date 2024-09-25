@@ -11,13 +11,14 @@ const router = require("./Routes/router");
 
 
 //const PORT = process.env.PORT || 6010;
-const PORT = process.env.PORT || 6006
+const PORT = process.env.PORT || 6007
 
 app.use(cors());
 app.use(express.json());
 
 
 app.use(router);
+
 
 
 //---- login API ---

@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
@@ -69,4 +70,3 @@ const jobSchema = new mongoose.Schema({
 const createJob = mongoose.model('createJob', jobSchema);
 
 module.exports = createJob;
-

@@ -1,17 +1,22 @@
 .containers {
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 78vw;
-    border-radius: 10px;
+
+    width: 100%;
+    
+
+
+}
+
+@media screen and (max-width: 700px) {
+    .containers {
+        overflow: scroll;
+    }
 }
 
 
-.table-custom {
-    width: 100%;
-    margin-bottom: 0;
-    table-layout: fixed;
-    border-radius: 10px;
 
+.table-custom {
+    margin-bottom: 0;
+    border-radius: 10px;
 }
 
 
@@ -27,18 +32,19 @@
 }
 
 
-.td-custom {
+/* .td-custom {
     padding: 16px 20px;
     vertical-align: middle;
     width: 20%;
 
-}
+} */
 
-
+/* 
 .dropdown_btn {
     border: none;
+    background-color: #007AFF;
 
-}
+} */
 
 .thead-secondary {
     background-color: #f8f9fa;
@@ -52,6 +58,7 @@
 .dropdown-menu {
     min-width: 100px;
 }
-.action-btn{
-    background-color:#007AFF;
-}
+
+/* .action-btn {
+    background-color: #007AFF;
+} */

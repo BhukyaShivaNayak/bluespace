@@ -3,9 +3,10 @@ import Row from 'react-bootstrap/Row';
 //import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 import Dropdown from 'react-bootstrap/Dropdown';
-import Badge from 'react-bootstrap/Badge';
+//import Badge from 'react-bootstrap/Badge';
 import "./index.css";
 import { NavLink } from 'react-router-dom';
+
 
 const Tables = (props) => {
     const { userdata } = props
@@ -17,7 +18,7 @@ const Tables = (props) => {
                 <Row>
                     <div className="col mt-2">
 
-                        <Table className='table-custom w-70' responsive="lg">
+                        <Table className='' >
                             <thead className='thead-secondary'>
                                 <tr className='table-secondary'>
                                     <th className='th-custom'>Job Title</th>
@@ -31,18 +32,18 @@ const Tables = (props) => {
                             <tbody>
                                 {userdata.map((element) => {
                                     return (
-                                        <>   <tr>
+                                        <tr>
                                             <td className='td-custom'>{element.Jname}</td>
                                             <td className='td-custom'>{element.Lname}</td>
                                             <td className='td-custom'>{element.Cname}</td>
                                             <td className='td-custom'>{element.Rname}</td>
                                             <td className='td-custom'>{element.Hname}</td>
-                                            <td className='td-custom text-center'>
+                                            <td className='td-custom'>
+
                                                 <Dropdown>
                                                     <Dropdown.Toggle className='dropdown_btn' id="dropdown-basic">
-                                                        <Badge className='action-btn'>
-                                                            Action
-                                                        </Badge>
+                                                        Action
+
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu>
 
@@ -57,7 +58,7 @@ const Tables = (props) => {
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </td>
-                                        </tr></>
+                                        </tr>
                                     )
                                 })
 
