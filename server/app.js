@@ -2,6 +2,7 @@
 
 require("dotenv").config();
 const express = require("express");
+const path = require('path');
 const app = express();
 const cors = require("cors");
 require("./db/conn")
@@ -9,12 +10,17 @@ const router = require("./Routes/router");
 
 
 
+// Middleware
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
+// Serve static files from the uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //const PORT = process.env.PORT || 6010;
 const PORT = process.env.PORT || 6007
 
 app.use(cors());
-app.use(express.json());
+
 
 
 app.use(router);

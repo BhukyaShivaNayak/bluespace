@@ -247,7 +247,7 @@ const Register1 = () => {
                                 value={inputdata.Resume}
 
                                 onChange={setInputValue}
-                                
+
                                 placeholder="Resume"
                             />
                         </Form.Group>

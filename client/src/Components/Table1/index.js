@@ -4,7 +4,7 @@ import "./index.css"
 import { useEffect, useState } from "react";
 
 import UserData from "../UserData";
-const API = "http://localhost:6005/api/jobs"
+const API = "http://localhost:6007/api/jobs"
 
 const Table1 = () => {
 

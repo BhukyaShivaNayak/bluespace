@@ -7,7 +7,7 @@ import "./login.css"
 const Login = () => {
 
   const loginwithgoogle = () => {
-    window.open("http://localhost:6005/auth/google/callback", "_self")
+    window.open("http://localhost:6007/auth/google/callback", "_self")
   }
 
   return (

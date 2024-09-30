@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,/* useNavigate */} from 'react-router-dom';
 
 
 import { usergetfunc } from '../../Services/Apis';
@@ -20,11 +20,11 @@ const JobDescription = () => {
 
 
 
-    const navigate = useNavigate();
+   /* const navigate = useNavigate();
 
     const addUser = () => {
         navigate("/register");
-    }
+    }*/
 
     const userGet = async () => {
         const response = await usergetfunc();

@@ -16,12 +16,12 @@ const candidateSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-   Resume: {
+    Resume: {
         type: String,
         required: true,
         trim: true
     },
-   
+
     RecruiterFeedback: {
         type: String,
         required: true,
@@ -33,7 +33,7 @@ const candidateSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-   status: {
+    status: {
         type: String,
         required: true,
         trim: true

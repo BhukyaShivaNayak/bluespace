@@ -14,7 +14,7 @@ const Header=()=>
 
         const getUser = async () => {
             try {
-                const response = await axios.get("http://localhost:6005/login/sucess", { withCredentials: true });
+                const response = await axios.get("http://localhost:6007/login/sucess", { withCredentials: true });
     
                 setUserdata(response.data.user)
             } catch (error) {
@@ -50,12 +50,12 @@ const Header=()=>
 </div>
 
         <div className="logo1">
-        <img src={userdata?.image} className='profile-pic' alt=""/>
+        <img src={userdata.image} className='profile-pic' alt=""/>
 
        </div>
        </div>
     </div>
-    <p className="name-section">Welcome {userdata?.displayName},</p>
+    <p className="name-section">Welcome {userdata.displayName},</p>
     </>
 )
     }

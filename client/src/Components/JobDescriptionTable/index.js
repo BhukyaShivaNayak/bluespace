@@ -25,7 +25,7 @@ const JobDescriptionTable = (props) => {
                                     <th className='th-custom'>Salary</th>
                                     <th className='th-custom'>Drafted By</th>
                                     <th className='th-custom'>Notes</th>
-                                    <th className='th-custom'></th>     
+                                    <th className='th-custom'></th>
                                 </tr>
                             </thead>
                             <tbody>

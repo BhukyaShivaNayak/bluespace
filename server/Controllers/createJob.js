@@ -72,7 +72,7 @@ exports.candidate = async (req, res) => {
             return res.status(400).json({ error: "This Job already exists in our database" });
         }
 
-        
+
 
         const candidateInfoData = new candidate({
             Candidatename, Contact, Email, Resume, RecruiterFeedback, Interview, status, JoiningDate
