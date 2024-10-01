@@ -29,6 +29,18 @@ body {
   font-weight: 350;
 }
 
+.company-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-logo {
+  height: 80px;
+  width: 80px;
+}
+
 .heading-login {
   color: blue;
   font-family: "PT Sans", sans-serif;

@@ -83,7 +83,10 @@ passport.use(
 
                 if (!email.endsWith('@thebluespire.com')) {
 
-                    return done(null, false, { message: 'Email not authorized' });
+                    return done(null, false, { message: 'Email not authorized' });// required 1 
+                                                                                    //note update  
+                                                                                    //cards section
+                                                                                    //job indicator
                 }
 
                 let user = await userdb.findOne({ googleId: profile.id });

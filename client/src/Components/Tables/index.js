@@ -50,7 +50,7 @@ const Tables = (props) => {
                                                         <Dropdown.Item >Submit Job</Dropdown.Item>
                                                         <Dropdown.Item>
                                                             <NavLink to={`/edit/${element._id}`}>
-                                                                Edit Resume </NavLink></Dropdown.Item>
+                                                                Edit Job </NavLink></Dropdown.Item>
 
 
                                                         <Dropdown.Item >Close Job</Dropdown.Item>

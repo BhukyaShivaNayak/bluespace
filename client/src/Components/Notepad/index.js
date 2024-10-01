@@ -3,6 +3,7 @@ import './index.css'; // Import your styles
 
 const Notepad = () => {
     const [input, setInput] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [tasks, setTasks] = useState(() => {
         try {
             const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -12,6 +13,10 @@ const Notepad = () => {
             return [];
         }
     });
+    const [isSearchVisible, setIsSearchVisible] = useState(false);
+    const [bgColor, setBgColor] = useState('#ffffff'); // Default background color
+    const [fontSize, setFontSize] = useState('16px'); // Default font size
+    const [isColorPickerVisible, setIsColorPickerVisible] = useState(false); // State for color picker visibility
 
     useEffect(() => {
         try {
@@ -49,16 +54,59 @@ const Notepad = () => {
         return `rgb(${r}, ${g}, ${b}, 0.2)`;
     };
 
+    const filteredTasks = tasks.filter(task =>
+        task.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const handleCancelSearch = () => {
+        setIsSearchVisible(false);
+        setSearchQuery('');
+    };
+
+    const toggleColorPicker = () => {
+        setIsColorPickerVisible(!isColorPickerVisible);
+    };
+
+    const handleColorChange = (e) => {
+        setBgColor(e.target.value);
+        setIsColorPickerVisible(false); // Hide the color picker after selection
+    };
+
+    const toggleFontSize = () => {
+        setFontSize(prevSize => (prevSize === '16px' ? '20px' : '16px'));
+    };
+
     return (
-        <div className="notepad">
-            <p className="note-title">Bluespace note</p>
+        <div className="notepad" style={{ backgroundColor: bgColor }}>
+            <p className="note-title" style={{ fontSize: fontSize }}>Bluespace note</p>
             <hr />
             <div className="icon-section">
-                <img
-                    src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724248540/icons8-search-50_th38sw.png"
-                    alt="Search Icon"
-                    className="search-icon"
-                />
+                {isSearchVisible ? (
+                    <img
+                        src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1727776458/icons8-cancel-50_h68kgk.png"
+                        alt="Cancel Icon"
+                        className="search-icon"
+                        onClick={handleCancelSearch}
+                    />
+                ) : (
+                    <img
+                        src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724248540/icons8-search-50_th38sw.png"
+                        alt="Search Icon"
+                        className="search-icon"
+                        onClick={() => setIsSearchVisible(true)}
+                    />
+                )}
+                {isSearchVisible && (
+                    <div className="search-bar">
+                        <input
+                            type="text"
+                            placeholder="Search tasks..."
+                            className="search-input"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+                )}
                 <img
                     src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724248654/icons8-add-new-48_h3zqh8.png"
                     alt="Add Icon"
@@ -74,13 +122,12 @@ const Notepad = () => {
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <div className="list-container">
-                    {tasks.map((item, index) => (
+                    {filteredTasks.map((item, index) => (
                         <div key={index} className="main-item" style={{ backgroundColor: item.backgroundColor }}>
-
-                            <div className='align'> <h1 className="task-title">
-                                {item.title}
-
-                            </h1>
+                            <div className='align'>
+                                <h1 className="task-title" style={{ fontSize: fontSize }}>
+                                    {item.title}
+                                </h1>
                                 <img
                                     src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724335671/icons8-delete-32_xzvsc2.png"
                                     alt="Delete Icon"
@@ -90,12 +137,11 @@ const Notepad = () => {
                             </div>
                             <ul>
                                 {item.tasks.map((taskItem, i) => (
-                                    <li key={i} className="task-item">
+                                    <li key={i} className="task-item" style={{ fontSize: fontSize }}>
                                         • {taskItem}
                                     </li>
                                 ))}
                             </ul>
-
                         </div>
                     ))}
                 </div>
@@ -105,11 +151,22 @@ const Notepad = () => {
                         src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724304220/palette_nnbdm6.png"
                         alt="Palette Icon"
                         className="img-1"
+                        onClick={toggleColorPicker}
                     />
+                    {isColorPickerVisible && (
+                        <input
+                            type="color"
+                            className="color-picker"
+                            onChange={handleColorChange}
+                            value={bgColor}
+                            style={{ marginLeft: '10px' }}
+                        />
+                    )}
                     <img
                         src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724304231/A_lni5o3.png"
-                        alt="Another Icon"
+                        alt="Font Size Icon"
                         className="img-2"
+                        onClick={toggleFontSize}
                     />
                 </div>
             </div>

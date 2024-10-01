@@ -61,4 +61,3 @@ const candidateSchema = new mongoose.Schema({
 const candidate = mongoose.model('candidate', candidateSchema);
 
 module.exports = candidate;
-

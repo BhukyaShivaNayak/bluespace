@@ -28,7 +28,7 @@ const Pipeline = () => {
     const userGet = async () => {
         const response = await usergetfunc1();
         console.log(response)
-   
+
         console.log(response.data + "response data")
         setUserData(response.data)
         if (response.status === 200) {
@@ -181,7 +181,7 @@ const Pipeline = () => {
                 <div className='non-drawer'>
                     <div className='createjob-container'>
                         <div className='button-p'>
-                            <button  className='b  btn-primary' onClick={addPerson}>Add new candidates</button>
+                            <button className='b  btn-primary' onClick={addPerson}>Add new candidates</button>
                             <button className='b'>Archived Candidates</button>
                         </div>
 

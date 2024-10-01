@@ -48,7 +48,7 @@ class Dashboard extends Component {
                 </div>
                 <div className='bottom-section'>
                     {/*<Line1 />*/}
-                    <div>
+                    <div className='botton-title'>
                         <div className='botton-title'>
                             {job && <h1 className='job-live'>Job Live</h1>}
                             {candidate && <h1 className='job-live'>Candidates Live</h1>}

@@ -21,6 +21,7 @@ const Header=()=>
                 console.log("error", error)
             }
         }
+        console.log(userdata)
     
         // logoout
         /*const logout = ()=>{

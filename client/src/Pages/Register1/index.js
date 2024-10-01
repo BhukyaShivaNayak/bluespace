@@ -67,7 +67,7 @@ const Register1 = () => {
         } else if (RecruiterFeedback === "") {
             toast.error("Recruiter Feedback is Required!");
         } else if (Interview === "") {
-            toast.error("Role Name is Required!");
+            toast.error("Interviewer Name is Required!");
         } else if (status === "") {
             toast.error("Status is Required!");
 
