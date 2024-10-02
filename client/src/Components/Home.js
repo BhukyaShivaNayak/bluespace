@@ -73,7 +73,7 @@ class Home extends Component {
         if (isActive2) {
             return (
                 <ul className="drop-down">
-                    <li>Active Candidates</li>
+                   {/* <li>Active Candidates</li>*/}
                     <li><Link className="nav-link" to="/pipeline">Pipeline</Link></li>
                     <li>Database</li>
                     <li>Add New Candidates</li>

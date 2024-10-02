@@ -1,0 +1,42 @@
+.login-fail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover;
+    background-image: url("https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1721046303/Register_fivte0.jpg");
+}
+
+.fail-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 70vh;
+    width: 50vw;
+
+}
+
+.unauthorized-image {
+    height: 50vh;
+    width: 30vw;
+}
+
+.unauthorized-btn {
+    width: 130px;
+    height: 36px;
+    border: none;
+    background-color: blue;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+
+}
+
+.failed-statement {
+    color: red;
+    font-size: 20px;
+}

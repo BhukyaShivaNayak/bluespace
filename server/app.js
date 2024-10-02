@@ -84,9 +84,9 @@ passport.use(
                 if (!email.endsWith('@thebluespire.com')) {
 
                     return done(null, false, { message: 'Email not authorized' });// required 1 
-                                                                                    //note update  
-                                                                                    //cards section
-                                                                                    //job indicator
+                    //note update  
+                    //cards section
+                    //job indicator
                 }
 
                 let user = await userdb.findOne({ googleId: profile.id });
@@ -123,7 +123,7 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "em
 
 app.get("/auth/google/callback", passport.authenticate("google", {
     successRedirect: "http://localhost:3000/",
-    failureRedirect: "http://localhost:3000/login"
+    failureRedirect: "http://localhost:3000/login-failure"
 }))
 
 app.get("/login/sucess", async (req, res) => {
@@ -162,7 +162,6 @@ app.get('/api/jobs', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`server start at port no ${PORT}`)
 })
-
 
 
 
