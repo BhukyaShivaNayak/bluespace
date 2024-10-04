@@ -10,13 +10,12 @@ const router = require("./Routes/router");
 
 
 
-// Middleware
-app.use(express.json()); // For parsing application/json
-app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
 
-// Serve static files from the uploads directory
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); 
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-//const PORT = process.env.PORT || 6010;
+
 const PORT = process.env.PORT || 6007
 
 app.use(cors());
@@ -27,7 +26,6 @@ app.use(router);
 
 
 
-//---- login API ---
 
 
 const session = require("express-session");
@@ -83,10 +81,7 @@ passport.use(
 
                 if (!email.endsWith('@thebluespire.com')) {
 
-                    return done(null, false, { message: 'Email not authorized' });// required 1 
-                    //note update  
-                    //cards section
-                    //job indicator
+                    return done(null, false, { message: 'Email not authorized' });
                 }
 
                 let user = await userdb.findOne({ googleId: profile.id });

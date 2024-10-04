@@ -114,94 +114,7 @@ const Register1 = () => {
             }
         }
     };
-    /* const submitJobData = async (e) => {
-         e.preventDefault();
- 
-         const {
-             Candidatename,
-             Contact,
-             Email,
-             RecruiterFeedback,
-             Interview,
-             JoiningDate
-         } = inputdata;
- 
-         // Validate other fields
-         if (!Candidatename) {
-             toast.error("Candidate name is Required!");
-             return;
-         }
-         if (!Contact) {
-             toast.error("Contact is Required!");
-             return;
-         }
-         if (!Email) {
-             toast.error("Email is Required!");
-             return;
-         }
-         if (!RecruiterFeedback) {
-             toast.error("Recruiter Feedback is Required!");
-             return;
-         }
-         if (!Interview) {
-             toast.error("Interview is Required!");
-             return;
-         }
-         if (!status) {
-             toast.error("Status is Required!");
-             return;
-         }
-         if (!JoiningDate) {
-             toast.error("Joining Date is Required!");
-             return;
-         }
-         if (!e.target.Resume.files[0]) {
-             toast.error("Resume is Required!");
-             return;
-         }
- 
-         const data = new FormData();
-         data.append('Candidatename', Candidatename);
-         data.append('Contact', Contact);
-         data.append('Email', Email);
-         data.append('Resume', e.target.Resume.files[0]); // Get the uploaded file
-         data.append('RecruiterFeedback', RecruiterFeedback);
-         data.append('Interview', Interview);
-         data.append('status', status);
-         data.append('JoiningDate', JoiningDate);
- 
-         const config = {
-             "Content-Type": "multipart/form-data"
-         };
- 
-         try {
-             const response = await registerfunc1(data, config);
- 
-             if (response.status === 201) {
-                 toast.success("Candidate added successfully!");
-                 setInputData({
-                     Candidatename: "",
-                     Contact: "",
-                     Email: "",
-                     RecruiterFeedback: "",
-                     Interview: "",
-                     JoiningDate: ""
-                 });
-                 setStatus("");
-                 setUseradd(response.data);
-                 navigate("/pipeline");
-             } else if (response.status === 400) {
-                 toast.error("Candidate already exists in the database.");
-             } else {
-                 toast.error("An error occurred while adding the candidate.");
-             }
-         } catch (error) {
-             console.error("Error submitting data:", error);
-             toast.error("Internal Server Error. Please try again later.");
-         }
-     };
- 
- */
+   
 
     return (
         <div className='container'>
@@ -251,15 +164,7 @@ const Register1 = () => {
                                 placeholder="Resume"
                             />
                         </Form.Group>
-                        {/*<Form.Group className="mb-3 col-lg-6" controlId="formBasicResume">
-                            <Form.Label>Resume</Form.Label>
-                            <Form.Control
-                                type="file"
-                                name="Resume"
-                                onChange={setInputValue} 
-                                accept=".pdf,.doc,.docx"
-                            />
-                        </Form.Group>*/}
+                      
                         <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Recruiter Feedback</Form.Label>
                             <Form.Control

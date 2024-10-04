@@ -9,14 +9,10 @@ p {
 }
 
 .main-container {
-    background-size: cover;
-    margin: 0;
-
-    height: 100%;
     display: flex;
-    flex-direction: row;
+    height: 100vh;
+    margin: 0;
 }
-
 
 .name-section {
     background-color: #274FC7;
@@ -34,73 +30,37 @@ p {
 
 .non-drawer {
     width: 80vw;
-    height: 110vh;
     padding: 20px;
     overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.non-drawer::-webkit-scrollbar-track {
-    background: transparent;
-    /* Hide the track background */
 }
 
 .non-drawer::-webkit-scrollbar {
     width: 2px;
-    /* Adjust scrollbar width */
 }
-
-.dashboard-tilte {
-    text-align: center;
-    font-family: "PT Sans", sans-serif;
-    margin-right: 20px;
-}
-
-
 
 .dash-title {
     display: flex;
-    flex-direction: row;
     align-items: center;
     margin-top: 20px;
-
 }
-
-
-
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     padding: 0;
-    margin: 0;
     list-style-type: none;
-}
-
-.drawer::-webkit-scrollbar-track {
-    background: transparent;
-    /* Hide the track background */
-}
-
-.drawer::-webkit-scrollbar {
-    width: 2px;
-    /* Adjust scrollbar width */
 }
 
 .list-item {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    width: 14vw;
+    align-items: center;
+    width: 100%;
     padding: 10px;
 }
 
 .icon-title {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
@@ -111,78 +71,55 @@ p {
 }
 
 .item-name {
-    margin: 0;
-    font-family: "PT Sans", sans-serif;
     font-size: 20px;
-}
-
-.icon2 {
-    height: 24px;
-    width: 10px;
-    margin-left: 10px;
 }
 
 .icon-button {
     background-color: transparent;
-    border-width: 0px;
+    border: none;
 }
 
 li {
     list-style-type: none;
     font-family: "PT Sans", sans-serif;
-    font-weight: 400;
     font-size: 15px;
-    margin: 10px;
+    margin: 10px 0;
 }
 
 .drop-down {
     display: flex;
     flex-direction: column;
-    align-items: start;
-
+    align-items: flex-start;
 }
 
 .dashboard-title {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 400;
-    margin-right: 20px;
     font-size: 18px;
 }
 
 .folder-icon {
-    margin-right: 20px;
-    margin-left: 20px;
     height: 28px;
-
+    margin: 0 20px;
 }
 
 .card-it {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     width: 60vw;
     border-radius: 8px;
     padding: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 20px 20px 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-
 }
 
 .top-section {
     display: flex;
-    flex-direction: row;
     align-items: center;
-
-
 }
 
-.option1 {
+.option1, .option2, .option3, .option4 {
     height: 120px;
     width: 136px;
-    background-color: #f68b8b;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -191,234 +128,77 @@ li {
     margin-bottom: 10px;
 }
 
-.option2 {
-    height: 120px;
-    width: 136px;
-    background-color: #9fcaf8;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.option3 {
-    height: 120px;
-    width: 136px;
-    background-color: #b0fc94;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.option4 {
-    height: 120px;
-    width: 136px;
-    background-color: #99fff3;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
+.option1 { background-color: #f68b8b; }
+.option2 { background-color: #9fcaf8; }
+.option3 { background-color: #b0fc94; }
+.option4 { background-color: #99fff3; }
 
 .icon-logo {
-
-    padding: 5px;
-}
-
-.icon-logo1 {
-    height: 10px;
     padding: 5px;
 }
 
 p {
     font-size: 13px;
     font-family: "PT Sans", sans-serif;
-
 }
 
 .botton-title {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     padding: 20px;
 }
 
 .tab-section {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
-.job-tab {
+.job-tab, .candidates-tab {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-right: 20px;
-    font-family: "PT Sans", sans-serif;
-
-}
-
-.candidates-tab {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 20px;
-    font-family: "PT Sans", sans-serif;
-
-
-}
-
-.job-heading {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-
-}
-
-.job-count {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.candidate-heading {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.candidate-count {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.job-live {
-    font-size: 18px;
-}
-
-.botton-title {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-.tab-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.job-tab {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 20px;
-    font-family: "PT Sans", sans-serif;
-    background-color: transparent;
-
-
-}
-
-.candidates-tab {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 20px;
-    font-family: "PT Sans", sans-serif;
-
-
-}
-
-.job-heading {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-
-}
-
-.job-count {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.candidate-heading {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.candidate-count {
-    font-size: 18px;
-    font-family: "PT Sans", sans-serif;
-}
-
-.job-live {
-    font-size: 18px;
-}
-
-
-.job-tab,
-.candidates-tab {
     cursor: pointer;
-
 }
 
-.job-tab.active {
+.job-tab.active, .candidates-tab.active {
     color: #007AFF;
-
     border: solid;
     border-color: #007AFF;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-
+    border-width: 0 0 1px 0;
 }
 
-.job-heading.active {
-    color: #007AFF;
-
+.job-heading, .candidate-heading {
+    font-size: 18px;
 }
 
-.candidates-tab.active {
-    color: #007AFF;
-
-    border: solid;
-    border-color: #007AFF;
-    border-top-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-
-
+.job-count, .candidate-count {
+    font-size: 18px;
 }
 
-
-
-.candidate-heading.active {
-    color: #007AFF;
-
-}
-
-
-.job-tab,
-.job-heading {
-    color: black;
-}
-
-.candidates-tab,
-.candidate-heading {
-    color: black;
-
+.job-live {
+    font-size: 18px;
 }
 
 .bottom-section {
     margin-top: 30px;
+}
+
+.bottom-section > div {
+    margin-bottom: 20px;
+}
+
+.tab-section {
+    margin-top: 10px;
+}
+
+.job-tab,
+.candidates-tab {
+    color: black;
+}
+
+.job-heading,
+.candidate-heading {
+    color: black;
 }

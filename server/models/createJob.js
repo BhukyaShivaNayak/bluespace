@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
@@ -27,7 +26,6 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-
     Role: {
         type: String,
         required: true,
@@ -48,13 +46,26 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    Notes: {
+    Note: {
         type: String,
         required: true,
         trim: true
     },
-
-
+    WorkplaceType: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    EmploymentType: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    SeniorityLevelType: {
+        type: String,
+        required: true,
+        trim: true
+    },
     dateCreated: {
         type: Date,
         default: Date.now
@@ -64,8 +75,10 @@ const jobSchema = new mongoose.Schema({
         default: Date.now
     }
 }, {
-    version_key: false
+    versionKey: false  
 });
+
+
 
 const createJob = mongoose.model('createJob', jobSchema);
 

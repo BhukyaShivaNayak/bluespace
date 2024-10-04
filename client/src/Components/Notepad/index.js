@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './index.css'; // Import your styles
+import axios from 'axios';
+import './index.css';
 
 const Notepad = () => {
     const [input, setInput] = useState('');
+    const [userdata, setUserdata] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const [tasks, setTasks] = useState(() => {
         try {
@@ -14,18 +16,24 @@ const Notepad = () => {
         }
     });
     const [isSearchVisible, setIsSearchVisible] = useState(false);
-    const [bgColor, setBgColor] = useState('#ffffff'); // Default background color
-    const [fontSize, setFontSize] = useState('16px'); // Default font size
-    const [isColorPickerVisible, setIsColorPickerVisible] = useState(false); // State for color picker visibility
+    const [bgColor, setBgColor] = useState('#ffffff');
+    const [fontSize, setFontSize] = useState('16px');
+    const [isColorPickerVisible, setIsColorPickerVisible] = useState(false);
 
     useEffect(() => {
-        try {
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-            console.log('Tasks saved to localStorage:', tasks);
-        } catch (error) {
-            console.error('Failed to save tasks to localStorage:', error);
-        }
+        getUser();
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }, [tasks]);
+
+    const getUser = async () => {
+        try {
+            const response = await axios.get("http://localhost:6007/login/sucess", { withCredentials: true });
+            const firstName = response.data.user.displayName.split(' ')[0]; // Get the first name
+            setUserdata(firstName); // Store only the first name
+        } catch (error) {
+            console.log("error", error);
+        }
+    };
 
     const addTask = () => {
         if (input.trim() === '') return;
@@ -34,11 +42,11 @@ const Notepad = () => {
         const newTask = {
             title: lines[0].trim(),
             tasks: lines.slice(1).filter(line => line.trim() !== ''),
+            candidateName: userdata, // Use first name
             backgroundColor: getRandomLightColor()
         };
 
-        const updatedTasks = [...tasks, newTask];
-        setTasks(updatedTasks);
+        setTasks([...tasks, newTask]);
         setInput('');
     };
 
@@ -58,24 +66,6 @@ const Notepad = () => {
         task.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const handleCancelSearch = () => {
-        setIsSearchVisible(false);
-        setSearchQuery('');
-    };
-
-    const toggleColorPicker = () => {
-        setIsColorPickerVisible(!isColorPickerVisible);
-    };
-
-    const handleColorChange = (e) => {
-        setBgColor(e.target.value);
-        setIsColorPickerVisible(false); // Hide the color picker after selection
-    };
-
-    const toggleFontSize = () => {
-        setFontSize(prevSize => (prevSize === '16px' ? '20px' : '16px'));
-    };
-
     return (
         <div className="notepad" style={{ backgroundColor: bgColor }}>
             <p className="note-title" style={{ fontSize: fontSize }}>Bluespace note</p>
@@ -86,7 +76,7 @@ const Notepad = () => {
                         src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1727776458/icons8-cancel-50_h68kgk.png"
                         alt="Cancel Icon"
                         className="search-icon"
-                        onClick={handleCancelSearch}
+                        onClick={() => setIsSearchVisible(false)}
                     />
                 ) : (
                     <img
@@ -126,7 +116,7 @@ const Notepad = () => {
                         <div key={index} className="main-item" style={{ backgroundColor: item.backgroundColor }}>
                             <div className='align'>
                                 <h1 className="task-title" style={{ fontSize: fontSize }}>
-                                    {item.title}
+                                    {item.candidateName} : {item.title}
                                 </h1>
                                 <img
                                     src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724335671/icons8-delete-32_xzvsc2.png"
@@ -151,13 +141,13 @@ const Notepad = () => {
                         src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724304220/palette_nnbdm6.png"
                         alt="Palette Icon"
                         className="img-1"
-                        onClick={toggleColorPicker}
+                        onClick={() => setIsColorPickerVisible(!isColorPickerVisible)}
                     />
                     {isColorPickerVisible && (
                         <input
                             type="color"
                             className="color-picker"
-                            onChange={handleColorChange}
+                            onChange={(e) => setBgColor(e.target.value)}
                             value={bgColor}
                             style={{ marginLeft: '10px' }}
                         />
@@ -166,7 +156,7 @@ const Notepad = () => {
                         src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724304231/A_lni5o3.png"
                         alt="Font Size Icon"
                         className="img-2"
-                        onClick={toggleFontSize}
+                        onClick={() => setFontSize(prevSize => (prevSize === '16px' ? '20px' : '16px'))}
                     />
                 </div>
             </div>
