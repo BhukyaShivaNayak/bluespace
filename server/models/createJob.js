@@ -66,6 +66,16 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    Industry: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    JobDes: {
+        type: String,
+        required: true,
+        trim: true
+    },
     dateCreated: {
         type: Date,
         default: Date.now

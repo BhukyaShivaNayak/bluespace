@@ -13,23 +13,25 @@ import { addData } from '../../Components/context/ContextProvider';
 
 const Register = () => {
     const [inputdata, setInputData] = useState({
-    Jname: "",
+        Jname: "",
         Lname: "",
         Cname: "",
         Rname: "",
-        Hname:"",
-        Role:"",
-        Client:"",
+        Hname: "",
+        Role: "",
+        Client: "",
         Salary: "",
         DraftedBy: "",
-        Note:"",
-      
+        Note: "",
+        Industry: "",
+        JobDes: ""
+
     });
 
     const [WorkplaceType, setWorkplaceType] = useState("");
-    
-    const [EmploymentType,setEmploymentType]=useState("");
-    const [SeniorityLevelType,setSeniorityLevelType]=useState("");
+
+    const [EmploymentType, setEmploymentType] = useState("");
+    const [SeniorityLevelType, setSeniorityLevelType] = useState("");
     const navigate = useNavigate();
     const { setUseradd } = useContext(addData);
 
@@ -60,7 +62,7 @@ const Register = () => {
         console.log(e)
         setEmploymentType(e.value);
     };
-    const setSeniorityLevelTypeValue= (e) => {
+    const setSeniorityLevelTypeValue = (e) => {
         console.log(e)
         setSeniorityLevelType(e.value);
     };
@@ -82,7 +84,7 @@ const Register = () => {
             Client,
             Salary,
             DraftedBy,
-            Note
+            Note, Industry, JobDes
         } = inputdata;
 
         if (Jname === "") {
@@ -93,7 +95,7 @@ const Register = () => {
             toast.error("Compensation is Required!");
         } else if (Rname === "") {
             toast.error("Resume  in Process!");
-        } else if (Hname=== "") {
+        } else if (Hname === "") {
             toast.error("Hires  Required!");
         } else if (Role === "") {
             toast.error("Role Name is Required!");
@@ -102,19 +104,23 @@ const Register = () => {
 
         } else if (Salary === "") {
             toast.error("Salary is Required!");
-        }else if (DraftedBy === "") {
+        } else if (DraftedBy === "") {
             toast.error("Drafted By is Required!");
-        } else if (Note=== "") {
+        } else if (Note === "") {
             toast.error("Note is Required!");
-        }  else if(WorkplaceType===""){
+        } else if (Industry === "") {
+            toast.error("Industry is Required!");
+        } else if (JobDes === "") {
+            toast.error("JobDes is Required!");
+        } else if (WorkplaceType === "") {
             toast.error("Workplace is required!")
-        }else if(EmploymentType===""){
+        } else if (EmploymentType === "") {
             toast.error("Employment is required!")
-        }else if(SeniorityLevelType===""){
+        } else if (SeniorityLevelType === "") {
             toast.error("Seniority is required!")
         }
-        
-        
+
+
         else {
             const data = {
                 Jname,
@@ -127,7 +133,8 @@ const Register = () => {
                 Salary,
                 DraftedBy,
                 Note,
-                WorkplaceType,EmploymentType,SeniorityLevelType
+                Industry,
+                WorkplaceType, EmploymentType, SeniorityLevelType, JobDes
             };
 
             const config = {
@@ -140,15 +147,17 @@ const Register = () => {
                 setInputData({
                     ...inputdata,
                     Jname: "",
-        Lname: "",
-        Cname: "",
-        Rname: "",
-        Hname:"",
-        Role:"",
-        Client:"",
-        Salary: "",
-        DraftedBy: "",
-        Note:""
+                    Lname: "",
+                    Cname: "",
+                    Rname: "",
+                    Hname: "",
+                    Role: "",
+                    Client: "",
+                    Salary: "",
+                    DraftedBy: "",
+                    Note: "",
+                    Industry: "",
+                    JobDes: ""
                 });
                 setWorkplaceType("");
                 setEmploymentType("");
@@ -164,7 +173,7 @@ const Register = () => {
             }
         }
     };
-   
+
 
     return (
         <div className='container'>
@@ -172,7 +181,7 @@ const Register = () => {
             <Card className='card'>
                 <Form onSubmit={submitJobData}>
                     <Row>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Job Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -182,7 +191,7 @@ const Register = () => {
                                 placeholder="Enter Job name"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Location</Form.Label>
                             <Form.Control
                                 type="text"
@@ -192,8 +201,8 @@ const Register = () => {
                                 placeholder="Enter Location"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-                            <Form.Label>  Candidate name</Form.Label>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label> Compensation</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="Cname"
@@ -202,7 +211,7 @@ const Register = () => {
                                 placeholder="Enter Compenstion"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Resumes in Process</Form.Label>
                             <Form.Control
                                 type="text"
@@ -214,8 +223,8 @@ const Register = () => {
                                 placeholder="Resumes in Process"
                             />
                         </Form.Group>
-                      
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Hires Required</Form.Label>
                             <Form.Control
                                 type="text"
@@ -225,7 +234,7 @@ const Register = () => {
                                 placeholder="Hires Required"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Role Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -235,7 +244,7 @@ const Register = () => {
                                 placeholder="Role Name is Required"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Client Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -246,7 +255,7 @@ const Register = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Salary Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -256,7 +265,7 @@ const Register = () => {
                                 placeholder="Salary is Required"
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Drafted By</Form.Label>
                             <Form.Control
                                 type="text"
@@ -264,6 +273,16 @@ const Register = () => {
                                 value={inputdata.DraftedBy}
                                 onChange={setInputValue}
                                 placeholder="Drafted By is Required"
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Industry</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="Industry"
+                                value={inputdata.Industry}
+                                onChange={setInputValue}
+                                placeholder="Industry is Required"
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
@@ -276,26 +295,51 @@ const Register = () => {
                                 placeholder="Note is Required"
                             />
                         </Form.Group>
-                        
 
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+
+
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Select Your Workplace Type</Form.Label>
                             <Select options={options1} onChange={setWorkplaceTypeValue} />
                         </Form.Group>
-                        
 
 
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Select Your Employment Type</Form.Label>
                             <Select options={options2} onChange={setEmploymentTypeValue} />
                         </Form.Group>
-                        
-                        
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+
+
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Select SeniorityLevel Type</Form.Label>
                             <Select options={options3} onChange={setSeniorityLevelTypeValue} />
                         </Form.Group>
-                        
+                        {/* <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
+                            <Form.Label>JobDescription</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="JobDes"
+                                value={inputdata.JobDes}
+                                onChange={setInputValue}
+                                placeholder="JobDescription is Required"
+                            />
+                        </Form.Group>
+*/}<Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
+                            <Form.Label>Job Description</Form.Label>
+                            <Form.Control
+                                as="textarea"  // Set the control to be a textarea
+                                name="JobDes"
+                                value={inputdata.JobDes}
+                                onChange={setInputValue}
+                                placeholder="Job Description is Required"
+                                rows={4}  // Optional: specify the number of rows for the textarea
+                            />
+                        </Form.Group>
+
+
+
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>

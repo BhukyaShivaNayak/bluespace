@@ -38,8 +38,8 @@ const Tables = (props) => {
                                     <td className='td-custom'>{element.Hname}</td>
                                     <td className='td-custom'>{element.WorkplaceType}</td>
                                     <td className='td-custom'>{element.EmploymentType}</td>
-                                    <td className='td-custom'>{element.SeniorityLevel}</td>
-                                    <td className='td-custom'>{element.JD}</td>
+                                    <td className='td-custom'>{element.SeniorityLevelType}</td>
+                                    <td className='td-custom'>{element.JobDes}</td>
                                     <td className='td-custom'>
                                         <Dropdown>
                                             <Dropdown.Toggle className='dropdown_btn' id="dropdown-basic">
