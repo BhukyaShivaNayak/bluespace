@@ -24,14 +24,36 @@ const Register = () => {
         DraftedBy: "",
         Note: "",
         Industry: "",
-        JobDes: ""
+        JobDes: "",
+        JobID: "",
+        JobName: "",
+        OpeningDate: "",
+        ExpiryDate: "",
+        TotalOpenings: "",
+        Experience: "",
+
+
 
     });
 
     const [WorkplaceType, setWorkplaceType] = useState("");
-
     const [EmploymentType, setEmploymentType] = useState("");
     const [SeniorityLevelType, setSeniorityLevelType] = useState("");
+    const [HiringManager, setHiringManager] = useState("");
+    const [JobPostType, setJobPostType] = useState("");
+    const [JobTitle, setJobTitle] = useState("");
+    const [JobType, setJobType] = useState("");
+    const [StatusType, setStatusType] = useState("");
+    const [Priority, setPriorityType] = useState("");
+    const [Location, setLocation] = useState("");
+    const [Department, setDepartment] = useState("");
+    // const [OpeningDate,setOpeningDate]=useState("");
+    // const [ExpiryDate,setExpiryDate]=useState("");
+    // const [AboutSalary,setAboutSalary]=useState("");
+    const [SalaryType, setSalaryType] = useState("");
+
+
+
     const navigate = useNavigate();
     const { setUseradd } = useContext(addData);
 
@@ -53,6 +75,72 @@ const Register = () => {
         { value: 'Associate', label: 'Associate' },
         { value: 'Mid Level', label: 'Mid Level' },
     ];
+    const hiringManagerList = [
+        { value: 'Tejaswi Pessapati', label: 'Tejaswi Pessapati' },
+        { value: 'Sobharani D', label: 'Sobharani D' },
+        { value: 'Chandramouli Mettapalli', label: 'Chandramouli Mettapalli' },
+
+    ];
+    const JobPostTypeList = [
+        { value: "Internal", label: "Internal" },
+        { value: "Public", label: "Public" },
+        { value: "Private", label: "Private" }
+    ]
+
+    const JobTitleList = [
+        { value: "Marketing", label: "Marketing" },
+        { value: "Sales", label: "Sales" },
+        { value: "Human Resources", label: "Human Resources" },
+        { value: "IT", label: "IT" },
+        { value: "Lead Developer", label: "Lead Developer" },
+        { value: "Sr Java Developer", label: "Sr Java Developer" },
+        { value: "Sr React Developer", label: "Sr React Developer" },
+        { value: "Sr Node.js Developer", label: "Sr Node.js Developer" },
+        { value: "Business Analyst", label: "Business Analyst" },
+        { value: "L2 Production Support", label: "L2 Production Support" },
+        { value: "Sr SDET", label: "Sr SDET" },
+        { value: "SDET", label: "SDET" },
+        { value: "QA Automation Engineer", label: "QA Automation Engineer" },
+        { value: "QA Manual Engineer", label: "QA Manual Engineer" },
+        { value: "Project Manager", label: "Project Manager" },
+        { value: "PL/SQL Developer", label: "PL/SQL Developer" }
+    ]
+
+    const JobTypeList = [
+        { value: "Part Time", label: "Part Time" },
+        { value: "Full Time", label: "Full Time" }
+    ]
+
+    const StatusTypeList = [
+        { value: "Completed", label: "Completed" },
+        { value: "On Hold", label: "On Hold" },
+        { value: "In Progress", label: "In Progress" },
+        { value: "Archived", label: "Archived" }
+    ]
+
+    const PriorityList = [
+        { value: "High", label: "High" },
+        { value: "Low", label: "Low" },
+        { value: "Medium", label: "Medium" }
+
+    ]
+    const LocationList = [
+        { value: "Hyderabad", label: "Hyderbad" },
+        { value: "Phoenix,AZ" ,label: "Phoenix,AZ" }
+    ]
+    const DepartmentList = [
+        { value: "Marketing", label: "Marketing" },
+        { value: "Sales", label: "Sales" },
+        { value: "Finance", label: "Finance" },
+        { value: "Human Resource", label: "Human Resource" }
+    ]
+
+    const SalaryTypeList = [
+        { value: "Yearly", label: "Yearly" },
+        { value: "Monthly", label: "Monthly" },
+        { value: "Hourly", label: "Hourly" }
+    ]
+
     const setWorkplaceTypeValue = (e) => {
         console.log(e)
         setWorkplaceType(e.value);
@@ -66,6 +154,41 @@ const Register = () => {
         console.log(e)
         setSeniorityLevelType(e.value);
     };
+
+    const setHiringManagerValue = (e) => {
+        console.log(e)
+        setHiringManager(e.value)
+    }
+    const setJobPostTypeValue = (e) => {
+        console.log(e)
+        setJobPostType(e.value)
+    }
+    const setJobTitleValue = (e) => {
+        setJobTitle(e.value)
+    }
+    const setJobTypeValue = (e) => {
+        setJobType(e.value)
+    }
+    const setStatusTypeValue = (e) => {
+        setStatusType(e.value)
+    }
+    const setPriorityTypeValue = (e) => {
+        setPriorityType(e.value);
+    }
+
+    const setLocationValue = (e) => {
+        setLocation(e.value)
+    }
+
+    const setDepartmentValue = (e) => {
+        setDepartment(e.value)
+    }
+
+    const setSalaryTypeValue = (e) => {
+        setSalaryType(e.value)
+    }
+
+
     const setInputValue = (e) => {
         const { name, value } = e.target;
         setInputData({ ...inputdata, [name]: value });
@@ -84,7 +207,7 @@ const Register = () => {
             Client,
             Salary,
             DraftedBy,
-            Note, Industry, JobDes
+            Note, Industry, JobDes, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience
         } = inputdata;
 
         if (Jname === "") {
@@ -112,14 +235,56 @@ const Register = () => {
             toast.error("Industry is Required!");
         } else if (JobDes === "") {
             toast.error("JobDes is Required!");
-        } else if (WorkplaceType === "") {
+        } else if (JobID === "") {
+            toast.error("JobID is Required!");
+        }
+        else if (JobName === "") {
+            toast.error("Job Name is Required")
+        }
+
+        else if (OpeningDate === "") {
+            toast.error("Opening Date is Required")
+        }
+        else if (ExpiryDate === "") {
+            toast.error("Expiry Date is Required")
+        }
+        else if (TotalOpenings === "") {
+            toast.error("Total Openings is Required")
+        }
+        else if (Experience === "") {
+            toast.error("Experience is Required")
+        }
+
+
+        else if (WorkplaceType === "") {
             toast.error("Workplace is required!")
         } else if (EmploymentType === "") {
             toast.error("Employment is required!")
         } else if (SeniorityLevelType === "") {
             toast.error("Seniority is required!")
+        } else if (HiringManager === "") {
+            toast.error("Hiring Manager is required!")
+        } else if (JobPostType === "") {
+            toast.error("Job Post Type is required")
+        } else if (JobTitle === "") {
+            toast.error("Job Title is required")
         }
-
+        else if (JobType === "") {
+            toast.error("Job Type is required")
+        } else if (StatusType === "") {
+            toast.error("Status is required")
+        } else if (Priority === "") {
+            toast.error("Priority is required")
+        }
+        else if (Location === "") {
+            toast.error("Location is required")
+        }
+        else if (Department === "") {
+            toast.error("Department is Required")
+        }
+        else if (SalaryType === "") {
+            toast.error("SalaryType is Required")
+        }
 
         else {
             const data = {
@@ -133,8 +298,8 @@ const Register = () => {
                 Salary,
                 DraftedBy,
                 Note,
-                Industry,
-                WorkplaceType, EmploymentType, SeniorityLevelType, JobDes
+                Industry, JobDes, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience,
+                WorkplaceType, EmploymentType, SeniorityLevelType, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType
             };
 
             const config = {
@@ -157,11 +322,28 @@ const Register = () => {
                     DraftedBy: "",
                     Note: "",
                     Industry: "",
-                    JobDes: ""
+                    JobDes: "",
+                    JobID: "",
+                    JobName: "",
+                    OpeningDate: "",
+                    ExpiryDate: "",
+                    TotalOpenings: "",
+                    Experience: ""
                 });
                 setWorkplaceType("");
                 setEmploymentType("");
                 setSeniorityLevelType("");
+                setHiringManager("");
+                setJobPostType("");
+                setJobTitle("");
+                setJobType("");
+                setStatusType("");
+
+                setPriorityType("");
+                setLocation("");
+                setDepartment("");
+                setSalaryType("");
+
                 setUseradd(response.data)
                 navigate("/active-jobs");
             }
@@ -276,16 +458,6 @@ const Register = () => {
                             />
                         </Form.Group>
                         <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
-                            <Form.Label>Industry</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="Industry"
-                                value={inputdata.Industry}
-                                onChange={setInputValue}
-                                placeholder="Industry is Required"
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Note</Form.Label>
                             <Form.Control
                                 type="text"
@@ -295,9 +467,93 @@ const Register = () => {
                                 placeholder="Note is Required"
                             />
                         </Form.Group>
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Industry</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="Industry"
+                                value={inputdata.Industry}
+                                onChange={setInputValue}
+                                placeholder="Industry is Required"
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Job Description</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="JobDes"
+                                value={inputdata.JobDes}
+                                onChange={setInputValue}
+                                placeholder="Job Description is Required"
+                            />
+                        </Form.Group>
 
 
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Job ID</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="JobID"
+                                value={inputdata.JobID}
+                                onChange={setInputValue}
+                                placeholder="Job ID is Required"
+                            />
+                        </Form.Group>
 
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Job Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="JobName"
+                                value={inputdata.JobName}
+                                onChange={setInputValue}
+                                placeholder="Job Name is Required"
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Opening Date</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="OpeningDate"
+                                value={inputdata.OpeningDate}
+                                onChange={setInputValue}
+                                placeholder="Opening Date is Required"
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Expiry Date</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="ExpiryDate"
+                                value={inputdata.ExpiryDate}
+                                onChange={setInputValue}
+                                placeholder="Opening Date is Required"
+                            />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Total Openings</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="TotalOpenings"
+                                value={inputdata.TotalOpenings}
+                                onChange={setInputValue}
+                                placeholder="Total Openings  Required"
+                            />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                            <Form.Label>Experience</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="Experience"
+                                value={inputdata.Experience}
+                                onChange={setInputValue}
+                                placeholder="Experience Required"
+                            />
+                        </Form.Group>
 
                         <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
                             <Form.Label>Select Your Workplace Type</Form.Label>
@@ -316,17 +572,46 @@ const Register = () => {
                             <Form.Label>Select SeniorityLevel Type</Form.Label>
                             <Select options={options3} onChange={setSeniorityLevelTypeValue} />
                         </Form.Group>
-                        {/* <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
-                            <Form.Label>JobDescription</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="JobDes"
-                                value={inputdata.JobDes}
-                                onChange={setInputValue}
-                                placeholder="JobDescription is Required"
-                            />
+
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Hiring Manager</Form.Label>
+                            <Select options={hiringManagerList} onChange={setHiringManagerValue} />
                         </Form.Group>
-*/}<Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Job Post Type</Form.Label>
+                            <Select options={JobPostTypeList} onChange={setJobPostTypeValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Job Title</Form.Label>
+                            <Select options={JobTitleList} onChange={setJobTitleValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Job Type</Form.Label>
+                            <Select options={JobTypeList} onChange={setJobTypeValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Status</Form.Label>
+                            <Select options={StatusTypeList} onChange={setStatusTypeValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Priority</Form.Label>
+                            <Select options={PriorityList} onChange={setPriorityTypeValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Location</Form.Label>
+                            <Select options={LocationList} onChange={setLocationValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Department</Form.Label>
+                            <Select options={DepartmentList} onChange={setDepartmentValue} />
+                        </Form.Group>
+                        <Form.Group className="mb-3 col-lg-3" controlId="formBasicEmail">
+                            <Form.Label>Salary Typet</Form.Label>
+                            <Select options={SalaryTypeList} onChange={setSalaryTypeValue} />
+                        </Form.Group>
+
+
+                        <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
                             <Form.Label>Job Description</Form.Label>
                             <Form.Control
                                 as="textarea"  // Set the control to be a textarea

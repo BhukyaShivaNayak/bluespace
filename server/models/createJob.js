@@ -51,6 +51,51 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+ 
+    Industry: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    JobDes: {
+        type: String,
+        required: true,
+        trim: true
+    },
+
+    JobID: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    JobName: {
+        type: String,
+        required: true,
+        trim: true
+    }
+    ,
+    OpeningDate: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    ExpiryDate: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    TotalOpenings: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    
+    Experience: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    
     WorkplaceType: {
         type: String,
         required: true,
@@ -66,16 +111,63 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    Industry: {
+    HiringManager: {
+        type: String,
+        required: true,
+        trim: true
+    }
+    ,
+    JobPostType: {
         type: String,
         required: true,
         trim: true
     },
-    JobDes: {
+
+    JobTitle: {
         type: String,
         required: true,
         trim: true
     },
+
+
+
+
+
+
+
+    JobType: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    StatusType:{
+        type: String,
+        required: true,
+        trim: true
+    },
+    Priority: {
+        type: String,
+        required: true,
+        trim: true
+    },
+   Location: {
+        type: String,
+        required: true,
+        trim: true
+    }, Department: {
+        type: String,
+        required: true,
+        trim: true
+    }, 
+    SalaryType:{
+        type:String,
+        required:true,
+        trim:true
+    }
+,
+ 
+ 
+
     dateCreated: {
         type: Date,
         default: Date.now
@@ -85,7 +177,7 @@ const jobSchema = new mongoose.Schema({
         default: Date.now
     }
 }, {
-    versionKey: false  
+    versionKey: false
 });
 
 
