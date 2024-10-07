@@ -33,6 +33,7 @@ const Header=()=>
 
     return (
     <>
+  
     <div className="header">
        <div className="">
         <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724151738/logo_2_1_srvovf.png" alt="" className='logo' />
@@ -57,6 +58,7 @@ const Header=()=>
        </div>
     </div>
     <p className="name-section">Welcome {userdata.displayName},</p>
+    
     </>
 )
     }

@@ -9,12 +9,12 @@ const moment = require('moment');
 exports.createJob = async (req, res) => {
     const { Jname, Lname,Cname, Rname,Hname, Role, Client, Salary,DraftedBy,Note,Industry,JobDes,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,WorkplaceType,EmploymentType,SeniorityLevelType,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType} = req.body;
 
-    if (!Jname|| !Lname || !Cname || !Rname || !Hname || !Role || !Client || !Salary || !DraftedBy|| !Note || !Industry|| !JobDes|| !JobID||!JobName||!OpeningDate||!ExpiryDate||!TotalOpenings||!Experience||!WorkplaceType || !EmploymentType || !SeniorityLevelType ||!HiringManager||!JobPostType||!JobTitle||!JobType||!StatusType||!Priority||!Location||!Department||!SalaryType) {
+    if (!Jname|| !Lname || !Cname || !Rname || !Hname || !Role || !Client || !Salary || !DraftedBy||!Note || !Industry|| !JobDes|| !JobID||!JobName||!OpeningDate||!ExpiryDate||!TotalOpenings||!Experience||!WorkplaceType || !EmploymentType || !SeniorityLevelType ||!HiringManager||!JobPostType||!JobTitle||!JobType||!StatusType||!Priority||!Location||!Department||!SalaryType) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
     try {
-        const existingJob = await createJob.findOne({ Jname });
+        const existingJob = await createJob.findOne({ JobID });
 
         if (existingJob) {
             return res.status(400).json({ error: "This Job already exists in our database" });

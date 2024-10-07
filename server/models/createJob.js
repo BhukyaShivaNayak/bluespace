@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const jobSchema = new mongoose.Schema({
-    Jname: {
-        type: String,
-        required: true,
-        trim: true
+   Jname: {
+       type: String,
+       required: true,
+       trim: true
     },
     Lname: {
         type: String,
@@ -95,7 +95,7 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    
+
     WorkplaceType: {
         type: String,
         required: true,

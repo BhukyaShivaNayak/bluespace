@@ -1,0 +1,145 @@
+.card1 {
+    
+    display:flex;flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding:10px;
+    border-radius:10px;
+    margin:20px;
+  
+}
+.jobs-card{
+    display:flex;
+    flex-direction: row;
+  
+
+}
+.sec-1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.Info{
+    display:flex;
+    flex-direction: column;
+    margin-left:10px;
+
+}
+.within-Info{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+}
+.sec-2{
+    margin-top:10px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.info1{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.info3{
+    display: flex;
+    flex-direction: column;
+    margin-right:208px;
+    
+}
+.sec-3{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:10px;
+}
+
+.tm-info{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.job-logo{
+    background-color:#B96CE0;
+    border-radius:50px;
+    font-weight: 500;
+    font-size:28px;
+    height:50px;
+    width:50px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color:#fff;
+
+    font-size:14px;
+}
+
+.job-name{
+    font-size:16px;
+}
+.icon-part{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+}
+.des-part{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+.status-part{
+    margin-left:10px;
+}
+.fav-icon{
+    margin-right:10px;
+}
+.job-id{
+    font-size:18px;
+}
+.opening{
+    font-size:18px;
+}
+.candidate{
+    font-size:18px;
+}
+.expiry-date{
+    font-size:18px;
+}
+.Hired{
+    font-size:18px;
+}
+.tm-info{
+    display: flex;
+    border-color: lawngreen;
+ 
+    background-color: #fff;
+  
+    border-radius:18px;
+    border-style: solid;
+    border-width:1px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height:36px;
+    width:70px;
+}
+.tm-bg{
+    background-color: #82F4F9;
+    border-radius: 50px;
+    width:30px;
+    height:30px;
+    color:#fff;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 import { usergetfunc } from '../../Services/Apis';
-import Tables from '../Tables';
+//import Tables from '../Tables';
+import ListOfJobs from '../ListOfJobs'
 import Spiner from '../Spiner';
 
 
@@ -186,9 +187,10 @@ const ActiveJobs = () => {
 
 
                     {
-                        showspin ? <Spiner /> : <Tables userdata={userdata}
+                        showspin ? <Spiner /> : /*<Tables userdata={userdata}
 
-                        />
+                        />*/
+                        <ListOfJobs userdata={userdata}/>
                     }
 
                 </div>
