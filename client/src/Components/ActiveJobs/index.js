@@ -18,7 +18,7 @@ const ActiveJobs = () => {
     const [userdata, setUserData] = useState([]);
     const [showspin, setShowSpin] = useState(true)
 
-
+    console.log(userdata)
 
     const navigate = useNavigate();
 

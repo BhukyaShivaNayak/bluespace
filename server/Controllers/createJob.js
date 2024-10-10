@@ -7,9 +7,9 @@ const moment = require('moment');
 
 
 exports.createJob = async (req, res) => {
-    const { Jname, Lname,Cname, Rname,Hname, Role, Client, Salary,DraftedBy,Note,Industry,JobDes,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,WorkplaceType,EmploymentType,SeniorityLevelType,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType} = req.body;
+    const { Cname, Rname,Hname,  Salary,DraftedBy,Industry,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType} = req.body;
 
-    if (!Jname|| !Lname || !Cname || !Rname || !Hname || !Role || !Client || !Salary || !DraftedBy||!Note || !Industry|| !JobDes|| !JobID||!JobName||!OpeningDate||!ExpiryDate||!TotalOpenings||!Experience||!WorkplaceType || !EmploymentType || !SeniorityLevelType ||!HiringManager||!JobPostType||!JobTitle||!JobType||!StatusType||!Priority||!Location||!Department||!SalaryType) {
+    if (  !Cname || !Rname || !Hname ||  !Salary || !DraftedBy || !Industry||  !JobID||!JobName||!OpeningDate||!ExpiryDate||!TotalOpenings||!Experience ||!HiringManager||!JobPostType||!JobTitle||!JobType||!StatusType||!Priority||!Location||!Department||!SalaryType) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +23,7 @@ exports.createJob = async (req, res) => {
 
 
         const jobInfoData = new createJob({
-            Jname, Lname,Cname, Rname,Hname, Role, Client, Salary,DraftedBy,Note,Industry,JobDes,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,WorkplaceType,EmploymentType,SeniorityLevelType,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType
+         Cname, Rname,Hname, Salary,DraftedBy,Industry,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType
         });
 
         await jobInfoData.save();

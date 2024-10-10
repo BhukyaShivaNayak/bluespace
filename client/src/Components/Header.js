@@ -32,7 +32,7 @@ const Header=()=>
         }, [])
 
     return (
-    <>
+    <div className='s'>
   
     <div className="header">
        <div className="">
@@ -56,10 +56,12 @@ const Header=()=>
 
        </div>
        </div>
+       
     </div>
     <p className="name-section">Welcome {userdata.displayName},</p>
+  
     
-    </>
+    </div>
 )
     }
 export default Header

@@ -159,7 +159,7 @@ const Register = () => {
     const setHiringManagerValue = (e) => {
         console.log(e)
         setHiringManager(e.value)
-    }
+    }  
     const setJobPostTypeValue = (e) => {
         console.log(e)
         setJobPostType(e.value)
@@ -387,7 +387,7 @@ const Register = () => {
                                 placeholder="Enter Location"
                             />
                         </Form.Group>
-                     
+
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label> Compensation</Form.Label>
                             <Form.Control
@@ -441,7 +441,7 @@ const Register = () => {
                                 placeholder="Client Name is Required"
                             />
                         </Form.Group>
-                     
+
 
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Salary Name</Form.Label>
@@ -473,7 +473,7 @@ const Register = () => {
                                 placeholder="Note is Required"
                             />
                         </Form.Group>
-                       
+
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Industry</Form.Label>
                             <Form.Control
@@ -630,7 +630,7 @@ const Register = () => {
                             />
                         </Form.Group>
 
-                       
+
 
                         <Button variant="primary" type="submit">
                             Submit
