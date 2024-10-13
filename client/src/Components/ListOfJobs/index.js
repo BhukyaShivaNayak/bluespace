@@ -101,6 +101,11 @@ const ListOfJobs = (props) => {
                                                     Edit Job
                                                 </NavLink>
                                             </Dropdown.Item>
+                                            <Dropdown.Item>
+                                                <NavLink to={`/jobprofile/${element._id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                                    View
+                                                </NavLink>
+                                            </Dropdown.Item>
                                             <Dropdown.Item>Close Job</Dropdown.Item>
                                             <Dropdown.Item onClick="">Quick Match</Dropdown.Item>
                                         </Dropdown.Menu>

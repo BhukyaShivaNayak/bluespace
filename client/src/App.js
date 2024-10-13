@@ -14,9 +14,10 @@ import JobDescription from './Components/JobDescription'
 import Home2 from './Pages/Home2';
 import Register from './Pages/Register';
 import Register1 from './Pages/Register1'
+import Profile from './Pages/Profile';  // Correct path if the folder is named "Profile"
 
 import Edit from './Pages/Edit';
-import Profile from './Pages/Profile';
+
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
         <Route path="/register1" element={<Register1 />} />
 
         <Route path='/edit/:id' element={<Edit />} />
-        <Route path='/userprofile/:id' element={<Profile />} />
+        <Route path='/jobprofile/:id' element={<Profile />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>

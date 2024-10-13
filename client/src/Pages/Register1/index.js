@@ -114,7 +114,7 @@ const Register1 = () => {
             }
         }
     };
-   
+
 
     return (
         <div className='container'>
@@ -164,7 +164,7 @@ const Register1 = () => {
                                 placeholder="Resume"
                             />
                         </Form.Group>
-                      
+
                         <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Recruiter Feedback</Form.Label>
                             <Form.Control

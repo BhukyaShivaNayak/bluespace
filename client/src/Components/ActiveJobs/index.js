@@ -190,7 +190,7 @@ const ActiveJobs = () => {
                         showspin ? <Spiner /> : /*<Tables userdata={userdata}
 
                         />*/
-                        <ListOfJobs userdata={userdata}/>
+                            <ListOfJobs userdata={userdata} />
                     }
 
                 </div>

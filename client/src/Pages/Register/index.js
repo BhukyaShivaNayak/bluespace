@@ -14,18 +14,18 @@ import { addData } from '../../Components/context/ContextProvider';
 
 const Register = () => {
     const [inputdata, setInputData] = useState({
-       Jname: "",
+        Jname: "",
         Lname: "",
         Cname: "",
         Rname: "",
         Hname: "",
-        Role: "",
-       Client: "",
+        // Role: "",
+        Client: "",
         Salary: "",
         DraftedBy: "",
-       Note: "",
+        // Note: "",
         Industry: "",
-       JobDes: "",
+        JobDes: "",
         JobID: "",
         JobName: "",
         OpeningDate: "",
@@ -48,9 +48,8 @@ const Register = () => {
     const [Priority, setPriorityType] = useState("");
     const [Location, setLocation] = useState("");
     const [Department, setDepartment] = useState("");
-    // const [OpeningDate,setOpeningDate]=useState("");
-    // const [ExpiryDate,setExpiryDate]=useState("");
-    // const [AboutSalary,setAboutSalary]=useState("");
+   
+
     const [SalaryType, setSalaryType] = useState("");
 
 
@@ -127,7 +126,7 @@ const Register = () => {
     ]
     const LocationList = [
         { value: "Hyderabad", label: "Hyderbad" },
-        { value: "Phoenix,AZ" ,label: "Phoenix,AZ" }
+        { value: "Phoenix,AZ", label: "Phoenix,AZ" }
     ]
     const DepartmentList = [
         { value: "Marketing", label: "Marketing" },
@@ -159,7 +158,7 @@ const Register = () => {
     const setHiringManagerValue = (e) => {
         console.log(e)
         setHiringManager(e.value)
-    }  
+    }
     const setJobPostTypeValue = (e) => {
         console.log(e)
         setJobPostType(e.value)
@@ -204,12 +203,13 @@ const Register = () => {
             Cname,
             Rname,
             Hname,
-            Role,
+            // Role,
             Client,
             Salary,
             DraftedBy,
-        Note, JobDes,
-            Industry,  JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience
+            // Note, 
+            JobDes,
+            Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience
         } = inputdata;
 
         if (Jname === "") {
@@ -222,18 +222,22 @@ const Register = () => {
             toast.error("Resume  in Process!");
         } else if (Hname === "") {
             toast.error("Hires  Required!");
-        } else if (Role === "") {
-            toast.error("Role Name is Required!");
-        } else if (Client === "") {
+        } 
+        //else if (Role === "") {
+        //     toast.error("Role Name is Required!");
+        // } 
+        else if (Client === "") {
             toast.error("Client Name is Required!");
 
-        }else if (Salary === "") {
+        } else if (Salary === "") {
             toast.error("Salary is Required!");
         } else if (DraftedBy === "") {
             toast.error("Drafted By is Required!");
-        } else if (Note === "") {
-            toast.error("Note is Required!");
-        } else if (Industry === "") {
+        }
+        // else if (Note === "") {
+        //     toast.error("Note is Required!");
+        // } 
+        else if (Industry === "") {
             toast.error("Industry is Required!");
         } else if (JobDes === "") {
             toast.error("JobDes is Required!");
@@ -290,18 +294,18 @@ const Register = () => {
 
         else {
             const data = {
-            Jname,
+                Jname,
                 Lname,
                 Cname,
                 Rname,
                 Hname,
-                Role,
+                // Role,
                 Client,
                 Salary,
                 DraftedBy,
-                Note,
+                // Note,
                 JobDes,
-                Industry,  JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience,
+                Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience,
                 WorkplaceType, EmploymentType, SeniorityLevelType, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType
             };
 
@@ -319,11 +323,11 @@ const Register = () => {
                     Cname: "",
                     Rname: "",
                     Hname: "",
-                    Role: "",
+                    // Role: "",
                     Client: "",
                     Salary: "",
                     DraftedBy: "",
-                 Note: "",
+                    // Note: "",
                     Industry: "",
                     JobDes: "",
                     JobID: "",
@@ -348,13 +352,14 @@ const Register = () => {
                 setSalaryType("");
 
                 setUseradd(response.data)
-                navigate("/active-jobs");
+                
             }
             else if (response.status === 400) {
                 toast.error("Job is added already")
             }
             else {
                 toast.success("Added Job Sucessfully !");
+                navigate("/active-jobs");
             }
         }
     };
@@ -363,7 +368,7 @@ const Register = () => {
     return (
         <div className='container-form'>
             <h2 className='create-job'>Create Job Details</h2>
-                    <Card>
+            <Card>
                 <Form onSubmit={submitJobData}>
                     <Row className="form-container">
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
@@ -421,7 +426,7 @@ const Register = () => {
                                 placeholder="Hires Required"
                             />
                         </Form.Group>
-                        <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
+                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Role Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -430,7 +435,7 @@ const Register = () => {
                                 onChange={setInputValue}
                                 placeholder="Role Name is Required"
                             />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Client Name</Form.Label>
                             <Form.Control
@@ -463,7 +468,7 @@ const Register = () => {
                                 placeholder="Drafted By is Required"
                             />
                         </Form.Group>
-                        <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
+                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Note</Form.Label>
                             <Form.Control
                                 type="text"
@@ -472,7 +477,7 @@ const Register = () => {
                                 onChange={setInputValue}
                                 placeholder="Note is Required"
                             />
-                        </Form.Group>
+                        </Form.Group> */}
 
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Industry</Form.Label>
@@ -485,7 +490,7 @@ const Register = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
+                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Job Description</Form.Label>
                             <Form.Control
                                 type="text"
@@ -494,7 +499,7 @@ const Register = () => {
                                 onChange={setInputValue}
                                 placeholder="Job Description is Required"
                             />
-                        </Form.Group>
+                        </Form.Group> */}
 
 
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
@@ -562,9 +567,9 @@ const Register = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group  className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
+                        <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label >Select Your Workplace Type</Form.Label>
-                            <Select style={{backgroundColor: "lightblue"}} options={options1} onChange={setWorkplaceTypeValue} />
+                            <Select style={{ backgroundColor: "lightblue" }} options={options1} onChange={setWorkplaceTypeValue} />
                         </Form.Group>
 
 
@@ -614,11 +619,11 @@ const Register = () => {
                         </Form.Group>
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Salary Typet</Form.Label>
-                            <Select  options={SalaryTypeList} onChange={setSalaryTypeValue} />
+                            <Select options={SalaryTypeList} onChange={setSalaryTypeValue} />
                         </Form.Group>
 
 
-                       <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
                             <Form.Label>Job Description</Form.Label>
                             <Form.Control
                                 as="textarea"  // Set the control to be a textarea

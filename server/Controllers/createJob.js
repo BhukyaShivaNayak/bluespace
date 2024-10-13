@@ -7,9 +7,9 @@ const moment = require('moment');
 
 
 exports.createJob = async (req, res) => {
-    const { Cname, Rname,Hname,  Salary,DraftedBy,Industry,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType} = req.body;
+    const { Cname, Rname, Hname, Salary, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes } = req.body;
 
-    if (  !Cname || !Rname || !Hname ||  !Salary || !DraftedBy || !Industry||  !JobID||!JobName||!OpeningDate||!ExpiryDate||!TotalOpenings||!Experience ||!HiringManager||!JobPostType||!JobTitle||!JobType||!StatusType||!Priority||!Location||!Department||!SalaryType) {
+    if (!Cname || !Rname || !Hname || !Salary || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !SalaryType || !JobDes) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +23,7 @@ exports.createJob = async (req, res) => {
 
 
         const jobInfoData = new createJob({
-         Cname, Rname,Hname, Salary,DraftedBy,Industry,JobID,JobName,OpeningDate,ExpiryDate,TotalOpenings,Experience,HiringManager,JobPostType,JobTitle,JobType,StatusType,Priority,Location,Department,SalaryType
+            Cname, Rname, Hname, Salary, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes
         });
 
         await jobInfoData.save();
@@ -47,6 +47,30 @@ exports.getJob = async (req, res) => {
     }
 };
 
+
+//single job
+
+// Updated controller to handle fetching a single job
+exports.getsingleJob = async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+        // Search for the job using the provided ID
+        const singleJob = await createJob.findOne({ _id: id });
+
+        // If no job is found, return a 404 error
+        if (!singleJob) {
+            return res.status(404).json({ message: 'Job not found' });
+        }
+
+        // If job is found, return it in the response
+        res.status(200).json(singleJob);
+    } catch (e) {
+        // Handle unexpected errors
+        console.error(e);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
 
 

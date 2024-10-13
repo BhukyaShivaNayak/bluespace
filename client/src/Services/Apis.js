@@ -6,10 +6,18 @@ export const registerfunc = async (data, header) => {
     return await commonrequest("POST", `${BASE_URL}/user/register`, data, header);
 }
 
+
+export const updateRegisterfunc = async (data, header) => {
+    return await commonrequest("PUT", `${BASE_URL}/user/register/:id`, data, header);
+}
+
 export const usergetfunc = async () => {
     return await commonrequest("GET", `${BASE_URL}/user/details`, "", "");
 }
 
+export const getsingleJobfunc=async(id)=>{
+    return await commonrequest("GET", `${BASE_URL}/user/${id}`, "", "");
+}
 
 export const registerfunc1 = async (data, header) => {
     return await commonrequest("POST", `${BASE_URL}/user/register1`, data, header);
