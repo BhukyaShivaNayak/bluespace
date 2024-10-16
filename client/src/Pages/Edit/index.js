@@ -368,7 +368,7 @@ const Edit = () => {
 
     return (
         <>
-            <div className='container'>
+            <div className='edit-container'>
                 <h2 className='create-job'>Update Job Details</h2>
                 <Card className='card'>
                 <Form onSubmit={submitJobUpdateData}>

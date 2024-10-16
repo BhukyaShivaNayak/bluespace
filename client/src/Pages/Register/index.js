@@ -8,8 +8,11 @@ import Select from 'react-select';
 import Row from 'react-bootstrap/Row';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import './index.css';
-import { useNavigate } from 'react-router-dom';
+
 import { addData } from '../../Components/context/ContextProvider';
 
 const Register = () => {
@@ -48,13 +51,14 @@ const Register = () => {
     const [Priority, setPriorityType] = useState("");
     const [Location, setLocation] = useState("");
     const [Department, setDepartment] = useState("");
-   
+
 
     const [SalaryType, setSalaryType] = useState("");
 
 
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+
     const { setUseradd } = useContext(addData);
 
     const options1 = [
@@ -222,7 +226,7 @@ const Register = () => {
             toast.error("Resume  in Process!");
         } else if (Hname === "") {
             toast.error("Hires  Required!");
-        } 
+        }
         //else if (Role === "") {
         //     toast.error("Role Name is Required!");
         // } 
@@ -352,18 +356,34 @@ const Register = () => {
                 setSalaryType("");
 
                 setUseradd(response.data)
-                
+
             }
             else if (response.status === 400) {
                 toast.error("Job is added already")
             }
             else {
                 toast.success("Added Job Sucessfully !");
-                navigate("/active-jobs");
+                // navigate("/active-jobs");
             }
         }
     };
 
+
+  const  modules = {
+        toolbar: [
+            [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'align': [] }],
+            ['bold', 'italic', 'underline'],
+            ['link'],
+            [{ 'indent': '-1' }, { 'indent': '+1' }],
+            [{ 'direction': 'rtl' }],
+        ],
+    };
+
+ const   formats = [
+        'header', 'font', 'list', 'bullet', 'align', 'bold', 'italic', 'underline', 'link', 'indent', 'direction'
+    ];
 
     return (
         <div className='container-form'>
@@ -426,16 +446,7 @@ const Register = () => {
                                 placeholder="Hires Required"
                             />
                         </Form.Group>
-                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                            <Form.Label>Role Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="Role"
-                                value={inputdata.Role}
-                                onChange={setInputValue}
-                                placeholder="Role Name is Required"
-                            />
-                        </Form.Group> */}
+                     
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Client Name</Form.Label>
                             <Form.Control
@@ -468,16 +479,7 @@ const Register = () => {
                                 placeholder="Drafted By is Required"
                             />
                         </Form.Group>
-                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                            <Form.Label>Note</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="Note"
-                                value={inputdata.Note}
-                                onChange={setInputValue}
-                                placeholder="Note is Required"
-                            />
-                        </Form.Group> */}
+                     
 
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Industry</Form.Label>
@@ -490,17 +492,7 @@ const Register = () => {
                             />
                         </Form.Group>
 
-                        {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                            <Form.Label>Job Description</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="JobDes"
-                                value={inputdata.JobDes}
-                                onChange={setInputValue}
-                                placeholder="Job Description is Required"
-                            />
-                        </Form.Group> */}
-
+             
 
                         <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                             <Form.Label>Job ID</Form.Label>
@@ -623,21 +615,19 @@ const Register = () => {
                         </Form.Group>
 
 
-                        <Form.Group className="mb-3 col-lg-12" controlId="formBasicEmail">
+                        <Form.Group className="mb-3 col-lg-12" controlId="formBasicJobDes">
                             <Form.Label>Job Description</Form.Label>
-                            <Form.Control
-                                as="textarea"  // Set the control to be a textarea
-                                name="JobDes"
+                            <ReactQuill
                                 value={inputdata.JobDes}
-                                onChange={setInputValue}
+                                onChange={(value) => setInputData({ ...inputdata, JobDes: value })}
                                 placeholder="Job Description is Required"
-                                rows={4}  // Optional: specify the number of rows for the textarea
+                                modules={modules}
+                                formats={formats}
+                                style={{ height: '150px' }}
                             />
                         </Form.Group>
 
-
-
-                        <Button variant="primary" type="submit">
+                        <Button className='submit-btn' variant="primary" type="submit">
                             Submit
                         </Button>
                     </Row>
@@ -648,5 +638,6 @@ const Register = () => {
         </div>
     );
 };
+
 
 export default Register;

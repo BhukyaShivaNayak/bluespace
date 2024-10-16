@@ -1,5 +1,5 @@
 .notepad {
-    height: 51vh;
+    height: 54vh;
     width: 25vw;
 
     border-style: solid;
@@ -29,10 +29,10 @@
 
 .list-container {
     max-height: 120px;
-    /* Adjust based on your design */
+
     overflow-y: auto;
     overflow-x: hidden;
-    /* Add vertical scrollbar if needed */
+
     border: 0px solid #ddd;
     padding: 10px;
 
@@ -44,12 +44,12 @@
 
 .list-container::-webkit-scrollbar-track {
     background: transparent;
-    /* Hide the track background */
+
 }
 
 .list-container::-webkit-scrollbar {
     width: 2px;
-    /* Adjust scrollbar width */
+
 }
 
 .main-item {
@@ -133,4 +133,12 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+.task-item {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    margin: 5px 0;
+    padding: 10px;
 }

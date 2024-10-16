@@ -1,9 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
 
 const Notepad = () => {
-    const [input, setInput] = useState('');
+    const [title, setTitle] = useState(''); // State for the task title
+    const [description, setDescription] = useState(''); // State for the description/subtasks
     const [userdata, setUserdata] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const [tasks, setTasks] = useState(() => {
@@ -28,26 +30,28 @@ const Notepad = () => {
     const getUser = async () => {
         try {
             const response = await axios.get("http://localhost:6007/login/sucess", { withCredentials: true });
-            const firstName = response.data.user.displayName.split(' ')[0]; // Get the first name
-            setUserdata(firstName); // Store only the first name
+            const firstName = response.data.user.displayName.split(' ')[0];
+            setUserdata(firstName);
         } catch (error) {
             console.log("error", error);
         }
     };
 
     const addTask = () => {
-        if (input.trim() === '') return;
+        if (title.trim() === '' || description.trim() === '') return;
 
-        const lines = input.trim().split('\n');
+        const subtasks = description.trim().split('\n').filter(line => line.trim() !== '');
+
         const newTask = {
-            title: lines[0].trim(),
-            tasks: lines.slice(1).filter(line => line.trim() !== ''),
-            candidateName: userdata, // Use first name
+            title: title.trim(),
+            tasks: subtasks, 
+            candidateName: userdata,
             backgroundColor: getRandomLightColor()
         };
 
         setTasks([...tasks, newTask]);
-        setInput('');
+        setTitle(''); 
+        setDescription(''); 
     };
 
     const deleteTask = (index) => {
@@ -62,9 +66,21 @@ const Notepad = () => {
         return `rgb(${r}, ${g}, ${b}, 0.2)`;
     };
 
-    const filteredTasks = tasks.filter(task =>
-        task.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+   
+    const filteredTasks = tasks.filter(task => {
+        const searchLower = searchQuery.toLowerCase();
+        
+        
+        const isTitleMatch = task.title.toLowerCase().includes(searchLower);
+
+        
+        const isSubtaskMatch = task.tasks.some(subtask => 
+            subtask.toLowerCase().includes(searchLower)
+        );
+
+        
+        return isTitleMatch || isSubtaskMatch;
+    });
 
     return (
         <div className="notepad" style={{ backgroundColor: bgColor }}>
@@ -105,12 +121,23 @@ const Notepad = () => {
                 />
             </div>
             <div className="text-area">
-                <textarea
-                    placeholder="Enter title on the first line, tasks on subsequent lines"
-                    className="textarea-input"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
+           
+                <input
+                    type="text"
+                    placeholder="Enter task title"
+                    className="input-title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
+
+            
+                <textarea
+                    placeholder="Enter subtasks (one per line)"
+                    className="textarea-input"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+
                 <div className="list-container">
                     {filteredTasks.map((item, index) => (
                         <div key={index} className="main-item" style={{ backgroundColor: item.backgroundColor }}>
@@ -128,7 +155,7 @@ const Notepad = () => {
                             <ul>
                                 {item.tasks.map((taskItem, i) => (
                                     <li key={i} className="task-item" style={{ fontSize: fontSize }}>
-                                        • {taskItem}
+                                        {taskItem}
                                     </li>
                                 ))}
                             </ul>

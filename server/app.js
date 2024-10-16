@@ -17,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 6007
+const CLIENTID = process.env.CLIENTID
+const CLIENTSECRET=process.env.CLIENTSECRET  
+
 
 app.use(cors());
 
@@ -36,8 +39,7 @@ const jobdb = require('./models/jobSchema');
 const createJob = require('./models/createJob')
 
 
-const clientid = "347066522201-5ia9lhqemoosjovhjnjqu6gfhdeioeg5.apps.googleusercontent.com";
-const clientsecret = "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";
+
 
 
 
@@ -69,8 +71,8 @@ app.use(passport.session());
 
 passport.use(
     new OAuth2Strategy({
-        clientID: clientid,
-        clientSecret: clientsecret,
+        clientID:CLIENTID,
+        clientSecret:CLIENTSECRET,
         callbackURL: "/auth/google/callback",
         scope: ["profile", "email"]
     },

@@ -129,3 +129,24 @@
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     /* Add shadow on focus */
 }
+
+.submit-btn {
+    margin-top: 40px;
+}
+
+ol {
+    list-style-type: decimal; /* Numbers for ordered lists */
+    padding-left: 20px;      /* Indent ordered lists */
+}
+
+ul {
+    list-style-type: disc;    /* Bullets for unordered lists */
+    padding-left: 20px;      /* Indent unordered lists */
+}
+
+li {
+    list-style-type: inherit; /* Inherit styles from parent */
+    font-family: "PT Sans", sans-serif;
+    font-size: 15px;
+    margin: 10px 0;          /* Vertical spacing for list items */
+}

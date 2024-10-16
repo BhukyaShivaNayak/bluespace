@@ -36,12 +36,12 @@
 
 // //     useEffect(() => {
 // //         jobProfileGet();
-    
+
 // //         setTimeout(() => {
 // //             setShowSpin(false);
 // //         }, 1200);
 // //     }, [id, jobProfileGet]); // Add jobProfileGet to the dependency array
-    
+
 
 // //     return (<>
 
@@ -84,7 +84,7 @@
 // //                 <p>{jobProfile.SalaryType}</p>
 // //                 </div>
 // //             </Card.Body>
-            
+
 // //             </Card>}
 
 // //     </>
@@ -182,10 +182,20 @@ import Spiner from '../../Components/Spiner';
 import { getsingleJobfunc } from '../../Services/Apis';
 import "./index.css";
 
+
+
+
+
+
+import DOMPurify from 'dompurify';
+
+
+
+
 const Profile = () => {
     const [jobProfile, setJobProfile] = useState({});
     const [showspin, setShowSpin] = useState(true);
-    const { id } = useParams(); // Get job ID from URL params
+    const { id } = useParams();
 
     useEffect(() => {
         // Define the async function to fetch job data
@@ -206,16 +216,18 @@ const Profile = () => {
 
         // Call the function to fetch the job profile
         jobProfileGet();
-    
+
         // Hide spinner after 1.2 seconds
         setTimeout(() => {
             setShowSpin(false);
         }, 1200);
     }, [id]); // Dependency on job ID
 
+
+
     return (
         <>
-            {showspin ? <Spiner /> : 
+            {showspin ? <Spiner /> :
                 <Card>
                     <Card.Body>
                         <Row></Row>
@@ -231,7 +243,10 @@ const Profile = () => {
                             <p>{jobProfile.DraftedBy}</p>
                             <p>{jobProfile.Note}</p>
                             <p>{jobProfile.Industry}</p>
-                            <p>{jobProfile.JobDes}</p>
+                            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(jobProfile.JobDes) }} />
+
+
+
                             <p>{jobProfile.JobID}</p>
                             <p>{jobProfile.JobName}</p>
                             <p>{jobProfile.OpeningDate}</p>

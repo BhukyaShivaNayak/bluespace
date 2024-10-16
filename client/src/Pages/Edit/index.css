@@ -1,0 +1,14 @@
+.edit-container {
+    height: 270vh;
+    background-size: cover;
+    padding: 20px;
+    margin-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+.create-job {
+    text-align: center;
+    display: flex;
+    align-self: center;
+}

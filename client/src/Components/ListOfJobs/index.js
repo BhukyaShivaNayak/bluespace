@@ -95,7 +95,7 @@ const ListOfJobs = (props) => {
                                             <FaEllipsisV size={20} color="black" />
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
-                                            <Dropdown.Item>Submit Job</Dropdown.Item>
+                                            {/* <Dropdown.Item>Submit Job</Dropdown.Item> */}
                                             <Dropdown.Item>
                                                 <NavLink to={`/edit/${element._id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                                     Edit Job
@@ -107,7 +107,7 @@ const ListOfJobs = (props) => {
                                                 </NavLink>
                                             </Dropdown.Item>
                                             <Dropdown.Item>Close Job</Dropdown.Item>
-                                            <Dropdown.Item onClick="">Quick Match</Dropdown.Item>
+                                            {/* <Dropdown.Item onClick="">Quick Match</Dropdown.Item> */}
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </div>
