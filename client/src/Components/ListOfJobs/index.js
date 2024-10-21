@@ -53,8 +53,8 @@ const ListOfJobs = (props) => {
         for (let i = 0; i < name.length; i++) {
             hash += name.charCodeAt(i);
         }
-        const hue = hash % 360; // Get hue value for HSL
-        return `hsl(${hue}, 70%, 80%)`; // Light color
+        const hue = hash % 360; 
+        return `hsl(${hue}, 70%, 80%)`; 
     };
 
     return (
@@ -95,7 +95,7 @@ const ListOfJobs = (props) => {
                                             <FaEllipsisV size={20} color="black" />
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
-                                            {/* <Dropdown.Item>Submit Job</Dropdown.Item> */}
+                                           
                                             <Dropdown.Item>
                                                 <NavLink to={`/edit/${element._id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                                     Edit Job
@@ -107,7 +107,7 @@ const ListOfJobs = (props) => {
                                                 </NavLink>
                                             </Dropdown.Item>
                                             <Dropdown.Item>Close Job</Dropdown.Item>
-                                            {/* <Dropdown.Item onClick="">Quick Match</Dropdown.Item> */}
+                                            
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </div>
@@ -126,16 +126,7 @@ const ListOfJobs = (props) => {
                                     <p>2</p>
                                 </div>
                             </div>
-                            {/* <div className='sec-3'>
-                                <div className='info1'>
-                                    <h1 className='expiry-date'>Expiry Date</h1>
-                                    <p>{element.ExpiryDate}</p>
-                                </div>
-                                <div className='info3'>
-                                    <h1 className='Hired'>Hired</h1>
-                                    <p>0</p>
-                                </div>
-                            </div> */}
+              
                             <div className='sec-3'>
     <div className='info1'>
         <h1 className='expiry-date'>Expiry Date</h1>

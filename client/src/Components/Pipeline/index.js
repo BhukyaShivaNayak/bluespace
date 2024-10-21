@@ -2,37 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-import { usergetfunc1 } from '../../Services/Apis';
-import Tables1 from "../../Components/Tables1"
+import { usergetfunc } from '../../Services/Apis';
+//import Tables from '../Tables';
+import ListOfJobs from '../ListOfJobs'
 import Spiner from '../Spiner';
+
 
 
 import './index.css';
 
-const Pipeline = () => {
+const ActiveJobs = () => {
     const [isActive1, setIsActive1] = useState(false);
     const [isActive2, setIsActive2] = useState(false);
     const [isActive3, setIsActive3] = useState(false);
 
-    const [userdata1, setUserData] = useState([]);
+    const [userdata, setUserData] = useState([]);
     const [showspin, setShowSpin] = useState(true)
 
-
+    console.log(userdata)
 
     const navigate = useNavigate();
 
-    const addPerson = () => {
+    const addUser = () => {
         navigate("/register1");
     }
 
     const userGet = async () => {
-        const response = await usergetfunc1();
-        console.log(response)
-
-        console.log(response.data + "response data")
-        setUserData(response.data)
+        const response = await usergetfunc();
         if (response.status === 200) {
-            // setUserData(response.data);
+            setUserData(response.data);
 
 
         } else {
@@ -134,7 +132,7 @@ const Pipeline = () => {
             </button>
         );
     }
-
+    console.log(userdata)
 
     return (
         <>
@@ -181,8 +179,9 @@ const Pipeline = () => {
                 <div className='non-drawer'>
                     <div className='createjob-container'>
                         <div className='button-p'>
-                            <button className='b  btn-primary' onClick={addPerson}>Add new candidates</button>
-                            <button className='b'>Archived Candidates</button>
+                            <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
+                            {/* <button className='btn-job'>Closed Jobs</button> */}
+
                         </div>
 
 
@@ -190,9 +189,10 @@ const Pipeline = () => {
 
 
                     {
-                        showspin ? <Spiner /> : <Tables1 userdata1={userdata1}
+                        showspin ? <Spiner /> : /*<Tables userdata={userdata}
 
-                        />
+                        />*/
+                            <ListOfJobs userdata={userdata} />
                     }
 
                 </div>
@@ -201,4 +201,4 @@ const Pipeline = () => {
     );
 };
 
-export default Pipeline;
+export default ActiveJobs;

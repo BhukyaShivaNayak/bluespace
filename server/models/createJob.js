@@ -21,11 +21,11 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    Hname: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    // Hname: {
+    //     type: String,
+    //     required: true,
+    //     trim: true
+    // },
     // Role: {
     //     type: String,
     //     required: true,
@@ -36,11 +36,11 @@ const jobSchema = new mongoose.Schema({
     //     required: true,
     //     trim: true
     // },
-    Salary: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    // Salary: {
+    //     type: String,
+    //     required: true,
+    //     trim: true
+    // },
     DraftedBy: {
         type: String,
         required: true,
@@ -56,6 +56,13 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    ProjectName:{
+        type: String,
+        required: true,
+        trim: true
+    },
+
+
     JobDes: {
         type: String,
         required: true,
@@ -64,7 +71,7 @@ const jobSchema = new mongoose.Schema({
     JobID: {
         type: String,
         required: true,
-        unique: true, 
+        unique: true,
         trim: true
     },
     JobName: {
@@ -151,6 +158,7 @@ const jobSchema = new mongoose.Schema({
         trim: true
     },
     
+
     dateCreated: {
         type: Date,
         default: Date.now
@@ -166,13 +174,13 @@ const jobSchema = new mongoose.Schema({
 
 jobSchema.statics.generateJobID = async function () {
     const lastJob = await this.findOne({}, {}, { sort: { JobID: -1 } });
-    const nextID = lastJob ? parseInt(lastJob.JobID) + 1 : 1; 
-    return String(nextID).padStart(3, '0'); 
+    const nextID = lastJob ? parseInt(lastJob.JobID) + 1 : 1;
+    return String(nextID).padStart(3, '0');
 };
 
 jobSchema.pre('save', async function (next) {
     if (this.isNew) {
-        this.JobID = await this.constructor.generateJobID(); 
+        this.JobID = await this.constructor.generateJobID();
     }
     next();
 });

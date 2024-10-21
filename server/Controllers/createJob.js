@@ -7,9 +7,9 @@ const moment = require('moment');
 
 
 exports.createJob = async (req, res) => {
-    const { Cname, Rname, Hname, Salary, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes } = req.body;
+    const { Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes ,ProjectName} = req.body;
 
-    if (!Cname || !Rname || !Hname || !Salary || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !SalaryType || !JobDes) {
+    if (!ProjectName||!Cname || !Rname   || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings  || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !SalaryType || !JobDes) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +23,7 @@ exports.createJob = async (req, res) => {
 
 
         const jobInfoData = new createJob({
-            Cname, Rname, Hname, Salary, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes
+            Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings,ProjectName, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes
         });
 
         await jobInfoData.save();
@@ -51,25 +51,48 @@ exports.getJob = async (req, res) => {
 
 exports.getsingleJob = async (req, res) => {
     const { id } = req.params;
-    
+
     try {
-      
+
         const singleJob = await createJob.findOne({ _id: id });
 
-     
+
         if (!singleJob) {
             return res.status(404).json({ message: 'Job not found' });
         }
 
-       
+
         res.status(200).json(singleJob);
     } catch (e) {
-       
+
         console.error(e);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
 
+
+exports.jobedit=async(req,res)=>{
+
+    const { id } = req.params;
+    const {ProjectName, Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes } = req.body;
+
+
+const dateUpdated=moment(new Date()).format("YYYY-MM-DD hh:mm:ss")
+
+try {
+    const updatejob=await createJob.findByIdAndUpdated({_id:id},{
+        ProjectName, Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes,dateUpdated
+    },{
+        new:true
+    });
+
+    await updatejob.save();
+    res.status(200).json(updatejob)
+} catch (error) {
+    res.status(401).json(error)
+}
+
+}
 
 
 exports.candidate = async (req, res) => {
@@ -114,33 +137,33 @@ exports.getcandidate = async (req, res) => {
 };
 
 
-exports.useredit = async (req, res) => {
-    const { id } = req.params;
-    const { Jname,
-        Lname,
-        Cname,
-        Rname,
-        Hname,
-        dateCreated } = req.body;
+// exports.useredit = async (req, res) => {
+//     const { id } = req.params;
+//     const { Jname,
+//         Lname,
+//         Cname,
+//         Rname,
+//         Hname,
+//         dateCreated } = req.body;
 
 
-    const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss");
+//     const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss");
 
-    try {
-        const updateuser = await users.findByIdAndUpdate({ _id: id }, {
-            Jname,
-            Lname,
-            Cname,
-            Rname,
-            Hname,
-            dateCreated
-        }, {
-            new: true
-        });
+//     try {
+//         const updateuser = await users.findByIdAndUpdate({ _id: id }, {
+//             Jname,
+//             Lname,
+//             Cname,
+//             Rname,
+//             Hname,
+//             dateCreated
+//         }, {
+//             new: true
+//         });
 
-        await updateuser.save();
-        res.status(200).json(updateuser);
-    } catch (error) {
-        res.status(401).json(error)
-    }
-}
+//         await updateuser.save();
+//         res.status(200).json(updateuser);
+//     } catch (error) {
+//         res.status(401).json(error)
+//     }
+// }

@@ -179,7 +179,7 @@ const ActiveJobs = () => {
                     <div className='createjob-container'>
                         <div className='button-p'>
                             <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
-                            <button className='btn-job'>Closed Jobs</button>
+                            {/* <button className='btn-job'>Closed Jobs</button> */}
                         </div>
 
 

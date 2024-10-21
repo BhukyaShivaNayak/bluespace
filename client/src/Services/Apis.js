@@ -7,8 +7,10 @@ export const registerfunc = async (data, header) => {
 }
 
 
-export const updateRegisterfunc = async (data, header) => {
-    return await commonrequest("PUT", `${BASE_URL}/user/register/:id`, data, header);
+
+
+export const updateRegisterfunc = async(id,data,header)=>{
+    return await commonrequest("PUT",`${BASE_URL}/user/edit/${id}`,data,header);
 }
 
 export const usergetfunc = async () => {

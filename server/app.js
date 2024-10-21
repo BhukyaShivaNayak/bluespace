@@ -15,8 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-const PORT = process.env.PORT || 6007
+const PORT = process.env.PORT || 6007;
 const CLIENTID = process.env.CLIENTID
 const CLIENTSECRET=process.env.CLIENTSECRET  
 

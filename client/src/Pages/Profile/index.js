@@ -180,14 +180,17 @@ import Row from 'react-bootstrap/esm/Row';
 import { useParams } from 'react-router-dom';
 import Spiner from '../../Components/Spiner';
 import { getsingleJobfunc } from '../../Services/Apis';
+
 import "./index.css";
 
 
-
-
-
-
 import DOMPurify from 'dompurify';
+const moment = require('moment');
+
+
+
+
+
 
 
 
@@ -196,6 +199,8 @@ const Profile = () => {
     const [jobProfile, setJobProfile] = useState({});
     const [showspin, setShowSpin] = useState(true);
     const { id } = useParams();
+
+    
 
     useEffect(() => {
         // Define the async function to fetch job data
@@ -232,14 +237,15 @@ const Profile = () => {
                     <Card.Body>
                         <Row></Row>
                         <div className='text-center'>
-                            <p>{jobProfile.Jname}</p>
-                            <p>{jobProfile.Lname}</p>
+                            {/* <p>{jobProfile.Jname}</p> */}
+                            {/* <p>{jobProfile.Lname}</p> */}
+                            <p>{jobProfile.JobName}</p>
                             <p>{jobProfile.Cname}</p>
                             <p>{jobProfile.Rname}</p>
-                            <p>{jobProfile.Hname}</p>
+                            {/* <p>{jobProfile.Hname}</p> */}
                             <p>{jobProfile.Role}</p>
                             <p>{jobProfile.Client}</p>
-                            <p>{jobProfile.Salary}</p>
+                            <p>{jobProfile.ProjectName}</p>
                             <p>{jobProfile.DraftedBy}</p>
                             <p>{jobProfile.Note}</p>
                             <p>{jobProfile.Industry}</p>
@@ -248,9 +254,9 @@ const Profile = () => {
 
 
                             <p>{jobProfile.JobID}</p>
-                            <p>{jobProfile.JobName}</p>
-                            <p>{jobProfile.OpeningDate}</p>
-                            <p>{jobProfile.ExpiryDate}</p>
+                            
+                            <p>{moment(jobProfile.OpeningDate).format("DD-MM-YYYY")}</p>
+                            <p>{moment(jobProfile.ExpiryDate).format("DD-MM-YYYY")}</p>
                             <p>{jobProfile.TotalOpenings}</p>
                             <p>{jobProfile.Experience}</p>
                             <p>{jobProfile.WorkplaceType}</p>

@@ -135,18 +135,28 @@
 }
 
 ol {
-    list-style-type: decimal; /* Numbers for ordered lists */
-    padding-left: 20px;      /* Indent ordered lists */
+    list-style-type: decimal;
+    /* Numbers for ordered lists */
+    padding-left: 20px;
+    /* Indent ordered lists */
 }
 
 ul {
-    list-style-type: disc;    /* Bullets for unordered lists */
-    padding-left: 20px;      /* Indent unordered lists */
+    list-style-type: disc;
+    /* Bullets for unordered lists */
+    padding-left: 20px;
+    /* Indent unordered lists */
 }
 
 li {
-    list-style-type: inherit; /* Inherit styles from parent */
+    list-style-type: inherit;
+    /* Inherit styles from parent */
     font-family: "PT Sans", sans-serif;
     font-size: 15px;
-    margin: 10px 0;          /* Vertical spacing for list items */
+    margin: 10px 0;
+    /* Vertical spacing for list items */
+}
+
+.job-thing{
+    margin-top:200px;
 }
