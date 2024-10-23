@@ -157,6 +157,24 @@ li {
     /* Vertical spacing for list items */
 }
 
-.job-thing{
-    margin-top:200px;
+.job-thing {
+    margin-top: 200px;
 }
+
+
+.input-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-text {
+    width: 430px;
+}
+
+
+.input-text::-webkit-input-placeholder {
+    color: transparent; /* Hides the placeholder */
+  }

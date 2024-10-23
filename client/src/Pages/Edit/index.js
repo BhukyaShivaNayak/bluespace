@@ -180,8 +180,8 @@ console.log(inputdata)
     };
 
     const validateStep1 = () => {
-        const {ProjectName, Cname, Rname,  Client,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience } = inputdata;
-        if ( !ProjectName||!Cname || !Rname || !Client || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience) {
+        const {ProjectName, Cname, Rname,  Client,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience,SeniorityLevelType,WorkplaceType } = inputdata;
+        if ( !ProjectName||!Cname || !Rname || !Client || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !SeniorityLevelType || !WorkplaceType) {
             toast.error("Please fill all the fields ");
             return false;
         }

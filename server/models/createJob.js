@@ -31,11 +31,11 @@ const jobSchema = new mongoose.Schema({
     //     required: true,
     //     trim: true
     // },
-    // Client: {
-    //     type: String,
-    //     required: true,
-    //     trim: true
-    // },
+    Client: {
+        type: String,
+        required: true,
+        trim: true
+    },
     // Salary: {
     //     type: String,
     //     required: true,
@@ -97,21 +97,21 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    // WorkplaceType: {
-    //     type: String,
-    //     required: true,
-    //     trim: true
-    // },
+    WorkplaceType: {
+        type: String,
+        required: true,
+        trim: true
+    },
     // EmploymentType: {
     //     type: String,
     //     required: true,
     //     trim: true
     // },
-    // SeniorityLevelType: {
-    //     type: String,
-    //     required: true,
-    //     trim: true
-    // },
+    SeniorityLevelType: {
+        type: String,
+        required: true,
+        trim: true
+    },
     HiringManager: {
         type: String,
         required: true,
@@ -157,7 +157,10 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    
+    SkillsMustHave: {
+        type: [String], // Array of strings
+        required:true, // You can adjust this based on your requirements
+    },
 
     dateCreated: {
         type: Date,

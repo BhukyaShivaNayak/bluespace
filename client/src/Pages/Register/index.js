@@ -12,7 +12,7 @@ import { addData } from '../../Components/context/ContextProvider';
 
 const Register = () => {
     const [inputdata, setInputData] = useState({
-        // Jname: "",
+
 
         Cname: "",
         Rname: "",
@@ -41,10 +41,21 @@ const Register = () => {
         Location: "",
         Department: "",
         SalaryType: "",
+        SkillsMustHave: []
     });
 
     const [step, setStep] = useState(1);
     const { setUseradd } = useContext(addData);
+
+    const skillsList = [
+        { value: 'Java', label: 'Java' },
+        { value: 'JavaScript', label: 'JavaScript' },
+        { value: 'Python', label: 'Python' },
+        { value: 'C++', label: 'C++' },
+        { value: 'React', label: 'React' },
+        { value: 'Node.js', label: 'Node.js' },
+        // Add more skills as needed
+    ];
 
     const options1 = [
         { value: 'Onsite', label: 'Onsite' },
@@ -52,12 +63,7 @@ const Register = () => {
         { value: 'Hybrid', label: 'Hybrid' },
     ];
 
-    // const options2 = [
-    //     { value: 'Full Time', label: 'Full Time' },
-    //     { value: 'Contract', label: 'Contract' },
-    //     { value: 'Part Time', label: 'Part Time' },
-    //     { value: 'Internship', label: 'Internship' }
-    // ];
+
 
     const options3 = [
         { value: 'Internship', label: 'Internship' },
@@ -151,6 +157,16 @@ const Register = () => {
         'header', 'font', 'list', 'bullet', 'align', 'bold', 'italic', 'underline', 'link', 'indent', 'direction'
     ];
 
+
+
+    const handleSkillsChange = (selectedOptions) => {
+        setInputData((prev) => ({
+            ...prev,
+            SkillsMustHave: selectedOptions ? selectedOptions.map(option => option.value) : []
+        }));
+    };
+
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setInputData(prev => ({ ...prev, [name]: value }));
@@ -166,8 +182,9 @@ const Register = () => {
         }
     };
 
+
     const validateStep1 = () => {
-        const { ProjectName,  Cname, Rname, Client, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience } = inputdata;
+        const { ProjectName, Cname, Rname, Client, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience } = inputdata;
         if (!ProjectName || !Cname || !Rname || !Client || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience) {
             toast.error("Please fill all the fields in Step 1");
             return false;
@@ -183,6 +200,7 @@ const Register = () => {
         }
 
         const response = await registerfunc(inputdata, { "Content-type": "application/json" });
+        console.log(response)
 
         if (response.status === 200) {
             toast.success("Job added successfully!");
@@ -196,7 +214,13 @@ const Register = () => {
 
     return (
         <div className="container-form">
-            <h2 className="create-job">Create Job Details</h2>
+            <div>
+                <h2 className="create-job">Create Job Details</h2>
+                <Button className=''>
+                    Cancel
+                </Button>
+            </div>
+
             <Card>
                 <Form onSubmit={step === 1 ? handleNextStep : handleSubmit}>
                     <Row className="form-container">
@@ -206,38 +230,16 @@ const Register = () => {
 
 
 
-                                {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                                    <Form.Label>
-                                        Job Name <span style={{ color: 'red', fontSize: '1.2rem' }}>*</span>
-                                    </Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="Jname"
-                                        value={inputdata.Jname}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter Job name"
-                                        required
-                                    />
-                                </Form.Group> */}
-
-                                {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                                    <Form.Label>Location</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="Lname"
-                                        value={inputdata.Lname}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter Location"
-                                    />
-                                </Form.Group> */}
                                 <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                                    <Form.Label>Compensation</Form.Label>
+                                    <Form.Label>Salary
+
+                                    </Form.Label>
                                     <Form.Control
                                         type="text"
                                         name="Cname"
                                         value={inputdata.Cname}
                                         onChange={handleInputChange}
-                                        placeholder="Enter Compensation"
+                                        placeholder="Salary Range"
                                     />
                                 </Form.Group>
                                 <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
@@ -250,16 +252,6 @@ const Register = () => {
                                         placeholder="Resumes in Process"
                                     />
                                 </Form.Group>
-                                {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                                    <Form.Label>Hires Required</Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="Hname"
-                                        value={inputdata.Hname}
-                                        onChange={handleInputChange}
-                                        placeholder="Hires Required"
-                                    />
-                                </Form.Group> */}
 
                                 <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                                     <Form.Label>Client Name <span style={{ color: 'red', fontSize: '1.2rem' }}>*</span></Form.Label>
@@ -272,16 +264,6 @@ const Register = () => {
                                     />
                                 </Form.Group>
 
-                                {/* <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
-                            <Form.Label>Salary Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="Salary"
-                                value={inputdata.Salary}
-                                onChange={handleInputChange}
-                                placeholder="Salary is Required"
-                            />
-                        </Form.Group> */}
 
                                 <Form.Group className="inputs mb-3 col-lg-6" controlId="formBasicEmail">
                                     <Form.Label>Recruiter <span style={{ color: 'red', fontSize: '1.2rem' }}>*</span></Form.Label>
@@ -391,14 +373,7 @@ const Register = () => {
                                     />
                                 </Form.Group>
 
-                                {/* <Form.Group className="inputs mb-3 col-lg-6">
-                                    <Form.Label>Select Your Employment Type</Form.Label>
-                                    <Select
-                                        options={options2}
-                                        value={options2.find(option => option.value === inputdata.EmploymentType)}
-                                        onChange={(e) => handleSelectChange('EmploymentType', e ? e.value : '')}
-                                    />
-                                </Form.Group> */}
+
                                 <Form.Group className="inputs mb-3 col-lg-6">
                                     <Form.Label>Select SeniorityLevel Type</Form.Label>
                                     <Select
@@ -482,6 +457,7 @@ const Register = () => {
                                     />
                                 </Form.Group>
 
+
                                 <Button className="submit-btn" variant="primary" type="button" onClick={handleNextStep}>
                                     Next
                                 </Button>
@@ -491,6 +467,20 @@ const Register = () => {
                         {/* Step 2: Job Description */}
                         {step === 2 && (
                             <div className="job-thing">
+
+                                <Form.Group className="inputs mb-3 col-lg-12" controlId="formBasicSkills">
+                                    <Form.Label>Skills Must Have</Form.Label>
+                                    <Select
+                                        options={skillsList}
+                                        isMulti
+                                        value={skillsList.filter(option => inputdata.SkillsMustHave.includes(option.value))}
+                                        onChange={handleSkillsChange}
+                                        placeholder="Select Skills"
+                                    />
+                                </Form.Group>
+
+                                {/* Display selected skills as tags with remove option */}
+
 
 
                                 <Form.Group className="inputs mb-3 col-lg-12" controlId="formBasicJobDes">

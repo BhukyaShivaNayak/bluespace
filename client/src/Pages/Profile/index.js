@@ -200,7 +200,7 @@ const Profile = () => {
     const [showspin, setShowSpin] = useState(true);
     const { id } = useParams();
 
-    
+
 
     useEffect(() => {
         // Define the async function to fetch job data
@@ -254,7 +254,7 @@ const Profile = () => {
 
 
                             <p>{jobProfile.JobID}</p>
-                            
+
                             <p>{moment(jobProfile.OpeningDate).format("DD-MM-YYYY")}</p>
                             <p>{moment(jobProfile.ExpiryDate).format("DD-MM-YYYY")}</p>
                             <p>{jobProfile.TotalOpenings}</p>
@@ -270,6 +270,7 @@ const Profile = () => {
                             <p>{jobProfile.Priority}</p>
                             <p>{jobProfile.Location}</p>
                             <p>{jobProfile.Department}</p>
+                            <p>{jobProfile.SkillsMustHave}</p>
                             <p>{jobProfile.SalaryType}</p>
                         </div>
                     </Card.Body>
