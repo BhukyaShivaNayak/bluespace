@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 
 const ListOfJobs = (props) => {
-    const { userdata } = props;
+    const { userdata,deletetheJob } = props;
 
     const [favoriteJobs, setFavoriteJobs] = useState({});
 
@@ -106,7 +106,17 @@ const ListOfJobs = (props) => {
                                                     View
                                                 </NavLink>
                                             </Dropdown.Item>
-                                            <Dropdown.Item>Close Job</Dropdown.Item>
+                                            <Dropdown.Item>
+
+                                                <div onClick={()=>deletetheJob(element._id)}>
+                                                Close Job
+                                                </div>
+                                                
+                                             
+
+
+
+                                            </Dropdown.Item>
                                             
                                         </Dropdown.Menu>
                                     </Dropdown>

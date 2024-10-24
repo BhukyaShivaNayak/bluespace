@@ -21,6 +21,12 @@ export const getsingleJobfunc=async(id)=>{
     return await commonrequest("GET", `${BASE_URL}/user/${id}`, "", "");
 }
 
+export const deletefunc=async(id)=>{
+    return await commonrequest("DELETE",`${BASE_URL}/user/delete/${id}`,{})
+}
+
+
+
 export const registerfunc1 = async (data, header) => {
     return await commonrequest("POST", `${BASE_URL}/user/register1`, data, header);
 }

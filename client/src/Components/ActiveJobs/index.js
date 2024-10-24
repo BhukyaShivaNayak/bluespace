@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-import { usergetfunc } from '../../Services/Apis';
+import { usergetfunc, deletefunc } from '../../Services/Apis';
 //import Tables from '../Tables';
 import ListOfJobs from '../ListOfJobs'
 import Spiner from '../Spiner';
 
 
 import './index.css';
+import { toast } from 'react-toastify';
 
 const ActiveJobs = () => {
     const [isActive1, setIsActive1] = useState(false);
@@ -25,7 +26,7 @@ const ActiveJobs = () => {
     const addUser = () => {
         navigate("/register");
     }
-
+    //get job
     const userGet = async () => {
         const response = await usergetfunc();
         if (response.status === 200) {
@@ -33,9 +34,25 @@ const ActiveJobs = () => {
 
 
         } else {
-            console.log("error for get user data")
+            console.log("error for get job data")
         }
     }
+
+    //delete job
+
+    const deletetheJob = async (id) => {
+        console.log(id)
+        const response = await deletefunc(id);
+        if (response.status === 200) {
+            userGet();
+
+        } else {
+            toast.error('error')
+        }
+    }
+
+
+
 
 
     useEffect(() => {
@@ -190,7 +207,7 @@ const ActiveJobs = () => {
                         showspin ? <Spiner /> : /*<Tables userdata={userdata}
 
                         />*/
-                            <ListOfJobs userdata={userdata} />
+                            <ListOfJobs userdata={userdata} deletetheJob={deletetheJob} />
                     }
 
                 </div>

@@ -95,6 +95,19 @@ try {
 }
 
 
+exports.jobdelete=async(req,res)=>{
+
+    const {id}=req.params;
+    try {
+        const deleteJob=await createJob.findByIdAndDelete({_id:id});
+        res.status(200).json(deleteJob)
+    } catch (error) {
+        res.status(401).json(error)
+    }
+
+}
+
+
 exports.candidate = async (req, res) => {
     const { Candidatename, Contact, Email, Resume, RecruiterFeedback, Interview, status, JoiningDate } = req.body;
 

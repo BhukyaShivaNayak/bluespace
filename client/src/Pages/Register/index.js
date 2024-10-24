@@ -1,9 +1,11 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import { Button, Form, Card, Row } from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
 import { registerfunc } from '../../Services/Apis';
 import 'react-toastify/dist/ReactToastify.css';
+
 import Select from 'react-select';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -29,7 +31,8 @@ const Register = () => {
         TotalOpenings: "",
         Experience: "",
         JobDes: "",
-        WorkplaceType: "",
+
+        WorkplaceType: "Onsite",
 
         SeniorityLevelType: "",
         HiringManager: "",
@@ -171,6 +174,28 @@ const Register = () => {
         const { name, value } = e.target;
         setInputData(prev => ({ ...prev, [name]: value }));
     };
+
+
+
+    const getUser = async () => {
+        try {
+            const response = await axios.get("http://localhost:6007/login/sucess", { withCredentials: true });
+            if (response.data.user) {
+                const firstName = response.data.user.displayName; // Ensure displayName exists
+                setInputData(prev => ({ ...prev, DraftedBy: firstName }));
+            } else {
+                console.error("User data not found");
+            }
+        } catch (error) {
+            console.error("Error fetching user:", error);
+        }
+    };
+
+
+    useEffect(() => {
+        getUser();
+
+    }, []);
 
     const handleSelectChange = (name, value) => {
         setInputData(prev => ({ ...prev, [name]: value }));
@@ -364,6 +389,14 @@ const Register = () => {
                                 </Form.Group>
 
                                 {/* Select Components */}
+                                {/* <Form.Group className="inputs mb-3 col-lg-6">
+                                    <Form.Label>Select Your Workplace Type</Form.Label>
+                                    <Select
+                                        options={options1}
+                                        value={options1.find(option => option.value === inputdata.WorkplaceType)}
+                                        onChange={(e) => handleSelectChange('WorkplaceType', e ? e.value : '')}
+                                    />
+                                </Form.Group> */}
                                 <Form.Group className="inputs mb-3 col-lg-6">
                                     <Form.Label>Select Your Workplace Type</Form.Label>
                                     <Select
