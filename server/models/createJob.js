@@ -158,8 +158,8 @@ const jobSchema = new mongoose.Schema({
         trim: true
     },
     SkillsMustHave: {
-        type: [String], // Array of strings
-        required:true, // You can adjust this based on your requirements
+        type: [String], 
+        required:true, 
     },
 
     dateCreated: {

@@ -4,6 +4,9 @@ import axios from 'axios';
 import { Button, Form, Card, Row } from 'react-bootstrap';
 import { ToastContainer, toast } from "react-toastify";
 import { registerfunc } from '../../Services/Apis';
+
+import { useNavigate } from 'react-router-dom';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 import Select from 'react-select';
@@ -11,6 +14,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './index.css';
 import { addData } from '../../Components/context/ContextProvider';
+
+
 
 const Register = () => {
     const [inputdata, setInputData] = useState({
@@ -34,18 +39,25 @@ const Register = () => {
 
         WorkplaceType: "Onsite",
 
-        SeniorityLevelType: "",
-        HiringManager: "",
-        JobPostType: "",
-        JobTitle: "",
-        JobType: "",
-        StatusType: "",
-        Priority: "",
-        Location: "",
-        Department: "",
-        SalaryType: "",
+        SeniorityLevelType: "Entry Level",
+        HiringManager: "Tejaswi Pessapati",
+        JobPostType: "Public",
+        JobTitle: "IT",
+        JobType: "Full Time",
+        StatusType: "In Progress",
+        Priority: "High",
+        Location: "Hyderabad",
+        Department: "Marketing",
+        SalaryType: "Yearly",
         SkillsMustHave: []
     });
+
+
+    const navigate = useNavigate()
+    const cancelJob = () => {
+        navigate("/active-jobs");
+    }
+
 
     const [step, setStep] = useState(1);
     const { setUseradd } = useContext(addData);
@@ -181,7 +193,7 @@ const Register = () => {
         try {
             const response = await axios.get("http://localhost:6007/login/sucess", { withCredentials: true });
             if (response.data.user) {
-                const firstName = response.data.user.displayName; // Ensure displayName exists
+                const firstName = response.data.user.displayName;
                 setInputData(prev => ({ ...prev, DraftedBy: firstName }));
             } else {
                 console.error("User data not found");
@@ -241,7 +253,7 @@ const Register = () => {
         <div className="container-form">
             <div>
                 <h2 className="create-job">Create Job Details</h2>
-                <Button className=''>
+                <Button className='' onClick={cancelJob}>
                     Cancel
                 </Button>
             </div>
