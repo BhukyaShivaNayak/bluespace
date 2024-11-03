@@ -56,7 +56,7 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    ProjectName:{
+    ProjectName: {
         type: String,
         required: true,
         trim: true
@@ -158,8 +158,8 @@ const jobSchema = new mongoose.Schema({
         trim: true
     },
     SkillsMustHave: {
-        type: [String], 
-        required:true, 
+        type: [String],
+        required: true,
     },
 
     dateCreated: {

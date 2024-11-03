@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link,/* useNavigate*/ } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
-import { usergetfunc } from '../../Services/Apis';
-import Tables from '../Tables';
+import { usergetfunc, deletefunc } from '../../Services/Apis';
+//import Tables from '../Tables';
+import ListOfJobsInactive from '../ListOfJobsInactive'
 import Spiner from '../Spiner';
 
 
 import './index.css';
+import { toast } from 'react-toastify';
 
-const ClosedJobs = () => {
+const InActiveJobs = () => {
     const [isActive1, setIsActive1] = useState(false);
     const [isActive2, setIsActive2] = useState(false);
     const [isActive3, setIsActive3] = useState(false);
@@ -17,14 +19,14 @@ const ClosedJobs = () => {
     const [userdata, setUserData] = useState([]);
     const [showspin, setShowSpin] = useState(true)
 
+    console.log(userdata)
 
+    const navigate = useNavigate();
 
-    //  const navigate = useNavigate();
-
-    /*  const addUser = () => {
-          navigate("/register");
-      }*/
-
+    const addUser = () => {
+        navigate("/register");
+    }
+    //get job
     const userGet = async () => {
         const response = await usergetfunc();
         if (response.status === 200) {
@@ -32,9 +34,25 @@ const ClosedJobs = () => {
 
 
         } else {
-            console.log("error for get user data")
+            console.log("error for get job data")
         }
     }
+
+    //delete job
+
+    const deletetheJob = async (id) => {
+        console.log(id)
+        const response = await deletefunc(id);
+        if (response.status === 200) {
+            userGet();
+
+        } else {
+            toast.error('error')
+        }
+    }
+
+
+
 
 
     useEffect(() => {
@@ -60,8 +78,7 @@ const ClosedJobs = () => {
             return (
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
-                    <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
-                    <li><Link className="nav-link" to="/job-description">Job Description</Link> </li>
+                    <li><Link className="nav-link" to="/inactive-jobs">Inactive Jobs</Link></li>
                 </ul>
             );
         }
@@ -175,20 +192,21 @@ const ClosedJobs = () => {
                     </ul>
                 </div>
                 <div className='non-drawer'>
-                    {/* <div className='createjob-container'>
+                    <div className='createjob-container'>
                         <div className='button-p'>
                             <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
-                            <button className='btn-job'>Closed Jobs</button>
+                            {/* <button className='btn-job'>Closed Jobs</button> */}
                         </div>
 
-                  
+
                     </div>
-                    */}
+
 
                     {
-                        showspin ? <Spiner /> : <Tables userdata={userdata}
+                        showspin ? <Spiner /> : /*<Tables userdata={userdata}
 
-                        />
+                        />*/
+                            <ListOfJobsInactive userdata={userdata} deletetheJob={deletetheJob} />
                     }
 
                 </div>
@@ -197,4 +215,4 @@ const ClosedJobs = () => {
     );
 };
 
-export default ClosedJobs;
+export default InActiveJobs;

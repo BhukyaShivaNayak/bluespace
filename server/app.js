@@ -4,6 +4,11 @@ require("dotenv").config();
 const express = require("express");
 const path = require('path');
 const app = express();
+
+
+
+const cron = require('node-cron');
+const moment = require('moment');
 const cors = require("cors");
 require("./db/conn")
 const router = require("./Routes/router");
@@ -152,6 +157,15 @@ app.get('/api/jobs', async (req, res) => {
 });
 
 
+cron.schedule('* * * * *', async () => {
+    try {
+        const currentDate = moment().toDate();
+        await createJob.deleteMany({ ExpiryDate: { $lt: currentDate } });
+        console.log('Expired jobs cleaned up successfully.');
+    } catch (error) {
+        console.error('Error cleaning up expired jobs:', error);
+    }
+});
 
 
 

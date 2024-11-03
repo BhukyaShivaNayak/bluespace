@@ -126,10 +126,9 @@ const Register = () => {
     ];
 
     const StatusTypeList = [
-        { value: "Completed", label: "Completed" },
-        { value: "On Hold", label: "On Hold" },
-        { value: "In Progress", label: "In Progress" },
-        { value: "Archived", label: "Archived" }
+        { value: "Active", label: "Active" },
+        { value: "Inactive", label: "Inactive" },
+
     ];
 
     const PriorityList = [

@@ -8,6 +8,10 @@ import Row from 'react-bootstrap/Row';
 
 const ListOfJobs = (props) => {
     const { userdata,deletetheJob } = props;
+    
+
+    const filterUserdata = userdata.filter(user => user.StatusType === "Active");
+    
 
     const [favoriteJobs, setFavoriteJobs] = useState({});
 
@@ -18,10 +22,10 @@ const ListOfJobs = (props) => {
         }));
     };
 
-    const allFavorited = userdata.every(job => favoriteJobs[job._id]);
-    const noneFavorited = userdata.every(job => !favoriteJobs[job._id]);
+    const allFavorited = filterUserdata.every(job => favoriteJobs[job._id]);
+    const noneFavorited = filterUserdata.every(job => !favoriteJobs[job._id]);
 
-    const sortedUserData = userdata.sort((a, b) => {
+    const sortedUserData = filterUserdata.sort((a, b) => {
         const aFavorited = favoriteJobs[a._id] ? 1 : 0;
         const bFavorited = favoriteJobs[b._id] ? 1 : 0;
 

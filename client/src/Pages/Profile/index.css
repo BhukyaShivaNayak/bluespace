@@ -30,3 +30,33 @@ li {
     padding-left: 20px;
     /* Add some padding to the left */
 }
+
+.view-job {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 90vw;
+    margin-top: 150px;
+}
+
+.job-description {
+    display: flex;
+    align-self: self-start;
+    width: 60vw;
+}
+
+.job-info {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+}
+
+.job-container {
+    padding: 20px;
+}
+
+.job-item{
+    margin-bottom:5px;
+}

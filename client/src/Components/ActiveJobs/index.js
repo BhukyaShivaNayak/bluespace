@@ -78,8 +78,8 @@ const ActiveJobs = () => {
             return (
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
-                    {/* <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
-                    <li><Link className="nav-link" to="/job-description">Job Description</Link> </li> */}
+                     <li><Link className="nav-link" to="/inactive-jobs">Inactive Jobs</Link></li>
+
                 </ul>
             );
         }

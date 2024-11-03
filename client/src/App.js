@@ -7,7 +7,7 @@ import Login from './Components/Login';
 import LoginFailure from './Components/LoginFailure'
 import Error from './Components/Error';
 import ActiveJobs from './Components/ActiveJobs';
-import ClosedJobs from './Components/ClosedJobs';
+import InActiveJobs from './Components/InActiveJobs';
 import Pipeline from './Components/Pipeline';
 
 import JobDescription from './Components/JobDescription'
@@ -36,7 +36,7 @@ function App() {
         <Route path='/login-failure' element={<LoginFailure />} />
         <Route path='/' element={<Home />} />
         <Route path='/active-jobs' element={<ActiveJobs />} />
-        <Route path='/closed-jobs' element={<ClosedJobs />} />
+        <Route path='/inactive-jobs' element={<InActiveJobs />} />
         <Route path='/job-description' element={<JobDescription />} />
         <Route path='/pipeline' element={<Pipeline />} />
 

@@ -7,9 +7,9 @@ const moment = require('moment');
 
 
 exports.createJob = async (req, res) => {
-    const { Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes ,ProjectName,Client,SeniorityLevelType,WorkplaceType,SkillsMustHave} = req.body;
+    const { Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, ProjectName, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave } = req.body;
 
-    if (!ProjectName||!Cname || !Rname   || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings  || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department  || !Client || !SeniorityLevelType || !WorkplaceType|| !SalaryType || !JobDes||!SkillsMustHave) {
+    if (!ProjectName || !Cname || !Rname || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !Client || !SeniorityLevelType || !WorkplaceType || !SalaryType || !JobDes || !SkillsMustHave) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +23,7 @@ exports.createJob = async (req, res) => {
 
 
         const jobInfoData = new createJob({
-            Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings,ProjectName, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes,Client,SeniorityLevelType,WorkplaceType,SkillsMustHave
+            Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, ProjectName, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave
         });
 
         await jobInfoData.save();
@@ -71,35 +71,35 @@ exports.getsingleJob = async (req, res) => {
 };
 
 
-exports.jobedit=async(req,res)=>{
+exports.jobedit = async (req, res) => {
 
     const { id } = req.params;
-    const {ProjectName, Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes,SkillsMustHave } = req.body;
+    const { ProjectName, Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, SkillsMustHave } = req.body;
 
 
-const dateUpdated=moment(new Date()).format("YYYY-MM-DD hh:mm:ss")
+    const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss")
 
-try {
-    const updatejob=await createJob.findByIdAndUpdated({_id:id},{
-        ProjectName, Cname, Rname,  DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes,dateUpdated,Client,SeniorityLevelType,WorkplaceType,SkillsMustHave
-    },{
-        new:true
-    });
-
-    await updatejob.save();
-    res.status(200).json(updatejob)
-} catch (error) {
-    res.status(401).json(error)
-}
-
-}
-
-
-exports.jobdelete=async(req,res)=>{
-
-    const {id}=req.params;
     try {
-        const deleteJob=await createJob.findByIdAndDelete({_id:id});
+        const updatejob = await createJob.findByIdAndUpdated({ _id: id }, {
+            ProjectName, Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, dateUpdated, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave
+        }, {
+            new: true
+        });
+
+        await updatejob.save();
+        res.status(200).json(updatejob)
+    } catch (error) {
+        res.status(401).json(error)
+    }
+
+}
+
+
+exports.jobdelete = async (req, res) => {
+
+    const { id } = req.params;
+    try {
+        const deleteJob = await createJob.findByIdAndDelete({ _id: id });
         res.status(200).json(deleteJob)
     } catch (error) {
         res.status(401).json(error)

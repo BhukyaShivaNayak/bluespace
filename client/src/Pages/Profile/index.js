@@ -1,182 +1,7 @@
-// // import React, { useState, useEffect } from 'react'
-// // import Card from 'react-bootstrap/Card'
-// // import Row from 'react-bootstrap/esm/Row'
 
-// // import { useParams } from 'react-router-dom'
-
-// // import Spiner from '../../Components/Spiner';
-
-// // import { getsingleJobfunc } from '../../Services/Apis'
-
-// // import "./index.css"
-// // const Profile = () => {
-// //     const [jobProfile, setJobProfile] = useState({});
-// //     const [showspin, setShowSpin] = useState(true);
-
-// //     const { id } = useParams()
-// //     console.log(id)
-
-// //     const jobProfileGet = async () => {
-// //         const response = await getsingleJobfunc(id)
-
-// //         if (response.status === 200) {
-// //             setJobProfile(response.data)
-// //         }else{
-// //             console.log("error")
-// //         }
-// //         console.log(response)
-// //     }
-
-// //     // useEffect(() => {
-// //     //     jobProfileGet();
-// //     //     setTimeout(() => {
-// //     //         setShowSpin(false)
-// //     //     }, 1200)
-// //     // }, [id])
-
-// //     useEffect(() => {
-// //         jobProfileGet();
-
-// //         setTimeout(() => {
-// //             setShowSpin(false);
-// //         }, 1200);
-// //     }, [id, jobProfileGet]); // Add jobProfileGet to the dependency array
-
-
-// //     return (<>
-
-// //         {showspin ? <Spiner /> : <Card>
-// //             <Card.Body>
-// //                 <Row>
-
-// //                 </Row>
-// //                 <div className='text-center'>
-// //                 <p>{jobProfile.Jname}</p>
-// //                 <p>{jobProfile.Lname}</p>
-// //                 <p>{jobProfile.Cname}</p>
-// //                 <p>{jobProfile.Rname}</p>
-// //                 <p>{jobProfile.Hname}</p>
-// //                 <p>{jobProfile.Role}</p>
-// //                 <p>{jobProfile.Client}</p>
-// //                 <p>{jobProfile.Salary}</p>
-// //                 <p>{jobProfile.DraftedBy}</p>
-// //                 <p>{jobProfile.Note}</p>
-// //                 <p>{jobProfile.Industry}</p>
-// //                 <p>{jobProfile.JobDes}</p>
-// //                 <p>{jobProfile.JobID}</p>
-// //                 <p>{jobProfile.JobName}</p>
-
-// //                 <p>{jobProfile.OpeningDate}</p>
-// //                 <p>{jobProfile.ExpiryDate}</p>
-// //                 <p>{jobProfile.TotalOpenings}</p>
-// //                 <p>{jobProfile.Experience}</p>
-// //                 <p>{jobProfile.WorkplaceType}</p>
-// //                 <p>{jobProfile.EmploymentType}</p>
-// //                 <p>{jobProfile.SeniorityLevelType}</p>
-// //                 <p>{jobProfile.HiringManager}</p>
-// //                 <p>{jobProfile.JobPostType}</p>
-// //                 <p>{jobProfile.JobTitle}</p>
-// //                 <p>{jobProfile.JobType}</p>
-// //                 <p>{jobProfile.StatusType}</p>
-// //                 <p>{jobProfile.Priority}</p>
-// //                 <p>{jobProfile.Location}</p>
-// //                 <p>{jobProfile.Department}</p>
-// //                 <p>{jobProfile.SalaryType}</p>
-// //                 </div>
-// //             </Card.Body>
-
-// //             </Card>}
-
-// //     </>
-
-// //     )
-// // }
-
-
-// // export default Profile  
-
-
-// import React, { useState, useEffect } from 'react';
-// import Card from 'react-bootstrap/Card';
-// import Row from 'react-bootstrap/esm/Row';
-// import { useParams } from 'react-router-dom';
-// import Spiner from '../../Components/Spiner';
-// import { getsingleJobfunc } from '../../Services/Apis';
-// import "./index.css";
-
-// const Profile = () => {
-//     const [jobProfile, setJobProfile] = useState({});
-//     const [showspin, setShowSpin] = useState(true);
-//     const { id } = useParams();
-
-//     useEffect(() => {
-//         // Define the async function inside the useEffect
-//         const jobProfileGet = async () => {
-//             const response = await getsingleJobfunc(id);
-//             if (response.status === 200) {
-//                 setJobProfile(response.data);
-//             } else {
-//                 console.log("Error fetching job profile");
-//             }
-//             console.log(response);
-//         };
-
-//         jobProfileGet(); // Call the function inside useEffect
-
-//         setTimeout(() => {
-//             setShowSpin(false);
-//         }, 1200);
-//     }, [id]); // Only `id` as dependency
-
-//     return (
-//         <>
-//             {showspin ? <Spiner /> : 
-//                 <Card>
-//                     <Card.Body>
-//                         <Row></Row>
-//                         <div className='text-center'>
-//                             <p>{jobProfile.Jname}</p>
-//                             <p>{jobProfile.Lname}</p>
-//                             <p>{jobProfile.Cname}</p>
-//                             <p>{jobProfile.Rname}</p>
-//                             <p>{jobProfile.Hname}</p>
-//                             <p>{jobProfile.Role}</p>
-//                             <p>{jobProfile.Client}</p>
-//                             <p>{jobProfile.Salary}</p>
-//                             <p>{jobProfile.DraftedBy}</p>
-//                             <p>{jobProfile.Note}</p>
-//                             <p>{jobProfile.Industry}</p>
-//                             <p>{jobProfile.JobDes}</p>
-//                             <p>{jobProfile.JobID}</p>
-//                             <p>{jobProfile.JobName}</p>
-//                             <p>{jobProfile.OpeningDate}</p>
-//                             <p>{jobProfile.ExpiryDate}</p>
-//                             <p>{jobProfile.TotalOpenings}</p>
-//                             <p>{jobProfile.Experience}</p>
-//                             <p>{jobProfile.WorkplaceType}</p>
-//                             <p>{jobProfile.EmploymentType}</p>
-//                             <p>{jobProfile.SeniorityLevelType}</p>
-//                             <p>{jobProfile.HiringManager}</p>
-//                             <p>{jobProfile.JobPostType}</p>
-//                             <p>{jobProfile.JobTitle}</p>
-//                             <p>{jobProfile.JobType}</p>
-//                             <p>{jobProfile.StatusType}</p>
-//                             <p>{jobProfile.Priority}</p>
-//                             <p>{jobProfile.Location}</p>
-//                             <p>{jobProfile.Department}</p>
-//                             <p>{jobProfile.SalaryType}</p>
-//                         </div>
-//                     </Card.Body>
-//                 </Card>
-//             }
-//         </>
-//     );
-// };
-
-// export default Profile;
 import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/esm/Row';
+
+
 import { useParams } from 'react-router-dom';
 import Spiner from '../../Components/Spiner';
 import { getsingleJobfunc } from '../../Services/Apis';
@@ -231,52 +56,56 @@ const Profile = () => {
 
 
     return (
-        <>
+        < div className='job-container'>
             {showspin ? <Spiner /> :
-                <Card>
-                    <Card.Body>
-                        <Row></Row>
-                        <div className='text-center'>
+               
+                    
+                       
+                        <div className='view-job'>
+                            <div className='job-info'>
                             {/* <p>{jobProfile.Jname}</p> */}
                             {/* <p>{jobProfile.Lname}</p> */}
-                            <p>{jobProfile.JobName}</p>
-                            <p>{jobProfile.Cname}</p>
-                            <p>{jobProfile.Rname}</p>
+                            <p className='job-item'>Job Title : {jobProfile.JobName}</p>
+                            <p className='job-item'>Compensation : {jobProfile.Cname}</p>
+                            <p className='job-item'>Job ID : {jobProfile.JobID}</p>
+                            {/* <p>{jobProfile.Rname}</p> */}
                             {/* <p>{jobProfile.Hname}</p> */}
-                            <p>{jobProfile.Role}</p>
-                            <p>{jobProfile.Client}</p>
-                            <p>{jobProfile.ProjectName}</p>
-                            <p>{jobProfile.DraftedBy}</p>
-                            <p>{jobProfile.Note}</p>
-                            <p>{jobProfile.Industry}</p>
+                            <p className='job-item'>{jobProfile.Role}</p>
+                            <p className='job-item'>Client Name : {jobProfile.Client}</p>
+                            <p className='job-item'>Project Name : {jobProfile.ProjectName}</p>
+                            <p className='job-item'>Recruiter : {jobProfile.DraftedBy}</p>
+                            {/* <p>{jobProfile.Note}</p> */}
+                            <p className='job-item'>Industry : {jobProfile.Industry}</p>
+                          
+
+
+
+                            {/* <p>{jobProfile.JobID}</p> */}
+
+                            <p className='job-item'>Opening Date : {moment(jobProfile.OpeningDate).format("DD-MM-YYYY")}</p>
+                            <p className='job-item'>ExpiryDate : {moment(jobProfile.ExpiryDate).format("DD-MM-YYYY")}</p>
+                            <p className='job-item'>Total Openings : {jobProfile.TotalOpenings}</p>
+                            <p className='job-item'>Experience : {jobProfile.Experience}</p>
+                            <p className='job-item'>Workplace Type : {jobProfile.WorkplaceType}</p>
+                            {/* <p>{jobProfile.EmploymentType}</p> */}
+                            <p className='job-item'>Seniority Level : {jobProfile.SeniorityLevelType}</p>
+                            <p className='job-item'>Hiring Manager : {jobProfile.HiringManager}</p>
+                            <p className='job-item'>Job Post : {jobProfile.JobPostType}</p>
+                            <p className='job-item'>Job Role : {jobProfile.JobTitle}</p>
+                            <p className='job-item'>Job Type : {jobProfile.JobType}</p>
+                            <p className='job-item'>Status : {jobProfile.StatusType}</p>
+                            <p className='job-item'>Priority : {jobProfile.Priority}</p>
+                            <p className='job-item'>Location : {jobProfile.Location}</p>
+                            <p className='job-item'>Department : {jobProfile.Department}</p>
+                            <p className='job-item'>Skills Must Have : {jobProfile.SkillsMustHave}</p>
+                            <p className='job-item'>Salary Type : {jobProfile.SalaryType}</p>
+                            </div>
+                            <div className='job-description'>
                             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(jobProfile.JobDes) }} />
-
-
-
-                            <p>{jobProfile.JobID}</p>
-
-                            <p>{moment(jobProfile.OpeningDate).format("DD-MM-YYYY")}</p>
-                            <p>{moment(jobProfile.ExpiryDate).format("DD-MM-YYYY")}</p>
-                            <p>{jobProfile.TotalOpenings}</p>
-                            <p>{jobProfile.Experience}</p>
-                            <p>{jobProfile.WorkplaceType}</p>
-                            <p>{jobProfile.EmploymentType}</p>
-                            <p>{jobProfile.SeniorityLevelType}</p>
-                            <p>{jobProfile.HiringManager}</p>
-                            <p>{jobProfile.JobPostType}</p>
-                            <p>{jobProfile.JobTitle}</p>
-                            <p>{jobProfile.JobType}</p>
-                            <p>{jobProfile.StatusType}</p>
-                            <p>{jobProfile.Priority}</p>
-                            <p>{jobProfile.Location}</p>
-                            <p>{jobProfile.Department}</p>
-                            <p>{jobProfile.SkillsMustHave}</p>
-                            <p>{jobProfile.SalaryType}</p>
-                        </div>
-                    </Card.Body>
-                </Card>
+                        </div></div>
+                   
             }
-        </>
+        </div>
     );
 };
 
