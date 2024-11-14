@@ -59,9 +59,11 @@ class Home extends Component {
         if (isActive1) {
             return (
                 <ul className="drop-down">
-                   <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
+                    <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
                     {/* <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
                     <li><Link className="nav-link" to="/job-description">Job Description</Link> </li> */}
+                    <li><Link className="nav-link" to="/inactive-jobs">Inactive Jobs</Link></li>
+                    
                 </ul>
             );
         }
@@ -73,7 +75,7 @@ class Home extends Component {
         if (isActive2) {
             return (
                 <ul className="drop-down">
-                   {/* <li>Active Candidates</li>*/}
+                    {/* <li>Active Candidates</li>*/}
                     <li><Link className="nav-link" to="/pipeline">Pipeline</Link></li>
                     <li>Database</li>
                     <li>Add New Candidates</li>
@@ -248,7 +250,7 @@ class Home extends Component {
                         </div>
                     </div>
 
-                    {showTable1 && <Table1/>}
+                    {showTable1 && <Table1 />}
                     {showCandidtaesTable && <CandidtaesTable />}
                 </div>
             </div>

@@ -79,6 +79,7 @@ const InActiveJobs = () => {
                 <ul className="drop-down">
                     <li><Link className="nav-link" to="/active-jobs">Active Jobs</Link></li>
                     <li><Link className="nav-link" to="/inactive-jobs">Inactive Jobs</Link></li>
+                    
                 </ul>
             );
         }
@@ -195,7 +196,7 @@ const InActiveJobs = () => {
                     <div className='createjob-container'>
                         <div className='button-p'>
                             <button className='btn-job btn-primary' onClick={addUser}>Create Job</button>
-                            {/* <button className='btn-job'>Closed Jobs</button> */}
+                           
                         </div>
 
 

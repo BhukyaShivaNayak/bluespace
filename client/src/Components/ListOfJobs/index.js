@@ -7,11 +7,11 @@ import { NavLink } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 
 const ListOfJobs = (props) => {
-    const { userdata,deletetheJob } = props;
-    
+    const { userdata, deletetheJob } = props;
+
 
     const filterUserdata = userdata.filter(user => user.StatusType === "Active");
-    
+
 
     const [favoriteJobs, setFavoriteJobs] = useState({});
 
@@ -57,8 +57,8 @@ const ListOfJobs = (props) => {
         for (let i = 0; i < name.length; i++) {
             hash += name.charCodeAt(i);
         }
-        const hue = hash % 360; 
-        return `hsl(${hue}, 70%, 80%)`; 
+        const hue = hash % 360;
+        return `hsl(${hue}, 70%, 80%)`;
     };
 
     return (
@@ -99,7 +99,7 @@ const ListOfJobs = (props) => {
                                             <FaEllipsisV size={20} color="black" />
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu>
-                                           
+
                                             <Dropdown.Item>
                                                 <NavLink to={`/edit/${element._id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                                     Edit Job
@@ -112,16 +112,16 @@ const ListOfJobs = (props) => {
                                             </Dropdown.Item>
                                             <Dropdown.Item>
 
-                                                <div onClick={()=>deletetheJob(element._id)}>
-                                                Close Job
+                                                <div onClick={() => deletetheJob(element._id)}>
+                                                    Close Job
                                                 </div>
-                                                
-                                             
+
+
 
 
 
                                             </Dropdown.Item>
-                                            
+
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </div>
@@ -140,25 +140,25 @@ const ListOfJobs = (props) => {
                                     <p>2</p>
                                 </div>
                             </div>
-              
+
                             <div className='sec-3'>
-    <div className='info1'>
-        <h1 className='expiry-date'>Expiry Date</h1>
-        <p>
-            {(() => {
-                const date = new Date(element.ExpiryDate);
-                const day = String(date.getDate()).padStart(2, '0'); // Get day and pad with 0 if necessary
-                const month = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-indexed) and pad
-                const year = date.getFullYear(); // Get full year
-                return `${day}-${month}-${year}`; // Return formatted date
-            })()}
-        </p>
-    </div>
-    <div className='info3'>
-        <h1 className='Hired'>Hired</h1>
-        <p>0</p>
-    </div>
-</div>
+                                <div className='info1'>
+                                    <h1 className='expiry-date'>Expiry Date</h1>
+                                    <p>
+                                        {(() => {
+                                            const date = new Date(element.ExpiryDate);
+                                            const day = String(date.getDate()).padStart(2, '0'); // Get day and pad with 0 if necessary
+                                            const month = String(date.getMonth() + 1).padStart(2, '0'); // Get month (0-indexed) and pad
+                                            const year = date.getFullYear(); // Get full year
+                                            return `${day}-${month}-${year}`; // Return formatted date
+                                        })()}
+                                    </p>
+                                </div>
+                                <div className='info3'>
+                                    <h1 className='Hired'>Hired</h1>
+                                    <p>0</p>
+                                </div>
+                            </div>
 
                             <div className="tm-info">
                                 <p style={{ color: "lawngreen" }}>HM</p>

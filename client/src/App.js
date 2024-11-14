@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Home from './Components/Home';
+
 import Header from './Components/Header';
 import Login from './Components/Login';
 import LoginFailure from './Components/LoginFailure'
@@ -10,11 +11,13 @@ import ActiveJobs from './Components/ActiveJobs';
 import InActiveJobs from './Components/InActiveJobs';
 import Pipeline from './Components/Pipeline';
 
-import JobDescription from './Components/JobDescription'
+
+
+import JobDescription from './Components/JobDescription';
 import Home2 from './Pages/Home2';
 import Register from './Pages/Register';
 import Register1 from './Pages/Register1'
-import Profile from './Pages/Profile';  // Correct path if the folder is named "Profile"
+import Profile from './Pages/Profile';  
 
 import Edit from './Pages/Edit';
 
@@ -36,7 +39,8 @@ function App() {
         <Route path='/login-failure' element={<LoginFailure />} />
         <Route path='/' element={<Home />} />
         <Route path='/active-jobs' element={<ActiveJobs />} />
-        <Route path='/inactive-jobs' element={<InActiveJobs />} />
+        <Route path='/inactive-jobs' element={<InActiveJobs />} /> 
+        
         <Route path='/job-description' element={<JobDescription />} />
         <Route path='/pipeline' element={<Pipeline />} />
 

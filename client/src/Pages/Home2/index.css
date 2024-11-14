@@ -1,0 +1,109 @@
+.addingq1-sec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-style:none;
+    
+   
+    border-width: 0px;
+    background-color: rgb(230, 225, 225);
+
+}
+
+.cancel-icon {
+    height: 40px;
+    width: 40px;
+    background-color:rgb(230, 225, 225);
+    border-width:0px;
+   
+}
+
+.adding-screeningcontainer {
+    margin-top: 170px;
+}
+
+.question-container {
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.screening-title {
+    font-size: 26px;
+}
+
+.screening-subtitle {
+    font-size: 22px;
+}
+
+.screening-description {
+    font-size: 15px;
+    color: rgb(116, 116, 116);
+}
+
+.q1-titel {
+    font-size: 17px;
+    margin-left: 60px;
+}
+
+.question-container {
+    padding: 10px;
+}
+
+.adding-screeningcontainer {
+    padding: 10px;
+}
+
+.check-it {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox-input {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.check-item {
+    display: flex;
+    flex-direction: row;
+    margin-right: 70px;
+    align-items: center;
+
+}
+
+.q1-values {
+    margin-left: 100px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input-val{
+    display:flex;
+    flex-direction:row;
+
+}
+.min-input{
+    width:50px;
+}
+.icon-btn{
+    border-style:none;
+    border-width:0px;
+}
+
+.on {
+    /* style when CheckboxClick is false */
+    color: green;
+}
+
+.off {
+    /* style when CheckboxClick is true */
+    color: red;
+}
+
+.screening-container{
+    height:130vh;
+    background-size:cover;
+}

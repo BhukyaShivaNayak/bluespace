@@ -17,12 +17,12 @@ const router = require("./Routes/router");
 
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const PORT = process.env.PORT || 6007;
 const CLIENTID = process.env.CLIENTID
-const CLIENTSECRET=process.env.CLIENTSECRET  
+const CLIENTSECRET = process.env.CLIENTSECRET
 
 
 app.use(cors());
@@ -40,7 +40,7 @@ const passport = require("passport");
 const OAuth2Strategy = require("passport-google-oauth2").Strategy;
 const userdb = require("./models/userSchema");
 const jobdb = require('./models/jobSchema');
-const createJob = require('./models/createJob')
+const createJob = require('./models/createJob');
 
 
 
@@ -75,8 +75,8 @@ app.use(passport.session());
 
 passport.use(
     new OAuth2Strategy({
-        clientID:CLIENTID,
-        clientSecret:CLIENTSECRET,
+        clientID: CLIENTID,
+        clientSecret: CLIENTSECRET,
         callbackURL: "/auth/google/callback",
         scope: ["profile", "email"]
     },
@@ -172,6 +172,5 @@ cron.schedule('* * * * *', async () => {
 app.listen(PORT, () => {
     console.log(`server start at port no ${PORT}`)
 })
-
 
 

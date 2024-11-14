@@ -1,15 +1,18 @@
 const createJob = require('../models/createJob');
-//const addCandidate = require('../models/addCandidate');
+
 
 const candidate = require('../models/addCandidate');
 
 const moment = require('moment');
 
 
-exports.createJob = async (req, res) => {
-    const { Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, ProjectName, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave } = req.body;
 
-    if (!ProjectName || !Cname || !Rname || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !Client || !SeniorityLevelType || !WorkplaceType || !SalaryType || !JobDes || !SkillsMustHave) {
+
+
+exports.createJob = async (req, res) => {
+    const { Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion } = req.body;
+
+    if (!Cname || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !Client || !SeniorityLevelType || !WorkplaceType || !SalaryType || !JobDes || !SkillsMustHave || !DegreeType || !miniSkill || !CheckboxClick || !CheckboxClick1 || !minimumYears || !custmizationQuestion) {
         return res.status(400).json({ error: "All inputs are required" });
     }
 
@@ -23,7 +26,7 @@ exports.createJob = async (req, res) => {
 
 
         const jobInfoData = new createJob({
-            Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, ProjectName, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave
+            Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion
         });
 
         await jobInfoData.save();
@@ -74,14 +77,14 @@ exports.getsingleJob = async (req, res) => {
 exports.jobedit = async (req, res) => {
 
     const { id } = req.params;
-    const { ProjectName, Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, SkillsMustHave } = req.body;
+    const { Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, SkillsMustHave } = req.body;
 
 
     const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss")
 
     try {
         const updatejob = await createJob.findByIdAndUpdated({ _id: id }, {
-            ProjectName, Cname, Rname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, dateUpdated, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave
+            Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, dateUpdated, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave
         }, {
             new: true
         });

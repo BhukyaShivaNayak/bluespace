@@ -16,11 +16,11 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    Rname: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    // Rname: {
+    //     type: String,
+    //     required: true,
+    //     trim: true
+    // },
     // Hname: {
     //     type: String,
     //     required: true,
@@ -56,11 +56,11 @@ const jobSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    ProjectName: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    // ProjectName: {
+    //     type: String,
+    //     required: true,
+    //     trim: true
+    // },
 
 
     JobDes: {
@@ -161,6 +161,37 @@ const jobSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
+    DegreeType:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    miniSkill:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    CheckboxClick:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    CheckboxClick1:{
+        type:String,
+        required:true,
+        trim:true
+    },
+
+    minimumYears:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    custmizationQuestion:{
+        type:String,
+        required:true,
+        trim:true
+    },
 
     dateCreated: {
         type: Date,
@@ -191,3 +222,4 @@ jobSchema.pre('save', async function (next) {
 const createJob = mongoose.model('createJob', jobSchema);
 
 module.exports = createJob;
+

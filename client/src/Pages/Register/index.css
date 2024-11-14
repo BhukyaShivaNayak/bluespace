@@ -93,6 +93,10 @@
     /* Increase spacing between inputs */
 }
 
+.inputsit {
+    display: none;
+}
+
 .inputs .form-label {
     font-weight: bold;
     /* Make the label bold */
@@ -176,5 +180,60 @@ li {
 
 
 .input-text::-webkit-input-placeholder {
-    color: transparent; /* Hides the placeholder */
-  }
+    color: transparent;
+
+}
+
+
+.createjob-sec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+.mt {
+
+    margin-top: 30px;
+    width: 100px;
+}
+
+
+
+.custimzation-textarea{
+    width:40vw;
+}
+
+.addingq1-sec{
+    width:50vw;
+}
+.adding-screeningcontainer{
+    width:50vw;
+}
+.question-container{
+    width:50vw;
+}
+.off{
+   
+    background-color: #f0f0f0; 
+    color: #333; 
+    border: 1px solid #ccc; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.on{
+    color:#595959;
+    background-color:#AFAFAF;
+    border: 1px solid #ccc; 
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.min-input{
+    margin-left:10px;
+}
+.inputsc{
+    display:none;
+}
