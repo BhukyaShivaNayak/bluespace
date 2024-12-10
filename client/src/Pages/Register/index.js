@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 // import Select from 'react-select';
-import Select from 'react-select'; 
+import Select from 'react-select';
 
 import Creatable from 'react-select/creatable';
 
@@ -39,10 +39,11 @@ const Register = () => {
         JobDes: "",
         SkillsMustHave: [],
         DegreeType: "",
-        miniSkill: "",
+        miniSkill: "Python",
         CheckboxClick: false,
-        CheckboxClick1: false,
-        minimumYears: "",
+        CheckboxClick1: true,
+        minimumYears: "1",
+
         custmizationQuestion: "",
         WorkplaceType: "Onsite",
         SeniorityLevelType: "Entry Level",
@@ -54,9 +55,32 @@ const Register = () => {
         Priority: "High",
         Location: "Hyderabad",
         Department: "Finance",
-        SalaryType: "Yearly"
+        SalaryType: "Yearly",
+        questions: []
     });
 
+    const [questionData, setQuestionData] = useState([]);
+
+
+    const addQuestionFunc = (e) => {
+        e.preventDefault();
+
+        const newQuestion = {
+            id: new Date().getTime(),
+            skill: '',
+            minimumYears: '',
+            mustHave: false,
+        };
+
+
+        // const tempData = questionData;
+        setQuestionData(prevData => [...prevData, newQuestion]);
+
+        // console.log(tempData);
+        // setQuestionData(tempData)
+        console.log('Question Data :', questionData)
+        // setShowSkills(true)      ;
+    }
 
     const navigate = useNavigate()
     const cancelJob = () => {
@@ -71,6 +95,7 @@ const Register = () => {
     const [statusOfCancelIcon, setStatusOfCancelIcon] = useState(false);
     const [statusOfCancelIcon1, setStatusOfCancelIcon1] = useState(false);
     const [statusOfCancelIcon2, setStatusOfCancelIcon2] = useState(false);
+
 
     const [showEducation, setShowEducation] = useState(false);
     const [showSkills, setShowSkills] = useState(false);
@@ -240,6 +265,20 @@ const Register = () => {
         setInputData(prev => ({ ...prev, [name]: value }));
     };
 
+    const handleInputChange1 = (e, questionId) => {
+        const { name, value, type, checked } = e.target;
+        console.log(name + value + type + checked)
+        const updatedQuestions = questionData.map((question) => {
+            if (question && question.id === questionId) {
+                return {
+                    ...question,
+                    [name]: type === 'checkbox' ? checked : value,
+                };
+            }
+            return question;
+        });
+        setQuestionData(updatedQuestions)
+    };
 
 
     const getUser = async () => {
@@ -262,9 +301,6 @@ const Register = () => {
 
     }, []);
 
-    // const handleSelectChange = (name, value) => {
-    //     setInputData(prev => ({ ...prev, [name]: value }));
-    // };
 
     const handleSelectChange = (field, value) => {
         if (field === 'miniSkill' && value === 'other') {
@@ -273,7 +309,7 @@ const Register = () => {
             setInputData({ ...inputdata, [field]: value });
         }
     };
-    
+
     // Function for handling custom skill entry
     const handleCustomSkill = (newValue) => {
         setInputData({ ...inputdata, miniSkill: "other", customMiniSkill: newValue });
@@ -320,12 +356,15 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(inputdata)
         if (!inputdata.DegreeType || !inputdata.miniSkill || !inputdata.CheckboxClick || !inputdata.CheckboxClick1 || !inputdata.minimumYears || !inputdata.custmizationQuestion) {
             toast.error("Please fill all the fields in Step 3");
             return;
         }
-
-        const response = await registerfunc(inputdata, { "Content-type": "application/json" });
+        const temp = inputdata
+        temp.questions = questionData
+        console.log(temp)
+        const response = await registerfunc(temp, { "Content-type": "application/json" });
         if (response.status === 200) {
             toast.success("Job added successfully!");
             setUseradd(response.data);
@@ -335,6 +374,16 @@ const Register = () => {
             toast.success("Job added successfully!");
         }
     };
+
+
+    const cancelQuestion = (id) => {
+        console.log(id)
+
+        const updatedQuestions = questionData.filter((question) => question.id !== id);
+        setQuestionData(updatedQuestions)
+
+    };
+
 
 
 
@@ -348,7 +397,7 @@ const Register = () => {
                 </Button>
             </div>
 
-            <Card>
+            <Card style={{ minHeight: "100vh", }}>
                 <Form onSubmit={step === 1 ? handleNextStep : step === 2 ? handleNextStep1 : step === 3 ? handleSubmit : ''}>
                     <Row className="form-container">
 
@@ -706,8 +755,9 @@ const Register = () => {
                                                 </div>
 
                                                 {statusOfCancelIcon1 && (
-                                                    <div className="q1-values">
-                                                        {/* <Form.Group className="inputs mb-3 col-lg-6">
+                                                    <><button style={{ marginTop: "10px", borderRadius: "6px", borderWidth: "1px" }} onClick={addQuestionFunc}>Add Question</button>
+                                                        <div className="q3-values">
+                                                            {/* <Form.Group className="inputs mb-3 col-lg-6">
                                                             <Form.Label>Skill *</Form.Label>
                                                             <Select
                                                                 options={miniSkill}
@@ -716,59 +766,122 @@ const Register = () => {
                                                             />
                                                         </Form.Group> */}
 
-                                                        <Form.Group className="inputs mb-3 col-lg-6">
-                                                            <Form.Label>Skill *</Form.Label>
-                                                            <Creatable
-                                                                isClearable
-                                                                options={miniSkill}  // predefined list of skills
-                                                                value={miniSkill.find(option => option.value === inputdata.miniSkill) ||
-                                                                    (inputdata.miniSkill === "other" && { label: inputdata.customMiniSkill, value: "other" })}
-                                                                onChange={(e) => handleSelectChange('miniSkill', e ? e.value : '')}
-                                                                onCreateOption={(newValue) => handleCustomSkill(newValue)}
-                                                                placeholder="Select or Type your skill"
-                                                            />
-                                                        </Form.Group>
-
-                                                        {/* Custom Skill Input */}
-                                                        {inputdata.miniSkill === "other" && (
-                                                            <Form.Group className="inputsc mb-3 col-lg-6">
-                                                                <Form.Label>Enter Custom Skill</Form.Label>
-                                                                <input
-                                                                    type="text"
-                                                                    name="customMiniSkill"
-                                                                    value={inputdata.customMiniSkill || ''}
-                                                                    onChange={(e) => setInputData({ ...inputdata, customMiniSkill: e.target.value })}
-                                                                    placeholder="Type your custom skill here..."
-                                                                    className="form-control"
+                                                            <Form.Group className="inputs mb-3 col-lg-6">
+                                                                <Form.Label>Skill *</Form.Label>
+                                                                <Creatable
+                                                                    isClearable
+                                                                    options={miniSkill}  // predefined list of skills
+                                                                    value={miniSkill.find(option => option.value === inputdata.miniSkill) ||
+                                                                        (inputdata.miniSkill === "other" && { label: inputdata.customMiniSkill, value: "other" })}
+                                                                    onChange={(e) => handleSelectChange('miniSkill', e ? e.value : '')}
+                                                                    onCreateOption={(newValue) => handleCustomSkill(newValue)}
+                                                                    placeholder="Select or Type your skill"
                                                                 />
                                                             </Form.Group>
-                                                        )}
+
+                                                            {/* Custom Skill Input */}
+
+                                                            {inputdata.miniSkill === "other" && (
+                                                                <Form.Group className="inputsc mb-3 col-lg-6">
+                                                                    <Form.Label>Enter Custom Skill</Form.Label>
+                                                                    <input
+                                                                        type="text"
+                                                                        name="customMiniSkill"
+                                                                        value={inputdata.customMiniSkill || ''}
+                                                                        onChange={(e) => setInputData({ ...inputdata, customMiniSkill: e.target.value })}
+                                                                        placeholder="Type your custom skill here..."
+                                                                        className="form-control"
+                                                                    />
+                                                                </Form.Group>
+                                                            )}
 
 
-                                                        <div>
-                                                            <label>Ideal Answer</label><br />
-                                                            <div className="input-val">
+                                                            <div>
+                                                                <label>Ideal Answer</label><br />
+                                                                <div className="input-val">
+                                                                    <input
+                                                                        name="minimumYears"
+                                                                        value={inputdata.minimumYears}
+                                                                        onChange={handleInputChange}
+                                                                        type="text"
+                                                                        className="min-input"
+                                                                    />
+                                                                    <p>Minimum</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="check-item">
                                                                 <input
-                                                                    name="minimumYears"
-                                                                    value={inputdata.minimumYears}
-                                                                    onChange={handleInputChange}
-                                                                    type="text"
-                                                                    className="min-input"
+                                                                    type="checkbox"
+                                                                    checked={inputdata.CheckboxClick1}
+                                                                    onChange={toggleCheckBox1}
+                                                                    className="checkbox-input"
                                                                 />
-                                                                <p>Minimum</p>
+                                                                <label>Must Have Skill</label>
                                                             </div>
                                                         </div>
+                                                        <div>
+                                                            {questionData.map((question) => (
+                                                                <div key={question.id} style={{ marginBottom: '10px' }}>
+                                                                    <div className="question-section">
+                                                                        <h1 style={{ fontSize: '16px' }} >How many years of working Experience with specific skill?</h1>
 
-                                                        <div className="check-item">
-                                                            <input
-                                                                type="checkbox"
-                                                                checked={inputdata.CheckboxClick1}
-                                                                onChange={toggleCheckBox1}
-                                                                className="checkbox-input"
-                                                            />
-                                                            <label>Must Have Skill</label>
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={() => cancelQuestion(question.id)}
+                                                                            style={{
+                                                                                background: 'red',
+                                                                                color: 'white',
+                                                                                border: 'none',
+                                                                                cursor: 'pointer',
+                                                                                width: '30px',
+                                                                                height: '30px',
+                                                                                margin: '30px',
+                                                                                borderRadius: '10px',
+                                                                            }}
+                                                                        >
+                                                                            X
+                                                                        </button>
+                                                                    </div>
+
+                                                                    <div className="field-section">
+                                                                        <div className="skill-input">
+                                                                            <label>Skill</label>
+                                                                            <input
+                                                                                type="text"
+                                                                                name="skill"
+                                                                                value={question.skill}
+                                                                                onChange={(e) => handleInputChange1(e, question.id)}
+                                                                                style={{ margin: '10px', width: '200px', }}
+                                                                            />
+                                                                        </div>
+
+                                                                        <div className="experience-input">
+                                                                            <label>Minimum Experience (in years)</label>
+                                                                            <input
+                                                                                type="text"
+                                                                                name="minimumYears"
+                                                                                value={question.minimumYears}
+                                                                                onChange={(e) => handleInputChange1(e, question.id)}
+                                                                                style={{ margin: '10px', width: "40px", }}
+                                                                            />
+                                                                        </div>
+
+                                                                        <div>
+                                                                            <label>Must Have</label>
+                                                                            <input
+                                                                                type="checkbox"
+                                                                                name="mustHave"
+                                                                                checked={question.mustHave}
+                                                                                onChange={(e) => handleInputChange1(e, question.id)}
+                                                                                style={{ margin: '10px', width: "40px", }}
+                                                                            />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            ))}
                                                         </div>
-                                                    </div>
+                                                    </>
                                                 )}
                                             </div>
                                         )}
@@ -804,12 +917,22 @@ const Register = () => {
                                             </div>
                                         )}
 
+
+
+
+
                                     </div>
+
+
+
+
 
                                     <div className="select-options">
                                         <button className={showEducation ? 'on' : 'off'} type="button" onClick={toggleEducation}>+ Education</button>
                                         <button className={showSkills ? 'on' : 'off'} type="button" onClick={toggleSkills}>+ Expected Skills</button>
                                         <button className={showCustomQuestions ? 'on' : 'off'} type="button" onClick={toggleCustomQuestions}>+ Custom Questions</button>
+                                    </div>
+                                    <div>
                                     </div>
                                     <Button className="submit-btn" variant="secondary" type="button" onClick={() => setStep(2)}>
                                         Back
@@ -817,6 +940,8 @@ const Register = () => {
                                     <Button className="submit-btn" variant="primary" type="button" onClick={handleSubmit}>
                                         Submit
                                     </Button>
+
+
                                 </div>
                             </div>
                         )}

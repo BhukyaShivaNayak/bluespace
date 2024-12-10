@@ -200,40 +200,63 @@ li {
 
 
 
-.custimzation-textarea{
-    width:40vw;
+.custimzation-textarea {
+    width: 40vw;
 }
 
-.addingq1-sec{
-    width:50vw;
+.addingq1-sec {
+    width: 50vw;
 }
-.adding-screeningcontainer{
-    width:50vw;
+
+.adding-screeningcontainer {
+    width: 50vw;
 }
-.question-container{
-    width:50vw;
+
+.question-container {
+    width: 50vw;
 }
-.off{
-   
-    background-color: #f0f0f0; 
-    color: #333; 
-    border: 1px solid #ccc; 
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-}
-.on{
-    color:#595959;
-    background-color:#AFAFAF;
-    border: 1px solid #ccc; 
+
+.off {
+
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
 }
 
-.min-input{
-    margin-left:10px;
+.on {
+    color: #595959;
+    background-color: #AFAFAF;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
 }
-.inputsc{
-    display:none;
+
+.min-input {
+    margin-left: 10px;
+}
+
+.inputsc {
+    display: none;
+}
+
+.q3-values {
+    display: none;
+}
+
+.question-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }

@@ -192,6 +192,10 @@ const jobSchema = new mongoose.Schema({
         required:true,
         trim:true
     },
+    questions:{
+        type:Array,
+        trim:true
+    },
 
     dateCreated: {
         type: Date,

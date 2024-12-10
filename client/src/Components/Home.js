@@ -63,7 +63,7 @@ class Home extends Component {
                     {/* <li><Link className="nav-link" to="/closed-jobs">Closed Jobs</Link></li>
                     <li><Link className="nav-link" to="/job-description">Job Description</Link> </li> */}
                     <li><Link className="nav-link" to="/inactive-jobs">Inactive Jobs</Link></li>
-                    
+
                 </ul>
             );
         }
@@ -193,10 +193,21 @@ class Home extends Component {
                                     <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724151431/user-plus-02_if1ohy.png" alt="" className='icon-logo' />
                                     <p>Add New Candidates</p>
                                 </div>
-                                <div className='option3'>
+                                {/* <div className='option3'>
                                     <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724148359/icons8-calendar-24_uurxqa.png" alt="" className='icon-logo' />
                                     <p>New Interview</p>
-                                </div>
+                                </div> */}
+
+                                <a href="https://calendar.google.com/calendar" target="_blank" rel="noopener noreferrer">
+                                    <div className='option3'>
+                                        <img
+                                            src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724148359/icons8-calendar-24_uurxqa.png"
+                                            alt="Calendar Icon"
+                                            className='icon-logo'
+                                        />
+                                        <p>New Interview</p>
+                                    </div>
+                                </a>
                                 <div className='option4'>
                                     <img src="https://res.cloudinary.com/ccbp-nxtwave/image/upload/v1724148463/icons8-view-24_xvurs8.png" alt="" className='icon-logo' />
                                     <p>Advanced Search</p>

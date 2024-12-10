@@ -10,7 +10,7 @@ const moment = require('moment');
 
 
 exports.createJob = async (req, res) => {
-    const { Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion } = req.body;
+    const { Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion, questions } = req.body;
 
     if (!Cname || !DraftedBy || !Industry || !JobID || !JobName || !OpeningDate || !ExpiryDate || !TotalOpenings || !Experience || !HiringManager || !JobPostType || !JobTitle || !JobType || !StatusType || !Priority || !Location || !Department || !Client || !SeniorityLevelType || !WorkplaceType || !SalaryType || !JobDes || !SkillsMustHave || !DegreeType || !miniSkill || !CheckboxClick || !CheckboxClick1 || !minimumYears || !custmizationQuestion) {
         return res.status(400).json({ error: "All inputs are required" });
@@ -23,10 +23,10 @@ exports.createJob = async (req, res) => {
             return res.status(400).json({ error: "This Job already exists in our database" });
         }
 
-
+        console.log(req.body)
 
         const jobInfoData = new createJob({
-            Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion
+            Cname, DraftedBy, Industry, JobID, JobName, OpeningDate, ExpiryDate, TotalOpenings, Experience, HiringManager, JobPostType, JobTitle, JobType, StatusType, Priority, Location, Department, SalaryType, JobDes, Client, SeniorityLevelType, WorkplaceType, SkillsMustHave, DegreeType, miniSkill, CheckboxClick, CheckboxClick1, minimumYears, custmizationQuestion, questions,
         });
 
         await jobInfoData.save();
